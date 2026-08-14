@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>М-ЗВУК — концепции дизайна сайта по брифу</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = { theme: { extend: {
+  colors: { ink: '#0E1526', line: '#E3E7EF', surface: '#F5F6F9', muted: '#5B6478' },
+  fontFamily: { display: ['Unbounded','sans-serif'], sans: ['Manrope','sans-serif'] }
+}}}
+</script>
+<style>
+  body { -webkit-font-smoothing: antialiased; }
+  .lift { transition: transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s ease, border-color .2s ease; }
+  .lift:hover { transform: translateY(-4px); box-shadow: 0 18px 44px -22px rgba(14,21,38,.35); }
+  [data-lucide] { stroke-width: 1.6; }
+  :focus-visible { outline: 2px solid #0E1526; outline-offset: 3px; border-radius: 4px; }
+  @media (prefers-reduced-motion: reduce) { * { animation:none !important; transition:none !important } }
+</style>
+</head>
+<body class="bg-white text-ink font-sans">
+
+<header class="border-b border-line">
+  <div class="max-w-[1160px] mx-auto px-6 py-16 md:py-20">
+    <span class="text-[11px] font-bold uppercase tracking-[.24em] text-muted">ООО «Арт-Медиа Трейд» · mzvuk.by</span>
+    <h1 class="font-display text-[34px] md:text-[46px] leading-[1.06] tracking-tight mt-4 max-w-[800px]">
+      Три концепции главной страницы<br>интернет-магазина М-ЗВУК
+    </h1>
+    <p class="mt-5 text-[16px] leading-relaxed text-muted max-w-[680px]">
+      Собраны по брифу на разработку коммерческого сайта. Все три покрывают одинаковый объём
+      разделов и функционала — различаются характером, палитрой, типографикой и логикой первого экрана.
+      Задача этапа: выбрать направление, дальше на нём разворачиваются каталог, карточка товара и корзина.
+    </p>
+    <div class="mt-8 flex flex-wrap gap-2 text-[13px]">
+      <span class="rounded-full border border-line px-3.5 py-1.5">HTML + Tailwind</span>
+      <span class="rounded-full border border-line px-3.5 py-1.5">адаптив 375 / 768 / 1440</span>
+      <span class="rounded-full border border-line px-3.5 py-1.5">иконки Lucide</span>
+      <span class="rounded-full border border-line px-3.5 py-1.5">данные-примеры</span>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-[1160px] mx-auto px-6 py-14">
+  <div class="grid md:grid-cols-3 gap-6" id="cards"></div>
+
+  <section class="mt-20">
+    <h2 class="font-display text-[24px] tracking-tight">Что уже заложено во всех макетах</h2>
+    <p class="mt-2 text-[15px] text-muted max-w-[680px]">Пункты брифа, разделы 3 и 4 — «Контент сайта» и «Функционал сайта».</p>
+    <ul class="mt-7 grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-line border border-line rounded-2xl overflow-hidden" id="brief"></ul>
+  </section>
+
+  <section class="mt-16 rounded-2xl border border-line p-8 md:p-10 bg-surface">
+    <h2 class="font-display text-[22px] tracking-tight">Что нужно от вас, чтобы двигаться дальше</h2>
+    <ol class="mt-6 grid md:grid-cols-2 gap-x-10 gap-y-4 text-[15px] leading-relaxed" id="need"></ol>
+  </section>
+</main>
+
+<footer class="border-t border-line">
+  <div class="max-w-[1160px] mx-auto px-6 py-8 flex flex-col sm:flex-row justify-between gap-2 text-[13px] text-muted">
+    <span>Макеты-концепции · август 2026</span>
+    <span>+375 (33) 377-28-73 · sales@mzvuk.by</span>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script>
+const CONCEPTS = [
+  {
+    n: '01', name: '«Прилавок»', file: 'concept-1-prilavok.html',
+    idea: 'Классическая плотная витрина в духе muz.by, но с чистой сеткой и воздухом. Первый экран = каталог слева + акционные баннеры справа.',
+    who: 'Максимальная привычность для покупателя, быстрый путь к товару, много позиций на экране.',
+    fonts: 'Unbounded + Manrope',
+    colors: ['#0E1526','#FF4D17','#F2F4F8','#12805C'],
+    bg: 'bg-white', ring: 'ring-1 ring-line',
+    tags: ['светлая','плотная сетка','акцент оранжевый']
+  },
+  {
+    n: '02', name: '«Сцена»', file: 'concept-2-scena.html',
+    idea: 'Тёмная pro-audio витрина: сценический свет, крупная узкая типографика, эквалайзер в логотипе, комплекты «собери сцену».',
+    who: 'Профессиональный сегмент: музыканты, студии, площадки, ДК. Работает на имидж и отстройку от конкурентов.',
+    fonts: 'Oswald + IBM Plex Sans',
+    colors: ['#08080B','#F5A524','#1B1B24','#FF4A3D'],
+    bg: 'bg-[#08080B]', ring: '',
+    tags: ['тёмная','характерная','акцент янтарь']
+  },
+  {
+    n: '03', name: '«Мастерская»', file: 'concept-3-masterskaya.html',
+    idea: 'Журнальная подача: кремовая бумага, антиква, бенто-сетка, подбор по задаче и рассказ о компании как о магазине с историей.',
+    who: 'Ставка на доверие и экспертизу: проверка инструмента перед выдачей, свой сервис, работа со школами и залами.',
+    fonts: 'Cormorant Garamond + Golos Text',
+    colors: ['#F7F3EA','#8A2B22','#A9832F','#171410'],
+    bg: 'bg-[#F7F3EA]', ring: 'ring-1 ring-line',
+    tags: ['светлая тёплая','editorial','акцент бордо']
+  },
+];
+
+const BRIEF = [
+  ['search','Поиск по сайту'],
+  ['shopping-cart','Корзина и оформление'],
+  ['sliders-horizontal','Фильтр и сортировка каталога'],
+  ['badge-percent','Ярлыки: скидки, новинки, хиты'],
+  ['layers','Похожие и сопутствующие товары'],
+  ['map','Яндекс.Карта и схема проезда'],
+  ['phone','Формы обратной связи и звонка'],
+  ['star','Отзывы покупателей и рейтинг'],
+  ['share-2','Социальные кнопки'],
+  ['newspaper','Новости и статьи'],
+  ['circle-help','Вопрос-ответ'],
+  ['file-badge','Сертификаты и документы'],
+  ['handshake','Партнёры и бренды'],
+  ['truck','Оплата и доставка'],
+  ['wrench','Услуги: сервис, прокат, монтаж'],
+];
+
+const NEED = [
+  'Выбрать концепцию (или собрать гибрид: например, шапка из 01, подача блоков из 03).',
+  'Логотип и фирменный стиль в исходниках — в брифе поле не заполнено, в макетах используется текстовый знак.',
+  'Предпочтительное цветовое решение, если есть требование бренда — палитры пока предложены нами.',
+  'Фотографии товаров и интерьера магазина — сейчас на их месте графические заглушки.',
+  'Структура каталога 1С: категории, свойства для фильтра, поля выгрузки XLS/CSV/XML.',
+  'Тексты разделов «О компании», «Услуги», «Оплата и доставка», реквизиты и УНП.',
+];
+
+const dot = c => `<span class="w-6 h-6 rounded-full ring-1 ring-black/10" style="background:${c}"></span>`;
+
+document.getElementById('cards').innerHTML = CONCEPTS.map(c => `
+  <a href="${c.file}" class="lift group flex flex-col rounded-2xl border border-line overflow-hidden cursor-pointer">
+    <span class="block ${c.bg} ${c.ring} h-[190px] relative overflow-hidden">
+      <span class="absolute inset-0 flex items-center justify-center">
+        <span class="flex gap-2">${c.colors.map(x=>`<span class="w-10 h-10 rounded-full ring-1 ring-black/10" style="background:${x}"></span>`).join('')}</span>
+      </span>
+      <span class="absolute top-4 left-5 text-[11px] font-bold tracking-[.2em] ${c.n==='02'?'text-white/50':'text-black/40'}">${c.n}</span>
+    </span>
+    <span class="flex-1 p-6 flex flex-col">
+      <span class="font-display text-[20px] tracking-tight">${c.name}</span>
+      <span class="block mt-3 text-[14px] leading-relaxed text-muted">${c.idea}</span>
+      <span class="block mt-4 text-[13.5px] leading-relaxed"><b class="font-semibold">Кому подходит:</b> <span class="text-muted">${c.who}</span></span>
+      <span class="block mt-4 text-[13px] text-muted"><b class="font-semibold text-ink">Шрифты:</b> ${c.fonts}</span>
+      <span class="mt-4 flex flex-wrap gap-1.5">${c.tags.map(t=>`<span class="rounded-full bg-surface px-2.5 py-1 text-[11.5px] text-muted">${t}</span>`).join('')}</span>
+      <span class="mt-6 pt-5 border-t border-line flex items-center gap-2 text-[14px] font-semibold group-hover:text-[#FF4D17] transition-colors duration-200">
+        Открыть макет <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200"></i>
+      </span>
+    </span>
+  </a>`).join('');
+
+document.getElementById('brief').innerHTML = BRIEF.map(([i,t]) => `
+  <li class="bg-white p-5 flex items-center gap-3 text-[14px]">
+    <i data-lucide="${i}" class="w-[18px] h-[18px] text-[#FF4D17] shrink-0"></i> ${t}
+  </li>`).join('');
+
+document.getElementById('need').innerHTML = NEED.map((t,k) => `
+  <li class="flex gap-3"><span class="font-display text-[13px] text-muted shrink-0 mt-0.5">${String(k+1).padStart(2,'0')}</span><span>${t}</span></li>`).join('');
+
+lucide.createIcons();
+</script>
+</body>
+</html>

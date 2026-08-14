@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>М-ЗВУК — музыкальные инструменты | Концепция 3 «Мастерская»</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        paper:  '#F7F3EA',
+        paper2: '#EFE9DB',
+        ink:    '#171410',
+        muted:  '#6E655A',
+        wine:   '#8A2B22',
+        wine2:  '#6E211A',
+        brass:  '#A9832F',
+        line:   '#DED5C4',
+      },
+      fontFamily: {
+        display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+        sans:    ['"Golos Text"', 'system-ui', 'sans-serif'],
+      },
+    }
+  }
+}
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { -webkit-font-smoothing: antialiased; }
+  .num { font-family: '"Cormorant Garamond"', Georgia, serif; }
+  .paper-tex {
+    background-image:
+      radial-gradient(circle at 20% 15%, rgba(169,131,47,.05) 0, transparent 45%),
+      radial-gradient(circle at 85% 60%, rgba(138,43,34,.045) 0, transparent 40%);
+  }
+  .hair { height: 1px; background: #DED5C4; }
+  .lift { transition: transform .35s cubic-bezier(.2,.7,.2,1), border-color .25s ease; }
+  .lift:hover { transform: translateY(-4px); }
+  .fade-up { animation: fadeUp .8s cubic-bezier(.2,.7,.2,1) both; }
+  @keyframes fadeUp { from { opacity:0; transform: translateY(20px) } to { opacity:1; transform:none } }
+  details[open] .chev { transform: rotate(45deg); }
+  .link-u { background-image: linear-gradient(#8A2B22,#8A2B22); background-size: 0 1px; background-repeat: no-repeat;
+            background-position: 0 100%; transition: background-size .3s ease; }
+  .link-u:hover { background-size: 100% 1px; }
+  [data-lucide] { stroke-width: 1.25; }
+  :focus-visible { outline: 2px solid #8A2B22; outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+</style>
+</head>
+<body class="bg-paper text-ink font-sans paper-tex">
+
+<!-- ░░ КОНЦЕПЦИЯ ░░ -->
+<div class="bg-ink text-paper/70 text-[12px]">
+  <div class="max-w-[1280px] mx-auto px-6 py-2 flex items-center justify-between gap-4">
+    <span class="font-display text-paper text-[14px] tracking-[.14em] uppercase">Концепция 3 · «Мастерская»</span>
+    <span class="hidden sm:block">Журнальная подача, воздух, характер магазина с историей</span>
+    <a href="index.html" class="hover:text-paper transition-colors duration-200 cursor-pointer">← все концепции</a>
+  </div>
+</div>
+
+<!-- ░░ СЛУЖЕБНАЯ ПОЛОСА ░░ -->
+<div class="border-b border-line">
+  <div class="max-w-[1280px] mx-auto px-6 h-11 flex items-center justify-between text-[12.5px] text-muted">
+    <span class="hidden md:block">Магазин, сервис и прокат музыкального оборудования · Минск, с 2008 года</span>
+    <div class="flex items-center gap-5 ml-auto">
+      <a href="mailto:sales@mzvuk.by" class="hidden sm:block link-u cursor-pointer">sales@mzvuk.by</a>
+      <a href="tel:+375333772873" class="link-u cursor-pointer">+375 (33) 377-28-73</a>
+    </div>
+  </div>
+</div>
+
+<!-- ░░ ШАПКА ░░ -->
+<header class="sticky top-0 z-40 bg-paper/92 backdrop-blur border-b border-line">
+  <div class="max-w-[1280px] mx-auto px-6 h-[78px] flex items-center gap-8">
+    <a href="#" class="shrink-0 cursor-pointer group">
+      <span class="font-display text-[30px] leading-none tracking-[.02em] group-hover:text-wine transition-colors duration-300">М-Звук</span>
+      <span class="block text-[9px] tracking-[.34em] text-muted uppercase mt-0.5">инструменты · звук · свет</span>
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-7 text-[14px] text-ink/75 ml-2">
+      <a href="#cats"     class="link-u cursor-pointer hover:text-wine transition-colors duration-200">Каталог</a>
+      <a href="#choose"   class="link-u cursor-pointer hover:text-wine transition-colors duration-200">Подбор</a>
+      <a href="#services" class="link-u cursor-pointer hover:text-wine transition-colors duration-200">Услуги</a>
+      <a href="#about"    class="link-u cursor-pointer hover:text-wine transition-colors duration-200">О компании</a>
+      <a href="#journal"  class="link-u cursor-pointer hover:text-wine transition-colors duration-200">Журнал</a>
+      <a href="#contacts" class="link-u cursor-pointer hover:text-wine transition-colors duration-200">Контакты</a>
+    </nav>
+
+    <div class="flex items-center gap-2 ml-auto shrink-0">
+      <button class="w-10 h-10 grid place-items-center rounded-full hover:bg-paper2 transition-colors duration-200 cursor-pointer" aria-label="Поиск"><i data-lucide="search" class="w-[19px] h-[19px]"></i></button>
+      <button class="w-10 h-10 grid place-items-center rounded-full hover:bg-paper2 transition-colors duration-200 cursor-pointer" aria-label="Избранное"><i data-lucide="heart" class="w-[19px] h-[19px]"></i></button>
+      <button class="relative h-10 pl-4 pr-5 flex items-center gap-2 rounded-full bg-ink text-paper hover:bg-wine transition-colors duration-300 cursor-pointer">
+        <i data-lucide="shopping-bag" class="w-[18px] h-[18px]"></i>
+        <span class="text-[13px] font-medium">Корзина · 3</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ░░ ГЕРОЙ ░░ -->
+<section class="max-w-[1280px] mx-auto px-6 pt-14 md:pt-20">
+  <div class="grid lg:grid-cols-[1.05fr_.95fr] gap-12 lg:gap-16 items-start">
+    <div class="fade-up">
+      <span class="inline-flex items-center gap-2.5 text-[11px] tracking-[.24em] uppercase text-brass">
+        <span class="w-8 hair bg-brass"></span> с 2008 года в Минске
+      </span>
+      <h1 class="font-display text-[52px] sm:text-[68px] lg:text-[80px] leading-[.96] tracking-[-.01em] mt-6">
+        Инструменты,<br>
+        <em class="text-wine">выбранные</em><br>
+        со слухом
+      </h1>
+      <p class="mt-7 text-[16.5px] leading-[1.7] text-muted max-w-[520px]">
+        Мы не просто продаём коробки. Проверяем и настраиваем каждый инструмент перед выдачей,
+        подбираем звук под зал и бюджет, чиним в своей мастерской. Более 12 000 позиций
+        и 120 брендов на складе.
+      </p>
+      <div class="mt-9 flex flex-wrap items-center gap-4">
+        <a href="#cats" class="h-12 px-7 inline-flex items-center gap-2.5 rounded-full bg-wine text-paper text-[14px] font-medium hover:bg-wine2 transition-colors duration-300 cursor-pointer">
+          Открыть каталог <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+        <a href="#choose" class="h-12 px-7 inline-flex items-center rounded-full border border-ink/20 text-[14px] font-medium hover:border-ink hover:bg-ink hover:text-paper transition-colors duration-300 cursor-pointer">
+          Помочь с выбором
+        </a>
+      </div>
+      <dl class="mt-12 grid grid-cols-3 gap-6 max-w-[520px]">
+        <div><dt class="font-display text-[38px] leading-none">12 400</dt><dd class="text-[12.5px] text-muted mt-1.5">позиций в наличии</dd></div>
+        <div><dt class="font-display text-[38px] leading-none">1–2 дня</dt><dd class="text-[12.5px] text-muted mt-1.5">доставка по РБ</dd></div>
+        <div><dt class="font-display text-[38px] leading-none text-wine">4,9</dt><dd class="text-[12.5px] text-muted mt-1.5">486 отзывов</dd></div>
+      </dl>
+    </div>
+
+    <!-- бенто справа -->
+    <div class="fade-up grid grid-cols-2 gap-4" style="animation-delay:.12s">
+      <a href="#" class="lift col-span-2 relative rounded-2xl border border-line bg-paper2 p-8 overflow-hidden hover:border-ink/30 cursor-pointer group">
+        <img src="img/hero-3-workshop.jpg" alt="" loading="lazy" onerror="this.remove()"
+             class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700">
+        <span class="absolute inset-0 bg-gradient-to-r from-paper2 via-paper2/90 to-paper2/40"></span>
+        <span class="relative block text-[11px] tracking-[.2em] uppercase text-wine">Инструмент недели</span>
+        <p class="relative font-display text-[34px] leading-[1.05] mt-3">Fender Player II<br>Stratocaster</p>
+        <p class="relative mt-3 text-[14px] text-muted">Отстроена и проверена мастером · 3 190 BYN</p>
+        <i data-lucide="guitar" class="w-40 h-40 absolute -right-6 -bottom-8 text-ink/[.06] group-hover:text-wine/15 transition-colors duration-500"></i>
+      </a>
+      <a href="#" class="lift relative rounded-2xl border border-line p-7 overflow-hidden hover:border-ink/30 cursor-pointer group">
+        <i data-lucide="piano" class="w-8 h-8 text-wine"></i>
+        <p class="font-display text-[24px] leading-tight mt-5">Цифровые<br>пианино</p>
+        <p class="mt-2 text-[12.5px] text-muted">386 моделей · от 890 BYN</p>
+      </a>
+      <a href="#" class="lift relative rounded-2xl border border-line p-7 overflow-hidden hover:border-ink/30 cursor-pointer group">
+        <i data-lucide="mic-vocal" class="w-8 h-8 text-wine"></i>
+        <p class="font-display text-[24px] leading-tight mt-5">Микрофоны<br>и вокал</p>
+        <p class="mt-2 text-[12.5px] text-muted">640 моделей · от 39 BYN</p>
+      </a>
+      <div class="col-span-2 rounded-2xl bg-ink text-paper p-7 flex items-center gap-5">
+        <i data-lucide="wrench" class="w-8 h-8 text-brass shrink-0"></i>
+        <p class="text-[14px] leading-relaxed text-paper/75">Своя мастерская: диагностика бесплатно, подменный инструмент на время ремонта.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ КАТЕГОРИИ ░░ -->
+<section id="cats" class="max-w-[1280px] mx-auto px-6 pt-24">
+  <div class="flex items-end justify-between gap-6 border-b border-line pb-5 mb-8">
+    <h2 class="font-display text-[40px] leading-none">Каталог <span class="num text-[22px] text-brass align-top">01</span></h2>
+    <a href="#" class="text-[13.5px] text-muted link-u cursor-pointer hover:text-wine transition-colors duration-200">смотреть все разделы</a>
+  </div>
+  <div id="cat-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+</section>
+
+<!-- ░░ ПОДБОР ПО ЗАДАЧЕ ░░ -->
+<section id="choose" class="max-w-[1280px] mx-auto px-6 pt-24">
+  <div class="flex items-end justify-between gap-6 border-b border-line pb-5 mb-8">
+    <h2 class="font-display text-[40px] leading-none">Подбор по задаче <span class="num text-[22px] text-brass align-top">02</span></h2>
+    <span class="hidden sm:block text-[13.5px] text-muted">три частых сценария</span>
+  </div>
+  <div id="choose-grid" class="grid md:grid-cols-3 gap-5"></div>
+</section>
+
+<!-- ░░ ТОВАРЫ ░░ -->
+<section id="hits" class="max-w-[1280px] mx-auto px-6 pt-24">
+  <div class="flex flex-wrap items-end justify-between gap-6 border-b border-line pb-5 mb-8">
+    <h2 class="font-display text-[40px] leading-none">Витрина <span class="num text-[22px] text-brass align-top">03</span></h2>
+    <div class="flex items-center gap-6 text-[13.5px]" id="tabs">
+      <button data-tab="hit"  class="tab cursor-pointer transition-colors duration-200">Хиты продаж</button>
+      <button data-tab="new"  class="tab cursor-pointer transition-colors duration-200">Новинки</button>
+      <button data-tab="sale" class="tab cursor-pointer transition-colors duration-200">Со скидкой</button>
+    </div>
+  </div>
+  <div id="prod-grid" class="grid grid-cols-2 lg:grid-cols-4 gap-x-5 gap-y-10"></div>
+</section>
+
+<!-- ░░ УСЛУГИ ░░ -->
+<section id="services" class="max-w-[1280px] mx-auto px-6 pt-24">
+  <div class="grid lg:grid-cols-[380px_1fr] gap-12">
+    <div>
+      <h2 class="font-display text-[40px] leading-none">Услуги <span class="num text-[22px] text-brass align-top">04</span></h2>
+      <p class="mt-5 text-[15.5px] leading-[1.7] text-muted">Мастерская, прокат, монтаж и trade-in — всё внутри компании, без посредников и «отправим в сервис на месяц».</p>
+      <a href="#contacts" class="mt-6 inline-flex items-center gap-2 text-[14px] font-medium text-wine link-u cursor-pointer">Оставить заявку <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+    </div>
+    <ul id="services-list" class="border-t border-line"></ul>
+  </div>
+</section>
+
+<!-- ░░ О КОМПАНИИ ░░ -->
+<section id="about" class="max-w-[1280px] mx-auto px-6 pt-24">
+  <div class="rounded-3xl bg-ink text-paper overflow-hidden">
+    <div class="grid lg:grid-cols-2">
+      <div class="p-10 md:p-14">
+        <span class="text-[11px] tracking-[.24em] uppercase text-brass">О компании <span class="num">05</span></span>
+        <p class="font-display text-[34px] md:text-[42px] leading-[1.12] mt-5">
+          Восемнадцать лет мы собираем звук —<br>
+          <em class="text-brass">от первой гитары школьника<br>до сцены на 200 мест.</em>
+        </p>
+        <p class="mt-6 text-[15.5px] leading-[1.75] text-paper/65 max-w-[520px]">
+          ООО «Арт-Медиа Трейд» — официальный поставщик мировых брендов в Беларуси. Работаем
+          с частными музыкантами, студиями, школами искусств, домами культуры и площадками:
+          от подбора одного микрофона до комплексного оснащения зала с монтажом и обучением персонала.
+        </p>
+      </div>
+      <ul id="about-list" class="grid sm:grid-cols-2 gap-px bg-paper/10"></ul>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ БРЕНДЫ ░░ -->
+<section class="max-w-[1280px] mx-auto px-6 pt-24">
+  <div class="flex items-end justify-between gap-6 border-b border-line pb-5 mb-8">
+    <h2 class="font-display text-[40px] leading-none">Партнёры <span class="num text-[22px] text-brass align-top">06</span></h2>
+    <span class="text-[13.5px] text-muted">120+ брендов, официальные поставки</span>
+  </div>
+  <ul id="brands-list" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-px bg-line border border-line rounded-2xl overflow-hidden"></ul>
+</section>
+
+<!-- ░░ ОТЗЫВЫ ░░ -->
+<section class="max-w-[1280px] mx-auto px-6 pt-24">
+  <div class="flex items-end justify-between gap-6 border-b border-line pb-5 mb-8">
+    <h2 class="font-display text-[40px] leading-none">Отзывы <span class="num text-[22px] text-brass align-top">07</span></h2>
+    <span class="flex items-center gap-2 text-[13.5px] text-muted"><span class="flex text-brass" id="stars-top"></span> 4,9 из 5</span>
+  </div>
+  <div class="grid lg:grid-cols-[1.2fr_1fr] gap-6">
+    <blockquote class="rounded-3xl bg-paper2 border border-line p-10 flex flex-col justify-between">
+      <p class="font-display text-[28px] md:text-[32px] leading-[1.3] italic">
+        «Брали комплект звука на сцену по тендеру: смету собрали за день, документы — без нервов,
+        монтаж делали свои инженеры. Через год всё работает как в первый вечер.»
+      </p>
+      <footer class="mt-8 flex items-center gap-3 text-[14px]">
+        <span class="w-11 h-11 rounded-full bg-ink text-paper grid place-items-center font-display text-[18px]">Ю</span>
+        <span><span class="block font-semibold">Дом культуры «Юность»</span><span class="block text-[12.5px] text-muted">Борисов</span></span>
+      </footer>
+    </blockquote>
+    <div id="reviews" class="grid gap-6"></div>
+  </div>
+</section>
+
+<!-- ░░ ЖУРНАЛ ░░ -->
+<section id="journal" class="max-w-[1280px] mx-auto px-6 pt-24">
+  <div class="flex items-end justify-between gap-6 border-b border-line pb-5 mb-8">
+    <h2 class="font-display text-[40px] leading-none">Журнал <span class="num text-[22px] text-brass align-top">08</span></h2>
+    <a href="#" class="text-[13.5px] text-muted link-u cursor-pointer hover:text-wine transition-colors duration-200">все статьи и новости</a>
+  </div>
+  <div id="news-grid" class="grid md:grid-cols-3 gap-8"></div>
+</section>
+
+<!-- ░░ FAQ ░░ -->
+<section id="faq" class="max-w-[1280px] mx-auto px-6 pt-24">
+  <div class="grid lg:grid-cols-[380px_1fr] gap-12">
+    <div>
+      <h2 class="font-display text-[40px] leading-none">Вопрос-ответ <span class="num text-[22px] text-brass align-top">09</span></h2>
+      <p class="mt-5 text-[15.5px] leading-[1.7] text-muted">Если ответа нет — напишите нам, консультант перезвонит в течение 15 минут.</p>
+    </div>
+    <div id="faq-list" class="border-t border-line"></div>
+  </div>
+</section>
+
+<!-- ░░ КОНТАКТЫ ░░ -->
+<section id="contacts" class="max-w-[1280px] mx-auto px-6 pt-24">
+  <div class="grid lg:grid-cols-2 gap-6">
+    <div class="rounded-3xl border border-line p-10">
+      <h2 class="font-display text-[40px] leading-none">Контакты <span class="num text-[22px] text-brass align-top">10</span></h2>
+      <dl class="mt-8 space-y-6 text-[15px]">
+        <div class="flex gap-4"><i data-lucide="map-pin" class="w-5 h-5 text-wine shrink-0 mt-1"></i><div><dt class="font-semibold">Магазин и склад</dt><dd class="text-muted mt-1">г. Минск, ул. Примерная, 1 · Пн–Сб 10:00–19:00</dd></div></div>
+        <div class="flex gap-4"><i data-lucide="phone" class="w-5 h-5 text-wine shrink-0 mt-1"></i><div><dt class="font-semibold">Отдел продаж</dt><dd class="mt-1"><a href="tel:+375333772873" class="text-muted link-u cursor-pointer">+375 (33) 377-28-73</a></dd></div></div>
+        <div class="flex gap-4"><i data-lucide="mail" class="w-5 h-5 text-wine shrink-0 mt-1"></i><div><dt class="font-semibold">Почта</dt><dd class="mt-1"><a href="mailto:sales@mzvuk.by" class="text-muted link-u cursor-pointer">sales@mzvuk.by</a></dd></div></div>
+        <div class="flex gap-4"><i data-lucide="building-2" class="w-5 h-5 text-wine shrink-0 mt-1"></i><div><dt class="font-semibold">Юридическое лицо</dt><dd class="text-muted mt-1">ООО «Арт-Медиа Трейд», УНП 000000000</dd></div></div>
+      </dl>
+      <form class="mt-9 grid sm:grid-cols-2 gap-3" onsubmit="return false">
+        <input type="text" placeholder="Имя" class="h-12 px-5 rounded-full border border-line bg-white/60 focus:border-ink outline-none text-[14px] transition-colors duration-200">
+        <input type="tel" placeholder="+375 (__) ___-__-__" class="h-12 px-5 rounded-full border border-line bg-white/60 focus:border-ink outline-none text-[14px] transition-colors duration-200">
+        <button class="sm:col-span-2 h-12 rounded-full bg-wine text-paper text-[14px] font-medium hover:bg-wine2 transition-colors duration-300 cursor-pointer">Заказать звонок</button>
+      </form>
+    </div>
+    <div class="relative rounded-3xl border border-line bg-paper2 min-h-[420px] grid place-items-center overflow-hidden">
+      <div class="text-center px-6">
+        <i data-lucide="map" class="w-10 h-10 mx-auto text-ink/25"></i>
+        <p class="mt-3 text-[11px] tracking-[.24em] uppercase text-muted">Интерактивная Яндекс.Карта</p>
+        <p class="mt-1.5 text-[13px] text-muted/70">схема проезда, парковка, вход со двора</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ ПОДВАЛ ░░ -->
+<footer class="mt-24 bg-ink text-paper/65">
+  <div class="max-w-[1280px] mx-auto px-6 py-16 grid md:grid-cols-2 lg:grid-cols-5 gap-10">
+    <div class="lg:col-span-2">
+      <span class="font-display text-[30px] text-paper leading-none">М-Звук</span>
+      <p class="mt-4 text-[14px] leading-[1.7] max-w-[320px]">Музыкальные инструменты, звуковое и световое оборудование. Магазин, мастерская и прокат в Минске — с 2008 года.</p>
+      <div class="mt-6 flex gap-2">
+        <a href="#" aria-label="Telegram" class="w-10 h-10 grid place-items-center rounded-full border border-paper/20 hover:border-brass transition-colors duration-300 cursor-pointer"><img src="https://cdn.simpleicons.org/telegram/A9832F" alt="" class="w-4 h-4"></a>
+        <a href="#" aria-label="Instagram" class="w-10 h-10 grid place-items-center rounded-full border border-paper/20 hover:border-brass transition-colors duration-300 cursor-pointer"><img src="https://cdn.simpleicons.org/instagram/A9832F" alt="" class="w-4 h-4"></a>
+        <a href="#" aria-label="YouTube" class="w-10 h-10 grid place-items-center rounded-full border border-paper/20 hover:border-brass transition-colors duration-300 cursor-pointer"><img src="https://cdn.simpleicons.org/youtube/A9832F" alt="" class="w-4 h-4"></a>
+      </div>
+    </div>
+    <div id="foot-1"></div><div id="foot-2"></div><div id="foot-3"></div>
+  </div>
+  <div class="border-t border-paper/10">
+    <div class="max-w-[1280px] mx-auto px-6 py-5 flex flex-col sm:flex-row justify-between gap-2 text-[12.5px] text-paper/40">
+      <span>© 2026 ООО «Арт-Медиа Трейд»</span>
+      <span>Макет-концепция · фото: Wikimedia Commons, CC BY-SA (см. img/CREDITS.md)</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script>
+const CATS = [
+  { n: 'Гитары и басы',        i: 'guitar',             c: 1240 },
+  { n: 'Клавишные',            i: 'piano',              c: 386  },
+  { n: 'Ударные',              i: 'drum',               c: 512  },
+  { n: 'Духовые и струнные',   i: 'music-4',            c: 274  },
+  { n: 'Микрофоны',            i: 'mic-vocal',          c: 640  },
+  { n: 'Студия и запись',      i: 'sliders-horizontal', c: 318  },
+  { n: 'Звук для сцены',       i: 'speaker',            c: 905  },
+  { n: 'Свет и эффекты',       i: 'lightbulb',          c: 187  },
+];
+
+const CHOOSE = [
+  { n: 'Начинающему',   d: 'Первая гитара, синтезатор или ударные для ребёнка. Подбираем по возрасту, росту и бюджету — с настройкой перед выдачей.', i: 'sparkles', b: 'от 219 BYN' },
+  { n: 'Студии и дому', d: 'Интерфейс, микрофон, мониторы и акустическая обработка. Собираем комплект, который звучит в конкретной комнате.', i: 'sliders-horizontal', b: 'от 1 250 BYN' },
+  { n: 'Сцене и залу',  d: 'Порталы, микшер, радиосистемы, свет. Считаем мощность под площадь зала, монтируем и обучаем персонал.', i: 'speaker', b: 'смета за 1 день' },
+];
+
+const PRODUCTS = {
+  hit: [
+    { n: 'Электрогитара Fender Player II Stratocaster', b: 'Fender', p: '3 190', o: '', i: 'guitar',    g: 'product-guitar-electric', tag: 'Хит', r: 5, s: 'В наличии' },
+    { n: 'Синтезатор Roland JUNO-DS61',                 b: 'Roland', p: '2 740', o: '', i: 'piano',     g: 'product-synth',           tag: '',    r: 5, s: 'В наличии' },
+    { n: 'Микрофон Shure SM58-LCE',                     b: 'Shure',  p: '449',   o: '', i: 'mic-vocal', g: 'product-mic-dynamic',     tag: 'Хит', r: 5, s: 'В наличии' },
+    { n: 'Наушники Audio-Technica ATH-M50x',            b: 'Audio-Technica', p: '629', o: '', i: 'headphones', g: 'product-headphones', tag: '', r: 4, s: 'Под заказ' },
+  ],
+  new: [
+    { n: 'Цифровое пианино Yamaha P-145 B',             b: 'Yamaha',    p: '1 890', o: '', i: 'piano',             g: 'product-piano-digital',   tag: 'Новинка', r: 5, s: 'В наличии' },
+    { n: 'Аудиоинтерфейс Focusrite Scarlett 2i2',       b: 'Focusrite', p: '780',   o: '', i: 'sliders-horizontal',g: 'product-audio-interface', tag: 'Новинка', r: 5, s: 'В наличии' },
+    { n: 'DJ-контроллер Pioneer DDJ-FLX4',              b: 'Pioneer DJ',p: '1 190', o: '', i: 'disc-3',            g: 'product-dj-controller',   tag: 'Новинка', r: 4, s: 'В наличии' },
+    { n: 'Комбоусилитель Boss Katana-50 MkII',          b: 'Boss',      p: '1 050', o: '', i: 'speaker',           g: 'product-guitar-amp',      tag: '',        r: 5, s: 'Под заказ' },
+  ],
+  sale: [
+    { n: 'Акустическая гитара Cort AD810',              b: 'Cort',      p: '419',   o: '529',   i: 'guitar',    g: 'product-guitar-acoustic', tag: '−21%', r: 4, s: 'В наличии' },
+    { n: 'Установка Millenium Focus 20',                b: 'Millenium', p: '1 590', o: '1 990', i: 'drum',      g: 'product-drums',           tag: '−20%', r: 4, s: 'В наличии' },
+    { n: 'Активная колонка JBL EON710',                 b: 'JBL',       p: '2 190', o: '2 590', i: 'speaker',   g: 'product-pa-speaker',      tag: '−15%', r: 5, s: 'В наличии' },
+    { n: 'Стойка микрофонная K&M 210/9',                b: 'K&M',       p: '129',   o: '169',   i: 'mic-vocal', g: 'product-mic-stand',       tag: '−23%', r: 5, s: 'В наличии' },
+  ],
+};
+
+const SERVICES = [
+  { n: 'Ремонт и обслуживание', d: 'Гитары, клавишные, усилители, микрофоны. Диагностика бесплатно.', i: 'wrench' },
+  { n: 'Прокат аппаратуры',     d: 'Звук и свет на концерт, конференцию, свадьбу — с инженером.',     i: 'calendar-clock' },
+  { n: 'Монтаж и настройка',    d: 'Проект, инсталляция и запуск звука в зале. Гарантия на работы.',  i: 'settings-2' },
+  { n: 'Trade-in и выкуп',      d: 'Меняем ваш инструмент на новый с доплатой, оценка за день.',      i: 'repeat' },
+];
+
+const ABOUT = [
+  { n: 'Официальный поставщик', d: 'Прямые контракты и сертификаты на всё оборудование', i: 'shield-check' },
+  { n: 'Проверка перед выдачей', d: 'Настройка и тест каждого инструмента мастером',     i: 'check-check' },
+  { n: 'Работа по безналу',     d: 'Тендеры, счёт-фактура, полный пакет документов',      i: 'file-text' },
+  { n: 'Свой сервис',           d: 'Мастерская и подменный инструмент на время ремонта',  i: 'wrench' },
+];
+
+const BRANDS = ['Yamaha','Fender','Roland','Shure','Behringer','JBL','Korg','Boss','Cort','Pioneer DJ','Focusrite','Sennheiser'];
+
+const REVIEWS = [
+  { n: 'Алексей К.', t: 'гитарист, Минск', r: 5, x: 'Заказал стратокастер в пятницу вечером — в понедельник забрал. Отстроили гриф перед выдачей, играть можно из кофра.' },
+  { n: 'Марина Т.', t: 'преподаватель', r: 5, x: 'Сравнили три цифровых пианино по клавиатуре, дорогое не навязывали. Привезли на пятый этаж без лифта.' },
+];
+
+const NEWS = [
+  { c: 'Статья',  d: '11 августа', t: 'Как выбрать первую электрогитару: семь честных критериев', x: 'Мензура, вес, звукосниматели и то, о чём обычно молчат в магазине.', i: 'guitar',  g: 'article-guitar-choice' },
+  { c: 'Новости', d: '4 августа',  t: 'Открыли шоурум цифровых пианино',                          x: 'Двенадцать моделей в одном зале — можно играть до покупки.',        i: 'piano',   g: 'article-piano-showroom' },
+  { c: 'Статья',  d: '28 июля',    t: 'Звук для зала на 200 человек: схема и бюджет',              x: 'Считаем мощность, подбираем порталы и не переплачиваем.',           i: 'speaker', g: 'article-hall-sound' },
+];
+
+const FAQ = [
+  ['Как быстро доставите заказ по Беларуси?', 'Со склада в Минске — 1–2 рабочих дня курьером или почтой. Позиции под заказ — от 7 дней; точный срок менеджер подтверждает при оформлении.'],
+  ['Можно ли купить в рассрочку?', 'Да: «Халва», «Карта покупок» и банковская рассрочка до 12 месяцев без переплаты. Оформляется прямо в корзине.'],
+  ['Работаете ли с организациями по безналу?', 'Работаем: счёт-фактура, участие в тендерах, полный пакет документов и сертификаты на оборудование.'],
+  ['Есть ли гарантия и сервис?', 'Гарантия от 1 до 3 лет в зависимости от бренда. Ремонт — в собственной мастерской, с подменным инструментом на время работ.'],
+  ['Можно ли протестировать инструмент перед покупкой?', 'Да, в шоуруме. Запишитесь заранее — подготовим нужные модели для сравнения.'],
+];
+
+const FOOT = [
+  { t: 'Каталог',     l: ['Гитары и басы','Клавишные','Ударные','Микрофоны','Звук для сцены','Свет и эффекты'] },
+  { t: 'Покупателям', l: ['Оплата и доставка','Гарантия и возврат','Рассрочка','Корзина','Вопрос-ответ','Отзывы'] },
+  { t: 'Компания',    l: ['О компании','Услуги','Новости','Статьи','Сертификаты, документы','Партнёры','Контакты'] },
+];
+
+const icon = (n,c) => `<i data-lucide="${n}" class="${c}"></i>`;
+const stars = (n,cls='w-3.5 h-3.5') =>
+  Array.from({length:5},(_,k)=>`<i data-lucide="star" class="${cls} ${k<n?'fill-current':'opacity-25'}"></i>`).join('');
+
+document.getElementById('cat-grid').innerHTML = CATS.map(c => `
+  <a href="#" class="lift group rounded-2xl border border-line p-7 hover:border-ink/35 cursor-pointer bg-paper/40">
+    ${icon(c.i,'w-8 h-8 text-wine')}
+    <span class="block font-display text-[26px] leading-tight mt-6">${c.n}</span>
+    <span class="flex items-center justify-between mt-2">
+      <span class="text-[12.5px] text-muted">${c.c} позиций</span>
+      ${icon('arrow-up-right','w-4 h-4 text-muted/50 group-hover:text-wine transition-colors duration-200')}
+    </span>
+  </a>`).join('');
+
+document.getElementById('choose-grid').innerHTML = CHOOSE.map(c => `
+  <article class="lift rounded-2xl bg-paper2 border border-line p-8 hover:border-ink/30">
+    ${icon(c.i,'w-8 h-8 text-brass')}
+    <h3 class="font-display text-[30px] leading-tight mt-5">${c.n}</h3>
+    <p class="mt-3 text-[14.5px] leading-[1.7] text-muted">${c.d}</p>
+    <div class="mt-6 pt-5 border-t border-line flex items-center justify-between">
+      <span class="text-[13px] font-medium">${c.b}</span>
+      <a href="#" class="text-[13px] text-wine link-u cursor-pointer">подобрать</a>
+    </div>
+  </article>`).join('');
+
+function renderProducts(key) {
+  document.getElementById('prod-grid').innerHTML = PRODUCTS[key].map(p => `
+    <article class="group">
+      <div class="relative aspect-[4/5] rounded-2xl bg-paper2 border border-line grid place-items-center overflow-hidden group-hover:border-ink/25 transition-colors duration-300">
+        ${icon(p.i,'w-24 h-24 text-ink/15 group-hover:scale-[1.06] transition-transform duration-500')}
+        <img src="img/${p.g}.jpg" alt="${p.n}" loading="lazy" onerror="this.remove()"
+             class="absolute inset-0 w-full h-full object-contain p-6 mix-blend-multiply group-hover:scale-[1.06] transition-transform duration-500">
+        ${p.tag ? `<span class="absolute top-4 left-4 text-[11px] tracking-[.14em] uppercase ${p.tag.startsWith('−')?'text-wine':'text-brass'}">${p.tag}</span>` : ''}
+        <button class="absolute top-3 right-3 w-9 h-9 grid place-items-center rounded-full bg-paper/70 backdrop-blur hover:text-wine transition-colors duration-200 cursor-pointer" aria-label="В избранное">${icon('heart','w-4 h-4')}</button>
+        <button class="absolute inset-x-3 bottom-3 h-11 rounded-full bg-ink text-paper text-[13px] font-medium opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-wine cursor-pointer">В корзину</button>
+      </div>
+      <span class="block mt-4 text-[11px] tracking-[.16em] uppercase text-muted">${p.b}</span>
+      <h3 class="mt-2 font-display text-[21px] leading-[1.2]">
+        <a href="#" class="hover:text-wine transition-colors duration-200 cursor-pointer">${p.n}</a>
+      </h3>
+      <div class="mt-2.5 flex items-center gap-2 text-[12px] text-muted">
+        <span class="flex text-brass">${stars(p.r,'w-3 h-3')}</span> ${p.s}
+      </div>
+      <div class="mt-3 flex items-baseline gap-3">
+        <span class="font-display text-[24px]">${p.p} <span class="text-[13px] font-sans text-muted">BYN</span></span>
+        ${p.o ? `<s class="text-[13px] text-muted/70">${p.o}</s>` : ''}
+      </div>
+    </article>`).join('');
+  lucide.createIcons();
+}
+
+document.getElementById('services-list').innerHTML = SERVICES.map((s,k) => `
+  <li class="border-b border-line">
+    <a href="#" class="group flex items-center gap-6 py-7 hover:pl-3 transition-all duration-300 cursor-pointer">
+      <span class="num font-display text-[20px] text-brass w-8 shrink-0">0${k+1}</span>
+      ${icon(s.i,'w-6 h-6 text-ink/45 group-hover:text-wine transition-colors duration-300 shrink-0')}
+      <span class="font-display text-[26px] leading-tight md:w-[280px] shrink-0 group-hover:text-wine transition-colors duration-300">${s.n}</span>
+      <span class="hidden md:block text-[14px] text-muted flex-1">${s.d}</span>
+      ${icon('arrow-right','w-5 h-5 text-muted/50 group-hover:text-wine group-hover:translate-x-1 transition-all duration-300 shrink-0')}
+    </a>
+  </li>`).join('');
+
+document.getElementById('about-list').innerHTML = ABOUT.map(a => `
+  <li class="bg-ink p-8">
+    ${icon(a.i,'w-6 h-6 text-brass')}
+    <h3 class="font-display text-[24px] text-paper mt-4 leading-tight">${a.n}</h3>
+    <p class="mt-2 text-[13.5px] leading-relaxed text-paper/55">${a.d}</p>
+  </li>`).join('');
+
+document.getElementById('brands-list').innerHTML = BRANDS.map(b => `
+  <li class="bg-paper h-24 grid place-items-center px-4 hover:bg-paper2 transition-colors duration-200 cursor-pointer">
+    <span class="font-display text-[20px] text-ink/50 hover:text-ink transition-colors duration-200 text-center">${b}</span>
+  </li>`).join('');
+
+document.getElementById('reviews').innerHTML = REVIEWS.map(r => `
+  <blockquote class="rounded-2xl border border-line p-7">
+    <span class="flex text-brass">${stars(r.r)}</span>
+    <p class="mt-4 text-[14.5px] leading-[1.7] text-ink/80">«${r.x}»</p>
+    <footer class="mt-5 pt-4 border-t border-line flex items-center gap-3">
+      <span class="w-10 h-10 rounded-full bg-paper2 grid place-items-center font-display text-[18px]">${r.n[0]}</span>
+      <span><span class="block text-[13.5px] font-semibold">${r.n}</span><span class="block text-[12.5px] text-muted">${r.t}</span></span>
+    </footer>
+  </blockquote>`).join('');
+
+document.getElementById('news-grid').innerHTML = NEWS.map(n => `
+  <a href="#" class="group cursor-pointer">
+    <span class="relative block aspect-[3/2] rounded-2xl bg-paper2 border border-line grid place-items-center overflow-hidden group-hover:border-ink/25 transition-colors duration-300">
+      ${icon(n.i,'w-16 h-16 text-ink/12 group-hover:text-wine/25 transition-colors duration-500')}
+      <img src="img/${n.g}.jpg" alt="" loading="lazy" onerror="this.remove()"
+           class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+    </span>
+    <span class="flex items-center gap-3 mt-5 text-[11px] tracking-[.16em] uppercase"><span class="text-wine">${n.c}</span><span class="text-muted">${n.d}</span></span>
+    <span class="block font-display text-[26px] leading-[1.15] mt-2 group-hover:text-wine transition-colors duration-300">${n.t}</span>
+    <span class="block mt-2 text-[14px] leading-relaxed text-muted">${n.x}</span>
+  </a>`).join('');
+
+document.getElementById('faq-list').innerHTML = FAQ.map(([q,a]) => `
+  <details class="group border-b border-line py-6">
+    <summary class="flex items-start justify-between gap-5 cursor-pointer list-none font-display text-[24px] leading-tight hover:text-wine transition-colors duration-200">
+      ${q} ${icon('plus','chev w-5 h-5 shrink-0 text-muted mt-1.5 transition-transform duration-300')}
+    </summary>
+    <p class="mt-3 text-[14.5px] leading-[1.75] text-muted max-w-[760px]">${a}</p>
+  </details>`).join('');
+
+FOOT.forEach((col,k) => {
+  document.getElementById('foot-'+(k+1)).innerHTML = `
+    <h3 class="font-display text-[20px] text-paper">${col.t}</h3>
+    <ul class="mt-4 space-y-2.5 text-[14px]">
+      ${col.l.map(l=>`<li><a href="#" class="hover:text-brass transition-colors duration-200 cursor-pointer">${l}</a></li>`).join('')}
+    </ul>`;
+});
+
+document.getElementById('stars-top').innerHTML = stars(5);
+
+const tabs = document.querySelectorAll('.tab');
+function setTab(key) {
+  tabs.forEach(t => {
+    const on = t.dataset.tab === key;
+    t.classList.toggle('text-wine', on);
+    t.classList.toggle('font-semibold', on);
+    t.classList.toggle('text-muted', !on);
+  });
+  renderProducts(key);
+}
+tabs.forEach(t => t.addEventListener('click', () => setTab(t.dataset.tab)));
+setTab('hit');
+
+lucide.createIcons();
+</script>
+</body>
+</html>
