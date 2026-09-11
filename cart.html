@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Корзина — М-ЗВУК | Концепция 1 «Прилавок»</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = { theme: { extend: {
+  colors: { ink:'#0E1526', ink2:'#1B2440', accent:'#E22B2B', accent2:'#C01F1F', surface:'#F2F4F8', line:'#E3E7EF', ok:'#12805C' },
+  fontFamily: { display:['Unbounded','system-ui','sans-serif'], sans:['Manrope','system-ui','sans-serif'] },
+  boxShadow: { card:'0 1px 2px rgba(14,21,38,.06), 0 8px 24px -12px rgba(14,21,38,.18)' },
+}}}
+</script>
+<style>
+  body { -webkit-font-smoothing: antialiased; }
+  [data-lucide] { stroke-width: 1.6; }
+  :focus-visible { outline: 2px solid #E22B2B; outline-offset: 2px; border-radius: 4px; }
+  input[type="checkbox"] { accent-color: #E22B2B; }
+  @media (prefers-reduced-motion: reduce) { * { animation:none !important; transition:none !important } }
+</style>
+</head>
+<body class="bg-white text-ink font-sans antialiased">
+
+<div class="bg-ink text-white/70 text-[12px] tracking-wide">
+  <div class="max-w-[1320px] mx-auto px-4 py-2 flex items-center justify-between gap-4">
+    <span class="font-display text-white text-[11px] uppercase tracking-[.18em]">Концепция 1 · Корзина</span>
+    <span class="hidden sm:block">Пересчёт, промокод, удаление и отложенные позиции</span>
+    <a href="catalog.html" class="hover:text-white transition-colors duration-200 cursor-pointer">← в каталог</a>
+  </div>
+</div>
+
+<header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-line">
+  <div class="max-w-[1320px] mx-auto px-4 h-[72px] flex items-center gap-4">
+    <a href="concept-1-prilavok.html" class="flex items-center shrink-0 cursor-pointer hover:opacity-80 transition-opacity duration-200">
+      <img src="img/logo.png" alt="М-ЗВУК" class="h-9 w-auto">
+    </a>
+    <a href="catalog.html" class="hidden md:flex items-center gap-2 h-11 px-4 rounded-lg bg-accent text-white font-semibold text-[14px] hover:bg-accent2 transition-colors duration-200 cursor-pointer shrink-0">
+      <i data-lucide="menu" class="w-[18px] h-[18px]"></i> Каталог
+    </a>
+    <form class="hidden md:block flex-1 min-w-0" onsubmit="return false">
+      <label class="relative flex items-center h-11 rounded-lg border border-line bg-surface focus-within:border-ink focus-within:bg-white transition-colors duration-200">
+        <i data-lucide="search" class="w-[18px] h-[18px] absolute left-3.5 text-ink/40"></i>
+        <input type="search" placeholder="Поиск по каталогу" class="w-full h-full bg-transparent pl-11 pr-4 text-[14px] outline-none placeholder:text-ink/40">
+      </label>
+    </form>
+    <div class="flex items-center gap-1 shrink-0">
+      <a href="tel:+375333772873" class="hidden xl:block text-right mr-3 cursor-pointer group">
+        <span class="block font-display text-[15px] leading-none group-hover:text-accent transition-colors duration-200">+375 (33) 377-28-73</span>
+        <span class="block text-[11px] text-ink/45 mt-1">заказать звонок</span>
+      </a>
+      <button class="relative w-11 h-11 grid place-items-center rounded-lg hover:bg-surface transition-colors duration-200 cursor-pointer" aria-label="Сравнение"><i data-lucide="scale" class="w-[20px] h-[20px]"></i></button>
+      <button class="relative w-11 h-11 grid place-items-center rounded-lg hover:bg-surface transition-colors duration-200 cursor-pointer" aria-label="Избранное"><i data-lucide="heart" class="w-[20px] h-[20px]"></i></button>
+      <a href="cart.html" class="relative w-11 h-11 grid place-items-center rounded-lg bg-ink text-white hover:bg-accent transition-colors duration-200 cursor-pointer" aria-label="Корзина">
+        <i data-lucide="shopping-cart" class="w-[20px] h-[20px]"></i>
+        <span id="cart-count" class="absolute -top-1 -right-1 w-[18px] h-[18px] rounded-full bg-accent text-white text-[10px] grid place-items-center font-bold ring-2 ring-white">3</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-[1320px] mx-auto px-4">
+  <nav class="flex items-center gap-2 py-4 text-[13px] text-ink/50" aria-label="Хлебные крошки">
+    <a href="concept-1-prilavok.html" class="hover:text-accent transition-colors duration-200 cursor-pointer">Главная</a>
+    <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+    <span class="text-ink">Корзина</span>
+  </nav>
+
+  <div class="flex flex-wrap items-end justify-between gap-4">
+    <h1 class="font-display text-[26px] md:text-[32px] tracking-tight">Корзина</h1>
+    <button id="clear" class="text-[13px] text-ink/50 hover:text-accent transition-colors duration-200 cursor-pointer inline-flex items-center gap-1.5">
+      <i data-lucide="trash-2" class="w-4 h-4"></i> Очистить корзину
+    </button>
+  </div>
+
+  <div id="cart-wrap" class="grid grid-cols-12 gap-6 mt-6 mb-16">
+    <!-- позиции -->
+    <section class="col-span-12 lg:col-span-8">
+      <div id="items" class="rounded-xl border border-line divide-y divide-line overflow-hidden"></div>
+
+      <div class="mt-4 rounded-xl border border-line p-5">
+        <h2 class="font-display text-[14px] tracking-tight">Промокод или карта постоянного покупателя</h2>
+        <div class="mt-3 flex gap-2 max-w-[460px]">
+          <input id="promo" placeholder="Например, МЗВУК10" class="flex-1 h-11 px-4 rounded-lg border border-line bg-surface text-[14px] outline-none focus:border-ink focus:bg-white transition-colors duration-200">
+          <button id="promo-apply" class="h-11 px-5 rounded-lg bg-ink text-white font-semibold text-[14px] hover:bg-accent transition-colors duration-200 cursor-pointer">Применить</button>
+        </div>
+        <p id="promo-msg" class="mt-2 text-[13px]"></p>
+      </div>
+
+      <div id="deferred-wrap" class="mt-4 rounded-xl border border-line p-5 hidden">
+        <h2 class="font-display text-[14px] tracking-tight">Отложено <span id="deferred-count" class="text-ink/45"></span></h2>
+        <div id="deferred" class="mt-4 divide-y divide-line"></div>
+      </div>
+    </section>
+
+    <!-- итоги -->
+    <aside class="col-span-12 lg:col-span-4">
+      <div class="lg:sticky lg:top-[88px] rounded-xl border border-line overflow-hidden">
+        <div class="p-5">
+          <h2 class="font-display text-[16px] tracking-tight">Ваш заказ</h2>
+          <dl class="mt-4 space-y-2.5 text-[14px]" id="totals"></dl>
+          <div class="mt-4 pt-4 border-t border-line flex items-baseline justify-between">
+            <span class="font-semibold">Итого</span>
+            <span class="font-display text-[24px]" id="grand">0 <span class="text-[13px] font-sans text-ink/50">BYN</span></span>
+          </div>
+          <p class="mt-1.5 text-[13px] text-ink/55" id="installment"></p>
+          <a href="checkout.html" class="mt-5 w-full h-12 rounded-lg bg-accent text-white font-semibold text-[15px] hover:bg-accent2 transition-colors duration-200 cursor-pointer inline-flex items-center justify-center gap-2">
+            Оформить заказ <i data-lucide="arrow-right" class="w-[18px] h-[18px]"></i>
+          </a>
+          <button class="mt-2 w-full h-11 rounded-lg border border-line font-semibold text-[14px] hover:border-ink transition-colors duration-200 cursor-pointer">Купить в 1 клик</button>
+          <a href="catalog.html" class="mt-3 block text-center text-[13px] text-ink/55 hover:text-accent transition-colors duration-200 cursor-pointer">Продолжить покупки</a>
+        </div>
+        <ul class="border-t border-line divide-y divide-line text-[13px]">
+          <li class="flex gap-3 p-4"><i data-lucide="store" class="w-[18px] h-[18px] text-accent shrink-0 mt-0.5"></i><span><b>Самовывоз в Гродно</b> — бесплатно, в день заказа</span></li>
+          <li class="flex gap-3 p-4"><i data-lucide="truck" class="w-[18px] h-[18px] text-accent shrink-0 mt-0.5"></i><span><b>Доставка по РБ</b> — 1–2 дня, бесплатно от 300 BYN</span></li>
+          <li class="flex gap-3 p-4"><i data-lucide="file-text" class="w-[18px] h-[18px] text-accent shrink-0 mt-0.5"></i><span><b>Для организаций</b> — счёт-фактура и полный пакет документов</span></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <!-- пустая корзина -->
+  <div id="empty" class="hidden py-20 text-center mb-16">
+    <span class="w-16 h-16 rounded-2xl bg-surface grid place-items-center mx-auto"><i data-lucide="shopping-cart" class="w-7 h-7 text-ink/30"></i></span>
+    <h2 class="mt-5 font-display text-[22px] tracking-tight">В корзине пока пусто</h2>
+    <p class="mt-2 text-[15px] text-ink/55 max-w-[420px] mx-auto">Загляните в каталог — там 12 400 позиций, от струн до комплектов для сцены.</p>
+    <a href="catalog.html" class="mt-6 inline-flex items-center gap-2 h-12 px-7 rounded-lg bg-accent text-white font-semibold text-[15px] hover:bg-accent2 transition-colors duration-200 cursor-pointer">
+      Перейти в каталог <i data-lucide="arrow-right" class="w-[18px] h-[18px]"></i>
+    </a>
+  </div>
+
+  <!-- рекомендации -->
+  <section class="mb-16">
+    <h2 class="font-display text-[22px] md:text-[26px] tracking-tight mb-6">Часто докупают к заказу</h2>
+    <div id="cross" class="grid grid-cols-2 lg:grid-cols-4 gap-4"></div>
+  </section>
+</main>
+
+<footer class="bg-ink text-white/70">
+  <div class="max-w-[1320px] mx-auto px-4 py-14 grid md:grid-cols-2 lg:grid-cols-5 gap-10">
+    <div class="lg:col-span-2">
+      <div class="flex items-center"><img src="img/logo.png" alt="М-ЗВУК" class="h-9 w-auto"></div>
+      <p class="mt-4 text-[14px] leading-relaxed max-w-[320px]">Музыкальные инструменты, звуковое и световое оборудование для музыкантов, студий, школ и площадок Беларуси.</p>
+      <div class="mt-5 flex gap-2">
+        <a href="#" aria-label="Telegram" class="w-9 h-9 grid place-items-center rounded-lg bg-white/10 hover:bg-accent transition-colors duration-200 cursor-pointer"><img src="https://cdn.simpleicons.org/telegram/FFFFFF" alt="" class="w-4 h-4"></a>
+        <a href="#" aria-label="Instagram" class="w-9 h-9 grid place-items-center rounded-lg bg-white/10 hover:bg-accent transition-colors duration-200 cursor-pointer"><img src="https://cdn.simpleicons.org/instagram/FFFFFF" alt="" class="w-4 h-4"></a>
+        <a href="#" aria-label="YouTube" class="w-9 h-9 grid place-items-center rounded-lg bg-white/10 hover:bg-accent transition-colors duration-200 cursor-pointer"><img src="https://cdn.simpleicons.org/youtube/FFFFFF" alt="" class="w-4 h-4"></a>
+      </div>
+    </div>
+    <div id="foot-1"></div><div id="foot-2"></div><div id="foot-3"></div>
+  </div>
+  <div class="border-t border-white/10">
+    <div class="max-w-[1320px] mx-auto px-4 py-5 flex flex-col sm:flex-row gap-2 justify-between text-[13px] text-white/45">
+      <span>© 2026 ООО «Арт-Медиа Трейд», УНП 590830372</span>
+      <span>Макет-концепция · фото: Wikimedia Commons, CC BY-SA (см. img/CREDITS.md)</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="cart-store.js"></script>
+<script>
+const icon = (n,c) => `<i data-lucide="${n}" class="${c}"></i>`;
+const stars = (r,cls='w-3 h-3') => Array.from({length:5},(_,k)=>`<i data-lucide="star" class="${cls} ${k<Math.round(r)?'fill-current':'opacity-25'}"></i>`).join('');
+
+let deferred = [];
+let promo = null;
+const PROMOS = { 'МЗВУК10': 10, 'MZVUK10': 10 };
+
+const CROSS = [
+  { n:'Стойка микрофонная K&M 210/9', b:'K&M', p:129, o:169, g:'product-mic-stand', s:1, r:4.8 },
+  { n:'Микрофон Shure SM58-LCE', b:'Shure', p:449, o:0, g:'product-mic-dynamic', s:1, r:5.0 },
+  { n:'Наушники Audio-Technica ATH-M50x', b:'Audio-Technica', p:629, o:0, g:'product-headphones', s:0, r:4.9 },
+  { n:'Комбоусилитель Fender Champion 20', b:'Fender', p:479, o:0, g:'product-guitar-amp', s:1, r:4.5 },
+];
+
+/* ── позиции корзины ──────────────────────────────────────────────────── */
+function row(it, i) {
+  const sum = it.p * it.q;
+  return `
+  <article class="p-4 sm:p-5 grid grid-cols-[88px_1fr] sm:grid-cols-[110px_1fr_auto] gap-4 items-start">
+    <a href="product.html" class="relative aspect-square rounded-lg bg-surface overflow-hidden cursor-pointer">
+      <img src="img/${it.g}.jpg" alt="${it.n}" loading="lazy" onerror="this.remove()" class="absolute inset-0 w-full h-full object-contain p-2 mix-blend-multiply">
+    </a>
+    <div class="min-w-0">
+      <span class="text-[11px] uppercase tracking-[.12em] text-ink/40">${it.b}</span>
+      <h3 class="mt-1 text-[15px] font-semibold leading-snug">
+        <a href="product.html" class="hover:text-accent transition-colors duration-200 cursor-pointer">${it.n}</a>
+      </h3>
+      <p class="mt-1.5 text-[12px] text-ink/45">Артикул ${it.sku} · код 1С ${it.c1}</p>
+      <p class="mt-1.5 text-[13px] font-semibold ${it.s ? 'text-ok' : 'text-ink/50'}">${it.s ? 'В наличии' : 'Под заказ, 7–10 дней'}</p>
+      <div class="mt-3 flex flex-wrap items-center gap-4">
+        <div class="flex items-center rounded-lg border border-line overflow-hidden">
+          <button data-i="${i}" data-d="-1" class="qty w-9 h-10 grid place-items-center hover:bg-surface transition-colors duration-200 cursor-pointer" aria-label="Меньше">${icon('minus','w-4 h-4')}</button>
+          <span class="w-10 text-center text-[14px] font-semibold">${it.q}</span>
+          <button data-i="${i}" data-d="1" class="qty w-9 h-10 grid place-items-center hover:bg-surface transition-colors duration-200 cursor-pointer" aria-label="Больше">${icon('plus','w-4 h-4')}</button>
+        </div>
+        <button data-i="${i}" class="defer text-[13px] text-ink/55 hover:text-accent transition-colors duration-200 cursor-pointer inline-flex items-center gap-1.5">${icon('heart','w-4 h-4')} Отложить</button>
+        <button data-i="${i}" class="del text-[13px] text-ink/55 hover:text-accent transition-colors duration-200 cursor-pointer inline-flex items-center gap-1.5">${icon('x','w-4 h-4')} Удалить</button>
+      </div>
+    </div>
+    <div class="col-span-2 sm:col-span-1 text-right sm:min-w-[140px]">
+      <span class="block font-display text-[19px] leading-none">${Cart.money(sum)} <span class="text-[12px] font-sans text-ink/50">BYN</span></span>
+      ${it.o ? `<s class="block text-[13px] text-ink/40 mt-1.5">${Cart.money(it.o * it.q)} BYN</s>` : ''}
+      ${it.q > 1 ? `<span class="block text-[12px] text-ink/45 mt-1">${Cart.money(it.p)} × ${it.q}</span>` : ''}
+    </div>
+  </article>`;
+}
+
+function mini(p) {
+  return `
+  <article class="group rounded-xl border border-line overflow-hidden hover:shadow-card hover:border-ink/20 transition-all duration-200">
+    <a href="product.html" class="relative block aspect-[4/3] bg-surface overflow-hidden cursor-pointer">
+      <img src="img/${p.g}.jpg" alt="${p.n}" loading="lazy" onerror="this.remove()" class="absolute inset-0 w-full h-full object-contain p-4 mix-blend-multiply group-hover:scale-105 transition-transform duration-300">
+      ${p.o ? `<span class="absolute top-3 left-3 rounded-md bg-accent text-white text-[11px] font-bold px-2 py-1">−${Math.round((1-p.p/p.o)*100)}%</span>` : ''}
+    </a>
+    <div class="p-4">
+      <span class="text-[11px] uppercase tracking-[.12em] text-ink/40">${p.b}</span>
+      <h3 class="mt-1.5 text-[14px] font-semibold leading-snug line-clamp-2 min-h-[38px]">
+        <a href="product.html" class="hover:text-accent transition-colors duration-200 cursor-pointer">${p.n}</a>
+      </h3>
+      <div class="mt-2 flex items-center gap-2 text-[12px]">
+        <span class="flex text-accent">${stars(p.r)}</span>
+        <span class="${p.s?'text-ok':'text-ink/45'} font-semibold">${p.s?'В наличии':'Под заказ'}</span>
+      </div>
+      <div class="mt-3 flex items-end justify-between gap-2">
+        <span class="font-display text-[17px] leading-none">${Cart.money(p.p)} <span class="text-[12px] font-sans text-ink/50">BYN</span></span>
+        <button data-add='${JSON.stringify(p).replace(/'/g, "&apos;")}' class="add w-10 h-10 shrink-0 grid place-items-center rounded-lg bg-ink text-white hover:bg-accent transition-colors duration-200 cursor-pointer" aria-label="В корзину">${icon('shopping-cart','w-[18px] h-[18px]')}</button>
+      </div>
+    </div>
+  </article>`;
+}
+
+function render() {
+  const items = Cart.items();
+  document.getElementById('items').innerHTML = items.map(row).join('');
+  document.getElementById('cart-wrap').classList.toggle('hidden', items.length === 0);
+  document.getElementById('empty').classList.toggle('hidden', items.length > 0);
+  document.getElementById('clear').classList.toggle('hidden', items.length === 0);
+
+  const goods   = items.reduce((s, it) => s + it.p * it.q, 0);
+  const full    = items.reduce((s, it) => s + (it.o || it.p) * it.q, 0);
+  const qty     = items.reduce((s, it) => s + it.q, 0);
+  const sale    = full - goods;
+  const promoOff = promo ? Math.round(goods * promo / 100) : 0;
+  const total   = goods - promoOff;
+  const shipping = total >= 300 ? 0 : 10;
+
+  const line = (k, v, cls='') => `<div class="flex justify-between gap-4 ${cls}"><dt class="text-ink/55">${k}</dt><dd class="font-semibold text-right">${v}</dd></div>`;
+  document.getElementById('totals').innerHTML =
+    line(`Товары, ${qty} шт.`, Cart.money(full) + ' BYN') +
+    (sale ? line('Скидка по акции', '− ' + Cart.money(sale) + ' BYN', 'text-accent') : '') +
+    (promoOff ? line(`Промокод ${promo}%`, '− ' + Cart.money(promoOff) + ' BYN', 'text-accent') : '') +
+    line('Доставка по Беларуси', shipping ? Cart.money(shipping) + ' BYN' : 'бесплатно');
+
+  document.getElementById('grand').innerHTML = `${Cart.money(total + shipping)} <span class="text-[13px] font-sans text-ink/50">BYN</span>`;
+  document.getElementById('installment').textContent = `Рассрочка 0% — от ${Cart.money(Math.round((total + shipping) / 12))} BYN × 12 месяцев`;
+  document.getElementById('cart-count').textContent = qty;
+
+  document.getElementById('deferred-wrap').classList.toggle('hidden', deferred.length === 0);
+  document.getElementById('deferred-count').textContent = deferred.length ? `· ${deferred.length}` : '';
+  document.getElementById('deferred').innerHTML = deferred.map((it, i) => `
+    <div class="flex items-center gap-4 py-3">
+      <span class="w-14 h-14 rounded-lg bg-surface relative overflow-hidden shrink-0">
+        <img src="img/${it.g}.jpg" alt="" onerror="this.remove()" class="absolute inset-0 w-full h-full object-contain p-1.5 mix-blend-multiply">
+      </span>
+      <span class="flex-1 min-w-0">
+        <span class="block text-[14px] font-semibold leading-snug">${it.n}</span>
+        <span class="block text-[13px] text-ink/50 mt-0.5">${Cart.money(it.p)} BYN</span>
+      </span>
+      <button data-i="${i}" class="undefer h-9 px-4 rounded-lg border border-line text-[13px] font-semibold hover:border-ink transition-colors duration-200 cursor-pointer shrink-0">Вернуть</button>
+    </div>`).join('');
+
+  document.getElementById('cross').innerHTML = CROSS.map(mini).join('');
+  lucide.createIcons();
+}
+
+document.addEventListener('click', e => {
+  const q = e.target.closest('.qty');
+  if (q) { Cart.setQty(+q.dataset.i, +q.dataset.d); render(); return; }
+
+  const del = e.target.closest('.del');
+  if (del) { Cart.remove(+del.dataset.i); render(); return; }
+
+  const df = e.target.closest('.defer');
+  if (df) { deferred.push(Cart.items()[+df.dataset.i]); Cart.remove(+df.dataset.i); render(); return; }
+
+  const un = e.target.closest('.undefer');
+  if (un) { const it = deferred.splice(+un.dataset.i, 1)[0]; Cart.add(it); render(); return; }
+
+  const add = e.target.closest('.add');
+  if (add) {
+    const p = JSON.parse(add.dataset.add.replace(/&apos;/g, "'"));
+    Cart.add({ ...p, sku: 'ADD-' + Math.floor(Math.random()*9000+1000), c1: '00-00' + Math.floor(Math.random()*90000+10000) });
+    render();
+    add.classList.add('bg-ok'); add.classList.remove('bg-ink');
+    setTimeout(() => { add.classList.remove('bg-ok'); add.classList.add('bg-ink'); }, 900);
+    return;
+  }
+
+  if (e.target.closest('#clear')) { Cart.clear(); render(); return; }
+
+  if (e.target.closest('#promo-apply')) {
+    const code = document.getElementById('promo').value.trim().toUpperCase();
+    const msg = document.getElementById('promo-msg');
+    if (PROMOS[code]) {
+      promo = PROMOS[code];
+      msg.textContent = `Промокод применён: −${promo}% на заказ`;
+      msg.className = 'mt-2 text-[13px] text-ok font-semibold';
+    } else {
+      promo = null;
+      msg.textContent = code ? 'Такой промокод не найден или истёк' : 'Введите промокод';
+      msg.className = 'mt-2 text-[13px] text-accent';
+    }
+    render();
+  }
+});
+
+const FOOT = [
+  { t:'Каталог',     l:['Гитары и басы','Клавишные','Ударные','Микрофоны','Звук для сцены','Свет и эффекты'] },
+  { t:'Покупателям', l:['Оплата и доставка','Гарантия и возврат','Рассрочка','Корзина','Вопрос-ответ','Отзывы'] },
+  { t:'Компания',    l:['О компании','Услуги','Новости','Статьи','Сертификаты, документы','Партнёры','Контакты'] },
+];
+FOOT.forEach((col,k) => {
+  document.getElementById('foot-'+(k+1)).innerHTML = `
+    <h3 class="font-display text-white text-[13px] uppercase tracking-[.14em]">${col.t}</h3>
+    <ul class="mt-4 space-y-2.5 text-[14px]">${col.l.map(l=>`<li><a href="catalog.html" class="hover:text-accent transition-colors duration-200 cursor-pointer">${l}</a></li>`).join('')}</ul>`;
+});
+
+render();
+</script>
+</body>
+</html>

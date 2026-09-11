@@ -121,10 +121,10 @@ tailwind.config = {
         <i data-lucide="heart" class="w-[20px] h-[20px]"></i>
         <span class="absolute top-1.5 right-1.5 w-4 h-4 rounded-full bg-ink text-white text-[10px] grid place-items-center font-bold">2</span>
       </button>
-      <button class="relative w-11 h-11 grid place-items-center rounded-lg bg-ink text-white hover:bg-accent transition-colors duration-200 cursor-pointer" aria-label="Корзина">
+      <a href="cart.html" class="relative w-11 h-11 grid place-items-center rounded-lg bg-ink text-white hover:bg-accent transition-colors duration-200 cursor-pointer" aria-label="Корзина">
         <i data-lucide="shopping-cart" class="w-[20px] h-[20px]"></i>
         <span class="absolute -top-1 -right-1 w-[18px] h-[18px] rounded-full bg-accent text-white text-[10px] grid place-items-center font-bold ring-2 ring-white">3</span>
-      </button>
+      </a>
     </div>
   </div>
 
@@ -353,6 +353,7 @@ tailwind.config = {
 </footer>
 
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="cart-store.js"></script>
 <script>
 /* ── данные макета ─────────────────────────────────────────────── */
 const CATS = [

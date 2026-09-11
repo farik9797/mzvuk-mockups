@@ -55,9 +55,9 @@ tailwind.config = { theme: { extend: {
     <h2 class="font-display text-[24px] tracking-tight mt-3">Концепция 1 «Прилавок» — разворачиваем внутренние страницы</h2>
     <p class="mt-3 text-[15px] leading-relaxed text-muted max-w-[720px]">
       Направление утверждено заказчиком. Логотип и фирменный красный подставлены, дальше на этой основе
-      собираются страницы каталога и товара.
+      собран весь путь покупателя: каталог → карточка → корзина → оформление заказа.
     </p>
-    <div class="mt-7 grid sm:grid-cols-3 gap-4" id="flow"></div>
+    <div class="mt-7 grid sm:grid-cols-2 lg:grid-cols-5 gap-4" id="flow"></div>
   </section>
 
   <section class="mt-20">
@@ -162,9 +162,11 @@ document.getElementById('cards').innerHTML = CONCEPTS.map(c => `
   </a>`).join('');
 
 const FLOW = [
-  { f: 'concept-1-prilavok.html', i: 'home',                n: 'Главная',        d: 'Каталог слева, акции, хиты, услуги, отзывы, контакты' },
-  { f: 'catalog.html',            i: 'sliders-horizontal',  n: 'Каталог',        d: 'Фильтр, сортировка, ярлыки, вид сеткой и списком' },
-  { f: 'product.html',            i: 'package',             n: 'Карточка товара',d: 'Галерея, характеристики, отзывы, похожие и сопутствующие' },
+  { f: 'concept-1-prilavok.html', i: 'home',                n: 'Главная',         d: 'Каталог слева, акции, хиты, услуги, отзывы, контакты' },
+  { f: 'catalog.html',            i: 'sliders-horizontal',  n: 'Каталог',         d: 'Фильтр, сортировка, ярлыки, вид сеткой и списком' },
+  { f: 'product.html',            i: 'package',             n: 'Карточка товара', d: 'Галерея, характеристики, отзывы, похожие и сопутствующие' },
+  { f: 'cart.html',               i: 'shopping-cart',       n: 'Корзина',         d: 'Пересчёт, промокод, отложенные позиции, итоги' },
+  { f: 'checkout.html',           i: 'clipboard-check',     n: 'Оформление',      d: 'Частное лицо и организация, доставка, оплата, безнал' },
 ];
 document.getElementById('flow').innerHTML = FLOW.map((x, k) => `
   <a href="${x.f}" class="lift group rounded-xl border border-line p-5 cursor-pointer hover:border-ink">
