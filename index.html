@@ -41,6 +41,7 @@ tailwind.config = { theme: { extend: {
       <span class="rounded-full border border-line px-3.5 py-1.5">HTML + Tailwind</span>
       <span class="rounded-full border border-line px-3.5 py-1.5">адаптив 375 / 768 / 1440</span>
       <span class="rounded-full border border-line px-3.5 py-1.5">иконки Lucide</span>
+      <span class="rounded-full border border-line px-3.5 py-1.5">логотип заказчика</span>
       <span class="rounded-full border border-line px-3.5 py-1.5">данные-примеры</span>
     </div>
   </div>
@@ -56,7 +57,8 @@ tailwind.config = { theme: { extend: {
   </section>
 
   <section class="mt-16 rounded-2xl border border-line p-8 md:p-10 bg-surface">
-    <h2 class="font-display text-[22px] tracking-tight">Что нужно от вас, чтобы двигаться дальше</h2>
+    <h2 class="font-display text-[22px] tracking-tight">Статус вводных</h2>
+    <p class="mt-2 text-[15px] text-muted">Обновлено после ответа заказчика от 11 сентября.</p>
     <ol class="mt-6 grid md:grid-cols-2 gap-x-10 gap-y-4 text-[15px] leading-relaxed" id="need"></ol>
   </section>
 </main>
@@ -76,9 +78,9 @@ const CONCEPTS = [
     idea: 'Классическая плотная витрина в духе muz.by, но с чистой сеткой и воздухом. Первый экран = каталог слева + акционные баннеры справа.',
     who: 'Максимальная привычность для покупателя, быстрый путь к товару, много позиций на экране.',
     fonts: 'Unbounded + Manrope',
-    colors: ['#0E1526','#FF4D17','#F2F4F8','#12805C'],
+    colors: ['#0E1526','#E22B2B','#F2F4F8','#12805C'],
     bg: 'bg-white', ring: 'ring-1 ring-line',
-    tags: ['светлая','плотная сетка','акцент оранжевый']
+    tags: ['светлая','плотная сетка','фирменный красный']
   },
   {
     n: '02', name: '«Сцена»', file: 'concept-2-scena.html',
@@ -119,12 +121,12 @@ const BRIEF = [
 ];
 
 const NEED = [
-  'Выбрать концепцию (или собрать гибрид: например, шапка из 01, подача блоков из 03).',
-  'Логотип и фирменный стиль в исходниках — в брифе поле не заполнено, в макетах используется текстовый знак.',
-  'Предпочтительное цветовое решение, если есть требование бренда — палитры пока предложены нами.',
-  'Фотографии товаров и интерьера магазина — сейчас на их месте графические заглушки.',
-  'Структура каталога 1С: категории, свойства для фильтра, поля выгрузки XLS/CSV/XML.',
-  'Тексты разделов «О компании», «Услуги», «Оплата и доставка», реквизиты и УНП.',
+  { s: 'ждём',  t: 'Выбрать концепцию (или собрать гибрид) — единственный открытый вопрос по дизайну.' },
+  { s: 'есть',  t: 'Логотип получен и подставлен в макеты. Для ретины и печати понадобится вектор (SVG/AI/EPS).' },
+  { s: 'есть',  t: 'Палитры согласованы. В концепции 1 акцент приведён к фирменному красному #E22B2B — под логотип.' },
+  { s: 'ждём',  t: 'Каталог и фото приходят из 1С. Нужен пример выгрузки (XML/XLS) — по нему проектируем фильтр и карточку.' },
+  { s: 'есть',  t: 'Реквизиты получены: ООО «Арт-Медиа Трейд», Гродно, ул. 17 Сентября, 49-11, УНП 590830372.' },
+  { s: 'в работе', t: 'Тексты разделов «О компании», «Услуги», «Оплата и доставка» готовит заказчик.' },
 ];
 
 const dot = c => `<span class="w-6 h-6 rounded-full ring-1 ring-black/10" style="background:${c}"></span>`;
@@ -154,8 +156,12 @@ document.getElementById('brief').innerHTML = BRIEF.map(([i,t]) => `
     <i data-lucide="${i}" class="w-[18px] h-[18px] text-[#FF4D17] shrink-0"></i> ${t}
   </li>`).join('');
 
-document.getElementById('need').innerHTML = NEED.map((t,k) => `
-  <li class="flex gap-3"><span class="font-display text-[13px] text-muted shrink-0 mt-0.5">${String(k+1).padStart(2,'0')}</span><span>${t}</span></li>`).join('');
+const CHIP = { 'есть': 'bg-[#12805C]/10 text-[#12805C]', 'ждём': 'bg-[#E22B2B]/10 text-[#E22B2B]', 'в работе': 'bg-ink/8 text-muted' };
+document.getElementById('need').innerHTML = NEED.map(n => `
+  <li class="flex gap-3 items-start">
+    <span class="shrink-0 rounded-full px-2.5 py-0.5 text-[11px] font-semibold ${CHIP[n.s]}">${n.s}</span>
+    <span>${n.t}</span>
+  </li>`).join('');
 
 lucide.createIcons();
 </script>

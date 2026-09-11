@@ -16,8 +16,8 @@ tailwind.config = {
       colors: {
         ink:     '#0E1526',
         ink2:    '#1B2440',
-        accent:  '#FF4D17',
-        accent2: '#E23C0C',
+        accent:  '#E22B2B',
+        accent2: '#C01F1F',
         surface: '#F2F4F8',
         line:    '#E3E7EF',
         ok:      '#12805C',
@@ -51,7 +51,7 @@ tailwind.config = {
   @media (prefers-reduced-motion: reduce) {
     * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
   }
-  :focus-visible { outline: 2px solid #FF4D17; outline-offset: 2px; border-radius: 4px; }
+  :focus-visible { outline: 2px solid #E22B2B; outline-offset: 2px; border-radius: 4px; }
 </style>
 </head>
 <body class="bg-white text-ink font-sans antialiased">
@@ -92,14 +92,8 @@ tailwind.config = {
 <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-line">
   <div class="max-w-[1320px] mx-auto px-4 h-[72px] flex items-center gap-4">
 
-    <a href="#" class="flex items-center gap-2.5 shrink-0 cursor-pointer group">
-      <span class="w-9 h-9 rounded-lg bg-ink grid place-items-center text-white group-hover:bg-accent transition-colors duration-200">
-        <i data-lucide="audio-lines" class="w-5 h-5"></i>
-      </span>
-      <span class="leading-none">
-        <span class="block font-display text-[17px] tracking-tight">М-ЗВУК</span>
-        <span class="block text-[10px] tracking-[.22em] text-ink/45 uppercase mt-1">мир звука</span>
-      </span>
+    <a href="#" class="flex items-center shrink-0 cursor-pointer hover:opacity-80 transition-opacity duration-200">
+      <img src="img/logo.png" alt="М-ЗВУК" class="h-9 w-auto">
     </a>
 
     <button class="hidden md:flex items-center gap-2 h-11 px-4 rounded-lg bg-accent text-white font-semibold text-[14px] hover:bg-accent2 transition-colors duration-200 cursor-pointer shrink-0">
@@ -162,7 +156,7 @@ tailwind.config = {
         <span class="w-10 h-10 rounded-lg bg-ink text-white grid place-items-center group-hover:bg-accent transition-colors duration-200"><i data-lucide="wrench" class="w-5 h-5"></i></span>
         <span>
           <span class="block font-bold text-[14px]">Сервис и ремонт</span>
-          <span class="block text-[12px] text-ink/55">своя мастерская в Минске</span>
+          <span class="block text-[12px] text-ink/55">своя мастерская в Гродно</span>
         </span>
       </a>
     </aside>
@@ -313,10 +307,10 @@ tailwind.config = {
     <div class="p-8">
       <h2 class="font-display text-[24px] tracking-tight">Контакты</h2>
       <dl class="mt-6 space-y-5 text-[15px]">
-        <div class="flex gap-3"><i data-lucide="map-pin" class="w-5 h-5 text-accent shrink-0 mt-0.5"></i><div><dt class="font-bold">Магазин и склад</dt><dd class="text-ink/60 mt-0.5">г. Минск, ул. Примерная, 1<br>Пн–Сб 10:00–19:00</dd></div></div>
-        <div class="flex gap-3"><i data-lucide="phone" class="w-5 h-5 text-accent shrink-0 mt-0.5"></i><div><dt class="font-bold">Отдел продаж</dt><dd class="text-ink/60 mt-0.5"><a href="tel:+375333772873" class="hover:text-accent transition-colors duration-200 cursor-pointer">+375 (33) 377-28-73</a></dd></div></div>
+        <div class="flex gap-3"><i data-lucide="map-pin" class="w-5 h-5 text-accent shrink-0 mt-0.5"></i><div><dt class="font-bold">Магазин и склад</dt><dd class="text-ink/60 mt-0.5">г. Гродно, ул. 17 Сентября, 49-11<br>Пн–Сб 10:00–19:00</dd></div></div>
+        <div class="flex gap-3"><i data-lucide="phone" class="w-5 h-5 text-accent shrink-0 mt-0.5"></i><div><dt class="font-bold">Отдел продаж</dt><dd class="text-ink/60 mt-0.5"><a href="tel:+375333772873" class="hover:text-accent transition-colors duration-200 cursor-pointer">+375 (33) 377-28-73</a><br><a href="tel:+375152623333" class="hover:text-accent transition-colors duration-200 cursor-pointer">+375 (152) 62-33-33</a></dd></div></div>
         <div class="flex gap-3"><i data-lucide="mail" class="w-5 h-5 text-accent shrink-0 mt-0.5"></i><div><dt class="font-bold">Почта</dt><dd class="text-ink/60 mt-0.5"><a href="mailto:sales@mzvuk.by" class="hover:text-accent transition-colors duration-200 cursor-pointer">sales@mzvuk.by</a></dd></div></div>
-        <div class="flex gap-3"><i data-lucide="building-2" class="w-5 h-5 text-accent shrink-0 mt-0.5"></i><div><dt class="font-bold">Реквизиты</dt><dd class="text-ink/60 mt-0.5">ООО «Арт-Медиа Трейд»</dd></div></div>
+        <div class="flex gap-3"><i data-lucide="building-2" class="w-5 h-5 text-accent shrink-0 mt-0.5"></i><div><dt class="font-bold">Реквизиты</dt><dd class="text-ink/60 mt-0.5">ООО «Арт-Медиа Трейд»<br>УНП 590830372</dd></div></div>
       </dl>
       <form class="mt-7 grid gap-3" onsubmit="return false">
         <input type="text" placeholder="Ваше имя" class="h-11 px-4 rounded-lg border border-line bg-surface focus:bg-white focus:border-ink outline-none text-[14px] transition-colors duration-200">
@@ -338,10 +332,7 @@ tailwind.config = {
 <footer class="mt-20 bg-ink text-white/70">
   <div class="max-w-[1320px] mx-auto px-4 py-14 grid md:grid-cols-2 lg:grid-cols-5 gap-10">
     <div class="lg:col-span-2">
-      <div class="flex items-center gap-2.5">
-        <span class="w-9 h-9 rounded-lg bg-accent grid place-items-center text-white"><i data-lucide="audio-lines" class="w-5 h-5"></i></span>
-        <span class="font-display text-white text-[17px] tracking-tight">М-ЗВУК</span>
-      </div>
+      <div class="flex items-center"><img src="img/logo.png" alt="М-ЗВУК" class="h-9 w-auto"></div>
       <p class="mt-4 text-[14px] leading-relaxed max-w-[320px]">Музыкальные инструменты, звуковое и световое оборудование для музыкантов, студий, школ и площадок Беларуси.</p>
       <div class="mt-5 flex gap-2">
         <a href="#" aria-label="Telegram" class="w-9 h-9 grid place-items-center rounded-lg bg-white/10 hover:bg-accent transition-colors duration-200 cursor-pointer"><img src="https://cdn.simpleicons.org/telegram/FFFFFF" alt="" class="w-4 h-4"></a>
@@ -355,7 +346,7 @@ tailwind.config = {
   </div>
   <div class="border-t border-white/10">
     <div class="max-w-[1320px] mx-auto px-4 py-5 flex flex-col sm:flex-row gap-2 justify-between text-[13px] text-white/45">
-      <span>© 2026 ООО «Арт-Медиа Трейд». УНП 000000000</span>
+      <span>© 2026 ООО «Арт-Медиа Трейд», УНП 590830372</span>
       <span>Макет-концепция · фото: Wikimedia Commons, CC BY-SA (см. img/CREDITS.md)</span>
     </div>
   </div>
@@ -410,7 +401,7 @@ const SERVICES = [
 const BRANDS = ['Yamaha','Fender','Roland','Shure','Behringer','JBL','Korg','Boss','Cort','Pioneer DJ','Focusrite','Audio-Technica'];
 
 const REVIEWS = [
-  { n: 'Алексей К.', t: 'Музыкант, Минск', r: 5, x: 'Заказал стратокастер в пятницу вечером — в понедельник забрал в магазине. Отстроили по грифу перед выдачей, играть можно сразу из кофра.' },
+  { n: 'Алексей К.', t: 'Музыкант, Гродно', r: 5, x: 'Заказал стратокастер в пятницу вечером — в понедельник забрал в магазине. Отстроили по грифу перед выдачей, играть можно сразу из кофра.' },
   { n: 'Дом культуры «Юность»', t: 'Борисов', r: 5, x: 'Брали комплект звука на сцену по тендеру. Собрали смету за день, документы оформили без нервов, монтаж сделали свои же инженеры.' },
   { n: 'Марина Т.', t: 'Преподаватель', r: 5, x: 'Помогли выбрать цифровое пианино ребёнку в школу: сравнили три модели по клавиатуре, не впаривали дорогое. Доставили на 5-й этаж.' },
 ];
@@ -422,7 +413,7 @@ const NEWS = [
 ];
 
 const FAQ = [
-  ['Как быстро доставите заказ по Беларуси?', 'Товар со склада в Минске — 1–2 рабочих дня курьером или почтой. Позиции под заказ — от 7 дней, точный срок менеджер подтверждает при оформлении.'],
+  ['Как быстро доставите заказ по Беларуси?', 'Товар со склада в Гродно — 1–2 рабочих дня курьером или почтой. Позиции под заказ — от 7 дней, точный срок менеджер подтверждает при оформлении.'],
   ['Можно ли купить в рассрочку?', 'Да, доступны «Халва», «Карта покупок» и рассрочка от банка до 12 месяцев без переплаты. Оформляется прямо в корзине.'],
   ['Работаете ли вы с организациями по безналу?', 'Работаем: выставляем счёт-фактуру, участвуем в тендерах, предоставляем полный пакет документов и сертификаты на оборудование.'],
   ['Есть ли гарантия и сервис?', 'Гарантия от 1 до 3 лет в зависимости от бренда. Обслуживание и ремонт — в собственном сервисном центре, подменный инструмент на время ремонта.'],
