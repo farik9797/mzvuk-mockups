@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Каталог товаров — М-ЗВУК | Концепция 1 «Прилавок»</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        ink:     '#0E1526',
+        ink2:    '#1B2440',
+        accent:  '#E22B2B',
+        accent2: '#C01F1F',
+        surface: '#F2F4F8',
+        line:    '#E3E7EF',
+        ok:      '#12805C',
+      },
+      fontFamily: {
+        display: ['Unbounded', 'system-ui', 'sans-serif'],
+        sans:    ['Manrope', 'system-ui', 'sans-serif'],
+      },
+      boxShadow: {
+        card: '0 1px 2px rgba(14,21,38,.06), 0 8px 24px -12px rgba(14,21,38,.18)',
+      },
+    }
+  }
+}
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { -webkit-font-smoothing: antialiased; }
+  [data-lucide] { stroke-width: 1.6; }
+  .hide-scroll::-webkit-scrollbar { display: none; }
+  .hide-scroll { scrollbar-width: none; }
+  .card:hover .card-cta { opacity: 1; transform: translateY(0); }
+  details[open] .f-chevron { transform: rotate(180deg); }
+  :focus-visible { outline: 2px solid #E22B2B; outline-offset: 2px; border-radius: 4px; }
+  input[type="checkbox"] { accent-color: #E22B2B; }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+  /* вид списком */
+  .view-list #grid { grid-template-columns: 1fr; }
+  .view-list .card { display: grid; grid-template-columns: 220px 1fr; }
+  .view-list .card .ratio { aspect-ratio: auto; height: 100%; min-height: 180px; }
+  .view-list .list-desc { display: block; }
+  .list-desc { display: none; }
+  @media (max-width: 640px) { .view-list .card { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body class="bg-white text-ink font-sans antialiased">
+
+<!-- ░░ ПЛАШКА КОНЦЕПЦИИ ░░ -->
+<div class="bg-ink text-white/70 text-[12px] tracking-wide">
+  <div class="max-w-[1320px] mx-auto px-4 py-2 flex items-center justify-between gap-4">
+    <span class="font-display text-white text-[11px] uppercase tracking-[.18em]">Концепция 1 · Каталог</span>
+    <span class="hidden sm:block">Фильтр, сортировка и ярлыки — пункт 4 брифа</span>
+    <a href="concept-1-prilavok.html" class="hover:text-white transition-colors duration-200 cursor-pointer">← на главную макета</a>
+  </div>
+</div>
+
+<!-- ░░ СЛУЖЕБНАЯ ПОЛОСА ░░ -->
+<div class="border-b border-line bg-surface/70">
+  <div class="max-w-[1320px] mx-auto px-4 h-10 flex items-center justify-between text-[13px] text-ink/70">
+    <nav class="hidden md:flex items-center gap-5">
+      <a href="concept-1-prilavok.html#about" class="hover:text-accent transition-colors duration-200 cursor-pointer">О компании</a>
+      <a href="concept-1-prilavok.html#services" class="hover:text-accent transition-colors duration-200 cursor-pointer">Услуги</a>
+      <a href="concept-1-prilavok.html#delivery" class="hover:text-accent transition-colors duration-200 cursor-pointer">Оплата и доставка</a>
+      <a href="concept-1-prilavok.html#faq" class="hover:text-accent transition-colors duration-200 cursor-pointer">Вопрос-ответ</a>
+      <a href="concept-1-prilavok.html#news" class="hover:text-accent transition-colors duration-200 cursor-pointer">Новости</a>
+    </nav>
+    <div class="flex items-center gap-4 ml-auto">
+      <span class="hidden sm:flex items-center gap-1.5"><i data-lucide="clock" class="w-4 h-4"></i> Пн–Сб 10:00–19:00</span>
+      <a href="mailto:sales@mzvuk.by" class="hidden lg:flex items-center gap-1.5 hover:text-accent transition-colors duration-200 cursor-pointer"><i data-lucide="mail" class="w-4 h-4"></i> sales@mzvuk.by</a>
+      <div class="flex items-center gap-1">
+        <a href="#" aria-label="Telegram" class="w-7 h-7 grid place-items-center rounded hover:bg-line transition-colors duration-200 cursor-pointer"><img src="https://cdn.simpleicons.org/telegram/0E1526" alt="" class="w-3.5 h-3.5"></a>
+        <a href="#" aria-label="Instagram" class="w-7 h-7 grid place-items-center rounded hover:bg-line transition-colors duration-200 cursor-pointer"><img src="https://cdn.simpleicons.org/instagram/0E1526" alt="" class="w-3.5 h-3.5"></a>
+        <a href="#" aria-label="YouTube" class="w-7 h-7 grid place-items-center rounded hover:bg-line transition-colors duration-200 cursor-pointer"><img src="https://cdn.simpleicons.org/youtube/0E1526" alt="" class="w-3.5 h-3.5"></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ░░ ШАПКА ░░ -->
+<header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-line">
+  <div class="max-w-[1320px] mx-auto px-4 h-[72px] flex items-center gap-4">
+    <a href="concept-1-prilavok.html" class="flex items-center shrink-0 cursor-pointer hover:opacity-80 transition-opacity duration-200">
+      <img src="img/logo.png" alt="М-ЗВУК" class="h-9 w-auto">
+    </a>
+    <button class="hidden md:flex items-center gap-2 h-11 px-4 rounded-lg bg-accent text-white font-semibold text-[14px] hover:bg-accent2 transition-colors duration-200 cursor-pointer shrink-0">
+      <i data-lucide="menu" class="w-[18px] h-[18px]"></i> Каталог
+    </button>
+    <form class="hidden md:block flex-1 min-w-0" onsubmit="return false">
+      <label class="relative flex items-center h-11 rounded-lg border border-line bg-surface focus-within:border-ink focus-within:bg-white transition-colors duration-200">
+        <i data-lucide="search" class="w-[18px] h-[18px] absolute left-3.5 text-ink/40"></i>
+        <input id="q" type="search" placeholder="Поиск по каталогу: Shure, гитара, пульт…"
+               class="w-full h-full bg-transparent pl-11 pr-4 text-[14px] outline-none placeholder:text-ink/40">
+      </label>
+    </form>
+    <div class="flex items-center gap-1 shrink-0">
+      <a href="tel:+375333772873" class="hidden xl:block text-right mr-3 cursor-pointer group">
+        <span class="block font-display text-[15px] leading-none group-hover:text-accent transition-colors duration-200">+375 (33) 377-28-73</span>
+        <span class="block text-[11px] text-ink/45 mt-1">заказать звонок</span>
+      </a>
+      <button class="relative w-11 h-11 grid place-items-center rounded-lg hover:bg-surface transition-colors duration-200 cursor-pointer" aria-label="Сравнение"><i data-lucide="scale" class="w-[20px] h-[20px]"></i></button>
+      <button class="relative w-11 h-11 grid place-items-center rounded-lg hover:bg-surface transition-colors duration-200 cursor-pointer" aria-label="Избранное"><i data-lucide="heart" class="w-[20px] h-[20px]"></i></button>
+      <button class="relative w-11 h-11 grid place-items-center rounded-lg bg-ink text-white hover:bg-accent transition-colors duration-200 cursor-pointer" aria-label="Корзина">
+        <i data-lucide="shopping-cart" class="w-[20px] h-[20px]"></i>
+        <span id="cart-count" class="absolute -top-1 -right-1 w-[18px] h-[18px] rounded-full bg-accent text-white text-[10px] grid place-items-center font-bold ring-2 ring-white">3</span>
+      </button>
+    </div>
+  </div>
+  <div class="md:hidden max-w-[1320px] mx-auto px-4 pb-3 flex items-center gap-2">
+    <button id="filters-open" class="h-11 px-4 flex items-center gap-2 rounded-lg bg-accent text-white font-semibold text-[14px] shrink-0 hover:bg-accent2 transition-colors duration-200 cursor-pointer">
+      <i data-lucide="sliders-horizontal" class="w-[18px] h-[18px]"></i> Фильтр
+    </button>
+    <form class="flex-1 min-w-0" onsubmit="return false">
+      <label class="relative flex items-center h-11 rounded-lg border border-line bg-surface focus-within:border-ink focus-within:bg-white transition-colors duration-200">
+        <i data-lucide="search" class="w-[18px] h-[18px] absolute left-3.5 text-ink/40"></i>
+        <input id="q-mobile" type="search" placeholder="Поиск по каталогу" class="w-full h-full bg-transparent pl-11 pr-3 text-[14px] outline-none placeholder:text-ink/40">
+      </label>
+    </form>
+  </div>
+</header>
+
+<main class="max-w-[1320px] mx-auto px-4">
+
+  <!-- ░░ ХЛЕБНЫЕ КРОШКИ ░░ -->
+  <nav class="flex items-center gap-2 py-4 text-[13px] text-ink/50" aria-label="Хлебные крошки">
+    <a href="concept-1-prilavok.html" class="hover:text-accent transition-colors duration-200 cursor-pointer">Главная</a>
+    <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+    <span class="text-ink">Каталог товаров</span>
+  </nav>
+
+  <!-- ░░ ЗАГОЛОВОК ░░ -->
+  <div class="flex flex-wrap items-end justify-between gap-4">
+    <div>
+      <h1 class="font-display text-[26px] md:text-[32px] tracking-tight">Каталог товаров</h1>
+      <p class="mt-2 text-[14px] text-ink/55">Найдено <b id="found" class="text-ink">18</b> позиций · всего в каталоге 12 400</p>
+    </div>
+    <div class="flex items-center gap-2 text-[13px] text-ink/50">
+      <i data-lucide="refresh-cw" class="w-4 h-4"></i> Остатки и цены обновляются из 1С каждые 30 минут
+    </div>
+  </div>
+
+  <!-- ░░ ПОДКАТЕГОРИИ ░░ -->
+  <div class="mt-5 flex flex-wrap gap-2" id="quick-cats"></div>
+
+  <div class="grid grid-cols-12 gap-6 mt-6 mb-16">
+
+    <!-- ░░ ФИЛЬТРЫ ░░ -->
+    <aside id="filters" class="hidden lg:block col-span-12 lg:col-span-3">
+      <div class="lg:sticky lg:top-[88px] rounded-xl border border-line overflow-hidden">
+        <div class="flex items-center justify-between px-4 py-3 bg-surface border-b border-line">
+          <span class="font-display text-[13px] uppercase tracking-[.12em]">Подбор товара</span>
+          <div class="flex items-center gap-3">
+            <button id="reset" class="text-[12px] text-accent hover:underline cursor-pointer">сбросить</button>
+            <button id="filters-close" class="lg:hidden w-7 h-7 grid place-items-center rounded hover:bg-line transition-colors duration-200 cursor-pointer" aria-label="Закрыть фильтр">
+              <i data-lucide="x" class="w-[18px] h-[18px]"></i>
+            </button>
+          </div>
+        </div>
+
+        <div id="filter-body" class="divide-y divide-line max-h-none lg:max-h-[calc(100vh-180px)] overflow-y-auto">
+
+          <details open class="group">
+            <summary class="flex items-center justify-between px-4 py-3 cursor-pointer list-none font-semibold text-[14px]">
+              Цена, BYN <i data-lucide="chevron-down" class="f-chevron w-4 h-4 text-ink/40 transition-transform duration-200"></i>
+            </summary>
+            <div class="px-4 pb-4">
+              <div class="flex items-center gap-2">
+                <input id="price-min" type="number" inputmode="numeric" placeholder="от 39" class="w-full h-10 px-3 rounded-lg border border-line bg-surface text-[14px] outline-none focus:border-ink focus:bg-white transition-colors duration-200">
+                <span class="text-ink/30">—</span>
+                <input id="price-max" type="number" inputmode="numeric" placeholder="до 3 190" class="w-full h-10 px-3 rounded-lg border border-line bg-surface text-[14px] outline-none focus:border-ink focus:bg-white transition-colors duration-200">
+              </div>
+              <div class="mt-3 flex flex-wrap gap-1.5" id="price-presets"></div>
+            </div>
+          </details>
+
+          <details open>
+            <summary class="flex items-center justify-between px-4 py-3 cursor-pointer list-none font-semibold text-[14px]">
+              Раздел <i data-lucide="chevron-down" class="f-chevron w-4 h-4 text-ink/40 transition-transform duration-200"></i>
+            </summary>
+            <div class="px-4 pb-4 space-y-2" id="f-cat"></div>
+          </details>
+
+          <details open>
+            <summary class="flex items-center justify-between px-4 py-3 cursor-pointer list-none font-semibold text-[14px]">
+              Наличие <i data-lucide="chevron-down" class="f-chevron w-4 h-4 text-ink/40 transition-transform duration-200"></i>
+            </summary>
+            <div class="px-4 pb-4 space-y-2" id="f-stock"></div>
+          </details>
+
+          <details open>
+            <summary class="flex items-center justify-between px-4 py-3 cursor-pointer list-none font-semibold text-[14px]">
+              Бренд <i data-lucide="chevron-down" class="f-chevron w-4 h-4 text-ink/40 transition-transform duration-200"></i>
+            </summary>
+            <div class="px-4 pb-4">
+              <input id="brand-search" type="search" placeholder="Поиск бренда" class="w-full h-9 px-3 mb-2.5 rounded-lg border border-line bg-surface text-[13px] outline-none focus:border-ink focus:bg-white transition-colors duration-200">
+              <div class="space-y-2 max-h-[190px] overflow-y-auto pr-1" id="f-brand"></div>
+            </div>
+          </details>
+
+          <details open>
+            <summary class="flex items-center justify-between px-4 py-3 cursor-pointer list-none font-semibold text-[14px]">
+              Ярлыки <i data-lucide="chevron-down" class="f-chevron w-4 h-4 text-ink/40 transition-transform duration-200"></i>
+            </summary>
+            <div class="px-4 pb-4 space-y-2" id="f-tag"></div>
+          </details>
+
+          <div class="px-4 py-4 bg-surface/60">
+            <p class="text-[12px] leading-relaxed text-ink/55">
+              <i data-lucide="info" class="w-3.5 h-3.5 inline -mt-0.5"></i>
+              Набор фильтров зависит от свойств номенклатуры в 1С. После примера выгрузки сюда добавим
+              характеристики вроде числа клавиш, мощности, типа звукоснимателей.
+            </p>
+          </div>
+        </div>
+
+        <div class="lg:hidden p-4 border-t border-line">
+          <button id="filters-apply" class="w-full h-11 rounded-lg bg-accent text-white font-semibold text-[14px] hover:bg-accent2 transition-colors duration-200 cursor-pointer">
+            Показать <span id="apply-count">18</span> товаров
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ░░ ТОВАРЫ ░░ -->
+    <section class="col-span-12 lg:col-span-9" id="listing">
+
+      <div class="flex flex-nowrap items-center gap-3 justify-between rounded-xl border border-line px-4 py-3 overflow-hidden">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="text-[13px] text-ink/50 shrink-0">Сортировка:</span>
+          <div class="flex items-center gap-1 p-1 rounded-lg bg-surface overflow-x-auto hide-scroll max-w-full" id="sort"></div>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="hidden sm:flex items-center gap-1 p-1 rounded-lg bg-surface" id="view">
+            <button data-view="grid" class="v-btn w-9 h-9 grid place-items-center rounded-md transition-colors duration-200 cursor-pointer" aria-label="Сеткой"><i data-lucide="layout-grid" class="w-[18px] h-[18px]"></i></button>
+            <button data-view="list" class="v-btn w-9 h-9 grid place-items-center rounded-md transition-colors duration-200 cursor-pointer" aria-label="Списком"><i data-lucide="list" class="w-[18px] h-[18px]"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div id="chips" class="flex flex-wrap gap-2 mt-4"></div>
+
+      <div id="grid" class="grid grid-cols-2 lg:grid-cols-3 gap-4 mt-4"></div>
+
+      <div id="empty" class="hidden text-center py-20 border border-dashed border-line rounded-xl mt-4">
+        <i data-lucide="search-x" class="w-10 h-10 mx-auto text-ink/25"></i>
+        <p class="mt-3 font-display text-[17px]">Ничего не найдено</p>
+        <p class="mt-1.5 text-[14px] text-ink/55">Попробуйте ослабить фильтры или сбросить их</p>
+        <button class="reset-inline mt-5 h-10 px-5 rounded-lg bg-ink text-white text-[14px] font-semibold hover:bg-accent transition-colors duration-200 cursor-pointer">Сбросить фильтры</button>
+      </div>
+
+      <div id="pager" class="mt-8 flex flex-col items-center gap-4">
+        <button id="more" class="h-11 px-6 rounded-lg border border-line font-semibold text-[14px] hover:border-ink transition-colors duration-200 cursor-pointer">Показать ещё</button>
+        <div class="flex items-center gap-1" id="pages"></div>
+      </div>
+
+      <!-- SEO-текст категории -->
+      <div class="mt-12 rounded-xl bg-surface p-6 md:p-8">
+        <h2 class="font-display text-[18px] tracking-tight">Музыкальное и звуковое оборудование в Гродно</h2>
+        <p class="mt-3 text-[14px] leading-relaxed text-ink/70 max-w-[900px]">
+          В каталоге М-ЗВУК — инструменты и звуковое оборудование для музыкантов, студий, школ искусств
+          и концертных площадок: гитары и басы, клавишные, ударные, микрофоны, акустические системы,
+          студийная техника, свет и коммутация. Официальные поставки, гарантия до 3 лет, рассрочка 0%,
+          доставка по Беларуси за 1–2 дня и собственный сервисный центр.
+        </p>
+        <p class="mt-3 text-[13px] text-ink/45">Текст раздела заполняется заказчиком — это заглушка для оценки вёрстки.</p>
+      </div>
+    </section>
+  </div>
+</main>
+
+<!-- ░░ ПОДВАЛ ░░ -->
+<footer class="bg-ink text-white/70">
+  <div class="max-w-[1320px] mx-auto px-4 py-14 grid md:grid-cols-2 lg:grid-cols-5 gap-10">
+    <div class="lg:col-span-2">
+      <div class="flex items-center"><img src="img/logo.png" alt="М-ЗВУК" class="h-9 w-auto"></div>
+      <p class="mt-4 text-[14px] leading-relaxed max-w-[320px]">Музыкальные инструменты, звуковое и световое оборудование для музыкантов, студий, школ и площадок Беларуси.</p>
+      <div class="mt-5 flex gap-2">
+        <a href="#" aria-label="Telegram" class="w-9 h-9 grid place-items-center rounded-lg bg-white/10 hover:bg-accent transition-colors duration-200 cursor-pointer"><img src="https://cdn.simpleicons.org/telegram/FFFFFF" alt="" class="w-4 h-4"></a>
+        <a href="#" aria-label="Instagram" class="w-9 h-9 grid place-items-center rounded-lg bg-white/10 hover:bg-accent transition-colors duration-200 cursor-pointer"><img src="https://cdn.simpleicons.org/instagram/FFFFFF" alt="" class="w-4 h-4"></a>
+        <a href="#" aria-label="YouTube" class="w-9 h-9 grid place-items-center rounded-lg bg-white/10 hover:bg-accent transition-colors duration-200 cursor-pointer"><img src="https://cdn.simpleicons.org/youtube/FFFFFF" alt="" class="w-4 h-4"></a>
+      </div>
+    </div>
+    <div id="foot-1"></div><div id="foot-2"></div><div id="foot-3"></div>
+  </div>
+  <div class="border-t border-white/10">
+    <div class="max-w-[1320px] mx-auto px-4 py-5 flex flex-col sm:flex-row gap-2 justify-between text-[13px] text-white/45">
+      <span>© 2026 ООО «Арт-Медиа Трейд», УНП 590830372</span>
+      <span>Макет-концепция · фото: Wikimedia Commons, CC BY-SA (см. img/CREDITS.md)</span>
+    </div>
+  </div>
+</footer>
+
+<!-- мобильная подложка фильтров -->
+<div id="overlay" class="fixed inset-0 bg-ink/50 z-40 hidden lg:hidden"></div>
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script>
+/* ── данные каталога (пример; в бою приходят из 1С) ───────────────────── */
+const CATS = [
+  { id: 'guitars', n: 'Гитары и басы' },
+  { id: 'keys',    n: 'Клавишные' },
+  { id: 'drums',   n: 'Ударные' },
+  { id: 'mics',    n: 'Микрофоны' },
+  { id: 'studio',  n: 'Студия и запись' },
+  { id: 'pa',      n: 'Звук для сцены' },
+  { id: 'dj',      n: 'DJ-оборудование' },
+  { id: 'acc',     n: 'Аксессуары' },
+];
+
+const P = [
+  { id:1,  n:'Электрогитара Fender Player II Stratocaster', b:'Fender', c:'guitars', p:3190, o:0,    g:'product-guitar-electric', tag:'hit',  r:5.0, rv:28, s:1, new:0, pop:98 },
+  { id:2,  n:'Электрогитара Ibanez GRG170DX',              b:'Ibanez', c:'guitars', p:1090, o:0,    g:'product-guitar-electric-2', tag:'',     r:4.6, rv:12, s:1, new:0, pop:71 },
+  { id:3,  n:'Акустическая гитара Cort AD810',             b:'Cort',   c:'guitars', p:419,  o:529,  g:'product-guitar-acoustic', tag:'sale', r:4.7, rv:41, s:1, new:0, pop:88 },
+  { id:4,  n:'Акустическая гитара Yamaha F310',            b:'Yamaha', c:'guitars', p:549,  o:0,    g:'product-guitar-acoustic', tag:'hit',  r:4.8, rv:63, s:1, new:0, pop:95 },
+  { id:5,  n:'Комбоусилитель Boss Katana-50 MkII',         b:'Boss',   c:'guitars', p:1050, o:0,    g:'product-guitar-amp',      tag:'',     r:4.9, rv:19, s:0, new:0, pop:80 },
+  { id:6,  n:'Комбоусилитель Fender Champion 20',          b:'Fender', c:'guitars', p:479,  o:0,    g:'product-guitar-amp',      tag:'',     r:4.5, rv:9,  s:1, new:0, pop:64 },
+  { id:7,  n:'Синтезатор Roland JUNO-DS61',                b:'Roland', c:'keys',    p:2740, o:0,    g:'product-synth',           tag:'hit',  r:4.9, rv:22, s:1, new:0, pop:93 },
+  { id:8,  n:'Синтезатор Korg Minilogue XD',               b:'Korg',   c:'keys',    p:2190, o:0,    g:'product-synth',           tag:'new',  r:4.8, rv:7,  s:1, new:1, pop:76 },
+  { id:9,  n:'Цифровое пианино Yamaha P-145 B',            b:'Yamaha', c:'keys',    p:1890, o:0,    g:'product-piano-digital',   tag:'new',  r:4.9, rv:15, s:1, new:1, pop:90 },
+  { id:10, n:'Цифровое пианино Casio CDP-S110',            b:'Casio',  c:'keys',    p:1290, o:1490, g:'product-piano-digital',   tag:'sale', r:4.6, rv:24, s:1, new:0, pop:74 },
+  { id:11, n:'Барабанная установка Millenium Focus 20',    b:'Millenium', c:'drums', p:1590, o:1990, g:'product-drums',          tag:'sale', r:4.4, rv:11, s:1, new:0, pop:69 },
+  { id:12, n:'Микрофон Shure SM58-LCE',                    b:'Shure',  c:'mics',    p:449,  o:0,    g:'product-mic-dynamic',     tag:'hit',  r:5.0, rv:57, s:1, new:0, pop:99 },
+  { id:13, n:'Микрофон Audio-Technica AT2020',             b:'Audio-Technica', c:'mics', p:389, o:0, g:'product-mic-dynamic',    tag:'',     r:4.7, rv:33, s:1, new:0, pop:82 },
+  { id:14, n:'Стойка микрофонная K&M 210/9',               b:'K&M',    c:'acc',     p:129,  o:169,  g:'product-mic-stand',       tag:'sale', r:4.8, rv:18, s:1, new:0, pop:61 },
+  { id:15, n:'Наушники Audio-Technica ATH-M50x',           b:'Audio-Technica', c:'studio', p:629, o:0, g:'product-headphones',   tag:'',     r:4.9, rv:44, s:0, new:0, pop:87 },
+  { id:16, n:'Аудиоинтерфейс Focusrite Scarlett 2i2 4gen', b:'Focusrite', c:'studio', p:780, o:0,   g:'product-audio-interface', tag:'new',  r:4.9, rv:26, s:1, new:1, pop:91 },
+  { id:17, n:'Активная колонка JBL EON710',                b:'JBL',    c:'pa',      p:2190, o:2590, g:'product-pa-speaker',      tag:'sale', r:4.8, rv:16, s:1, new:0, pop:85 },
+  { id:18, n:'DJ-контроллер Pioneer DDJ-FLX4',             b:'Pioneer DJ', c:'dj',   p:1190, o:0,   g:'product-dj-controller',   tag:'new',  r:4.7, rv:13, s:1, new:1, pop:78 },
+];
+
+const TAGS   = { hit: 'Хит', new: 'Новинка', sale: 'Скидка' };
+const SORTS  = [ ['pop','по популярности'], ['cheap','сначала дешевле'], ['exp','сначала дороже'], ['new','новинки'], ['rate','по рейтингу'] ];
+const PRESETS = [ [0,500,'до 500'], [500,1500,'500–1500'], [1500,3000,'1500–3000'], [3000,99999,'от 3000'] ];
+const FOOT = [
+  { t:'Каталог',     l:['Гитары и басы','Клавишные','Ударные','Микрофоны','Звук для сцены','Свет и эффекты'] },
+  { t:'Покупателям', l:['Оплата и доставка','Гарантия и возврат','Рассрочка','Корзина','Вопрос-ответ','Отзывы'] },
+  { t:'Компания',    l:['О компании','Услуги','Новости','Статьи','Сертификаты, документы','Партнёры','Контакты'] },
+];
+
+/* ── состояние ────────────────────────────────────────────────────────── */
+const state = { cats: new Set(), brands: new Set(), tags: new Set(), stock: new Set(), min: null, max: null, sort: 'pop', view: 'grid', shown: 9, q: '' };
+
+const money = v => v.toLocaleString('ru-RU').replace(/,/g, ' ');
+const icon  = (n, c) => `<i data-lucide="${n}" class="${c}"></i>`;
+const stars = (r, cls='w-3 h-3') => Array.from({length:5}, (_,k) =>
+  `<i data-lucide="star" class="${cls} ${k < Math.round(r) ? 'fill-current' : 'opacity-25'}"></i>`).join('');
+
+/* ── разметка фильтров ────────────────────────────────────────────────── */
+const checkbox = (group, val, label, count) => `
+  <label class="flex items-center gap-2.5 cursor-pointer group text-[14px]">
+    <input type="checkbox" data-group="${group}" value="${val}" class="w-4 h-4 rounded border-line cursor-pointer">
+    <span class="flex-1 group-hover:text-accent transition-colors duration-200">${label}</span>
+    <span class="text-[12px] text-ink/35">${count}</span>
+  </label>`;
+
+document.getElementById('f-cat').innerHTML = CATS
+  .map(c => checkbox('cats', c.id, c.n, P.filter(p => p.c === c.id).length)).join('');
+document.getElementById('f-stock').innerHTML =
+  checkbox('stock', '1', 'В наличии', P.filter(p => p.s).length) +
+  checkbox('stock', '0', 'Под заказ', P.filter(p => !p.s).length);
+document.getElementById('f-tag').innerHTML = Object.entries(TAGS)
+  .map(([k, v]) => checkbox('tags', k, v, P.filter(p => p.tag === k).length)).join('');
+const BRANDS = [...new Set(P.map(p => p.b))].sort((a, b) => a.localeCompare(b, 'ru'));
+document.getElementById('f-brand').innerHTML = BRANDS
+  .map(b => checkbox('brands', b, b, P.filter(p => p.b === b).length)).join('');
+document.getElementById('price-presets').innerHTML = PRESETS.map(([a, b, l]) =>
+  `<button data-min="${a}" data-max="${b}" class="preset rounded-full border border-line px-3 py-1 text-[12px] hover:border-ink transition-colors duration-200 cursor-pointer">${l}</button>`).join('');
+document.getElementById('sort').innerHTML = SORTS.map(([k, l]) =>
+  `<button data-sort="${k}" class="s-btn h-9 px-3.5 rounded-md text-[13px] font-semibold transition-colors duration-200 cursor-pointer whitespace-nowrap">${l}</button>`).join('');
+document.getElementById('quick-cats').innerHTML = CATS.map(c =>
+  `<button data-cat="${c.id}" class="qc rounded-full border border-line px-4 py-2 text-[13px] font-medium hover:border-ink transition-colors duration-200 cursor-pointer">${c.n}</button>`).join('');
+FOOT.forEach((col, k) => {
+  document.getElementById('foot-' + (k + 1)).innerHTML = `
+    <h3 class="font-display text-white text-[13px] uppercase tracking-[.14em]">${col.t}</h3>
+    <ul class="mt-4 space-y-2.5 text-[14px]">
+      ${col.l.map(l => `<li><a href="catalog.html" class="hover:text-accent transition-colors duration-200 cursor-pointer">${l}</a></li>`).join('')}
+    </ul>`;
+});
+
+/* ── фильтрация и отрисовка ───────────────────────────────────────────── */
+function apply() {
+  let list = P.filter(p => {
+    if (state.cats.size   && !state.cats.has(p.c))          return false;
+    if (state.brands.size && !state.brands.has(p.b))        return false;
+    if (state.tags.size   && !state.tags.has(p.tag))        return false;
+    if (state.stock.size  && !state.stock.has(String(p.s))) return false;
+    if (state.min != null && p.p < state.min)               return false;
+    if (state.max != null && p.p > state.max)               return false;
+    if (state.q && !(p.n + ' ' + p.b).toLowerCase().includes(state.q)) return false;
+    return true;
+  });
+
+  const by = {
+    pop:   (a, b) => b.pop - a.pop,
+    cheap: (a, b) => a.p - b.p,
+    exp:   (a, b) => b.p - a.p,
+    new:   (a, b) => b.new - a.new || b.pop - a.pop,
+    rate:  (a, b) => b.r - a.r,
+  }[state.sort];
+  list.sort(by);
+  return list;
+}
+
+function card(p) {
+  const disc = p.o ? Math.round((1 - p.p / p.o) * 100) : 0;
+  const tagHtml = p.tag ? `<span class="absolute top-3 left-3 rounded-md ${p.tag === 'sale' ? 'bg-accent' : 'bg-ink'} text-white text-[11px] font-bold px-2 py-1">${p.tag === 'sale' ? '−' + disc + '%' : TAGS[p.tag]}</span>` : '';
+  return `
+  <article class="card group relative rounded-xl border border-line overflow-hidden hover:shadow-card hover:border-ink/20 transition-all duration-200 bg-white">
+    <a href="product.html" class="ratio relative aspect-[4/3] bg-surface grid place-items-center overflow-hidden cursor-pointer">
+      <img src="img/${p.g}.jpg" alt="${p.n}" loading="lazy" onerror="this.remove()"
+           class="absolute inset-0 w-full h-full object-contain p-4 mix-blend-multiply group-hover:scale-105 transition-transform duration-300">
+      ${tagHtml}
+    </a>
+    <div class="p-4 flex flex-col">
+      <div class="flex items-start justify-between gap-2">
+        <span class="text-[11px] uppercase tracking-[.12em] text-ink/40">${p.b}</span>
+        <div class="flex gap-1 shrink-0">
+          <button class="w-7 h-7 grid place-items-center rounded hover:bg-surface hover:text-accent transition-colors duration-200 cursor-pointer" aria-label="В избранное">${icon('heart','w-4 h-4')}</button>
+          <button class="w-7 h-7 grid place-items-center rounded hover:bg-surface hover:text-accent transition-colors duration-200 cursor-pointer" aria-label="К сравнению">${icon('scale','w-4 h-4')}</button>
+        </div>
+      </div>
+      <h3 class="mt-1.5 text-[14px] font-semibold leading-snug line-clamp-2 min-h-[38px]">
+        <a href="product.html" class="hover:text-accent transition-colors duration-200 cursor-pointer">${p.n}</a>
+      </h3>
+      <p class="list-desc mt-2 text-[13px] leading-relaxed text-ink/55">Официальная поставка, гарантия 24 месяца, проверка и настройка перед выдачей. Доставка по Беларуси 1–2 дня.</p>
+      <div class="mt-2 flex items-center gap-2 text-[12px]">
+        <span class="flex text-accent">${stars(p.r)}</span>
+        <span class="text-ink/40">${p.rv}</span>
+        <span class="${p.s ? 'text-ok' : 'text-ink/45'} font-semibold ml-auto">${p.s ? 'В наличии' : 'Под заказ'}</span>
+      </div>
+      <div class="mt-3 flex items-end justify-between gap-2">
+        <span>
+          <span class="block font-display text-[18px] leading-none">${money(p.p)} <span class="text-[12px] font-sans text-ink/50">BYN</span></span>
+          ${p.o ? `<s class="block text-[12px] text-ink/40 mt-1">${money(p.o)} BYN</s>`
+                : `<span class="block text-[12px] text-ink/40 mt-1">от ${money(Math.round(p.p / 12))} BYN/мес</span>`}
+        </span>
+        <button class="card-cta buy h-10 px-3.5 shrink-0 inline-flex items-center gap-1.5 rounded-lg bg-ink text-white text-[13px] font-semibold hover:bg-accent transition-all duration-200 cursor-pointer md:opacity-0 md:translate-y-1">
+          ${icon('shopping-cart','w-4 h-4')} <span class="hidden sm:inline">В корзину</span>
+        </button>
+      </div>
+    </div>
+  </article>`;
+}
+
+function chips() {
+  const out = [];
+  const add = (group, val, label) => out.push(
+    `<button data-chip="${group}" data-val="${val}" class="inline-flex items-center gap-1.5 rounded-full bg-surface border border-line px-3 py-1.5 text-[13px] hover:border-ink transition-colors duration-200 cursor-pointer">${label} <i data-lucide="x" class="w-3.5 h-3.5 text-ink/40"></i></button>`);
+  state.cats.forEach(v   => add('cats', v, CATS.find(c => c.id === v).n));
+  state.brands.forEach(v => add('brands', v, v));
+  state.tags.forEach(v   => add('tags', v, TAGS[v]));
+  state.stock.forEach(v  => add('stock', v, v === '1' ? 'В наличии' : 'Под заказ'));
+  if (state.min != null || state.max != null)
+    add('price', 'x', `${state.min ?? 0}–${state.max ?? '∞'} BYN`);
+  const box = document.getElementById('chips');
+  box.innerHTML = out.length
+    ? out.join('') + `<button class="reset-inline text-[13px] text-accent px-2 hover:underline cursor-pointer">сбросить всё</button>`
+    : '';
+}
+
+function render() {
+  const list = apply();
+  const slice = list.slice(0, state.shown);
+  document.getElementById('grid').innerHTML = slice.map(card).join('');
+  document.getElementById('found').textContent = list.length;
+  document.getElementById('apply-count').textContent = list.length;
+  document.getElementById('empty').classList.toggle('hidden', list.length > 0);
+  document.getElementById('pager').classList.toggle('hidden', list.length === 0);
+  document.getElementById('more').classList.toggle('hidden', slice.length >= list.length);
+  document.getElementById('more').textContent = `Показать ещё ${Math.min(9, list.length - slice.length)}`;
+
+  const pages = Math.max(1, Math.ceil(list.length / 9));
+  document.getElementById('pages').innerHTML = Array.from({length: pages}, (_, k) =>
+    `<button class="w-9 h-9 rounded-lg text-[14px] font-semibold transition-colors duration-200 cursor-pointer ${k === 0 ? 'bg-ink text-white' : 'border border-line hover:border-ink'}">${k + 1}</button>`).join('')
+    + (pages > 1 ? `<button class="w-9 h-9 rounded-lg border border-line grid place-items-center hover:border-ink transition-colors duration-200 cursor-pointer" aria-label="Следующая">${icon('chevron-right','w-4 h-4')}</button>` : '');
+
+  document.querySelectorAll('.s-btn').forEach(b => {
+    const on = b.dataset.sort === state.sort;
+    b.classList.toggle('bg-white', on); b.classList.toggle('shadow-card', on);
+    b.classList.toggle('text-ink', on); b.classList.toggle('text-ink/55', !on);
+  });
+  document.querySelectorAll('.v-btn').forEach(b => {
+    const on = b.dataset.view === state.view;
+    b.classList.toggle('bg-white', on); b.classList.toggle('shadow-card', on); b.classList.toggle('text-ink/50', !on);
+  });
+  document.querySelectorAll('.qc').forEach(b =>
+    b.classList.toggle('border-ink', state.cats.has(b.dataset.cat)));
+  document.getElementById('listing').classList.toggle('view-list', state.view === 'list');
+
+  chips();
+  lucide.createIcons();
+}
+
+/* ── события ──────────────────────────────────────────────────────────── */
+document.addEventListener('change', e => {
+  const cb = e.target.closest('input[type="checkbox"][data-group]');
+  if (!cb) return;
+  const set = state[cb.dataset.group];
+  cb.checked ? set.add(cb.value) : set.delete(cb.value);
+  state.shown = 9;
+  render();
+});
+
+document.addEventListener('click', e => {
+  const t = e.target;
+
+  const sort = t.closest('.s-btn');
+  if (sort) { state.sort = sort.dataset.sort; render(); return; }
+
+  const view = t.closest('.v-btn');
+  if (view) { state.view = view.dataset.view; render(); return; }
+
+  const qc = t.closest('.qc');
+  if (qc) {
+    const id = qc.dataset.cat;
+    state.cats.has(id) ? state.cats.delete(id) : state.cats.add(id);
+    document.querySelectorAll('input[data-group="cats"]').forEach(i => i.checked = state.cats.has(i.value));
+    state.shown = 9; render(); return;
+  }
+
+  const preset = t.closest('.preset');
+  if (preset) {
+    state.min = +preset.dataset.min; state.max = +preset.dataset.max;
+    document.getElementById('price-min').value = state.min || '';
+    document.getElementById('price-max').value = state.max === 99999 ? '' : state.max;
+    state.shown = 9; render(); return;
+  }
+
+  const chip = t.closest('[data-chip]');
+  if (chip) {
+    const { chip: group, val } = chip.dataset;
+    if (group === 'price') {
+      state.min = state.max = null;
+      document.getElementById('price-min').value = '';
+      document.getElementById('price-max').value = '';
+    } else {
+      state[group].delete(val);
+      document.querySelectorAll(`input[data-group="${group}"]`).forEach(i => { if (i.value === val) i.checked = false; });
+    }
+    render(); return;
+  }
+
+  if (t.closest('#reset') || t.closest('.reset-inline')) {
+    state.cats.clear(); state.brands.clear(); state.tags.clear(); state.stock.clear();
+    state.min = state.max = null; state.q = ''; state.shown = 9;
+    document.querySelectorAll('input[type="checkbox"][data-group]').forEach(i => i.checked = false);
+    ['price-min','price-max','brand-search','q','q-mobile'].forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
+    render(); return;
+  }
+
+  if (t.closest('#more')) { state.shown += 9; render(); return; }
+
+  if (t.closest('.buy')) {
+    const el = document.getElementById('cart-count');
+    el.textContent = +el.textContent + 1;
+    const b = t.closest('.buy');
+    b.classList.add('bg-ok'); b.classList.remove('bg-ink');
+    setTimeout(() => { b.classList.remove('bg-ok'); b.classList.add('bg-ink'); }, 900);
+    return;
+  }
+
+  if (t.closest('#filters-open')) { toggleFilters(true); return; }
+  if (t.closest('#filters-apply') || t.closest('#overlay') || t.closest('#filters-close')) { toggleFilters(false); return; }
+});
+
+['price-min','price-max'].forEach(id => document.getElementById(id).addEventListener('input', e => {
+  const v = e.target.value === '' ? null : +e.target.value;
+  id === 'price-min' ? state.min = v : state.max = v;
+  state.shown = 9; render();
+}));
+
+document.getElementById('brand-search').addEventListener('input', e => {
+  const q = e.target.value.toLowerCase();
+  document.querySelectorAll('#f-brand label').forEach(l =>
+    l.classList.toggle('hidden', !l.textContent.toLowerCase().includes(q)));
+});
+
+['q','q-mobile'].forEach(id => document.getElementById(id).addEventListener('input', e => {
+  state.q = e.target.value.trim().toLowerCase(); state.shown = 9; render();
+}));
+
+/* мобильная шторка фильтров */
+function toggleFilters(open) {
+  const f = document.getElementById('filters'), o = document.getElementById('overlay');
+  f.classList.toggle('hidden', !open);          // на десктопе перебивается lg:block
+  f.classList.toggle('fixed', open); f.classList.toggle('inset-x-0', open);
+  f.classList.toggle('bottom-0', open); f.classList.toggle('top-14', open);
+  f.classList.toggle('z-50', open); f.classList.toggle('overflow-y-auto', open);
+  f.classList.toggle('bg-white', open); f.classList.toggle('p-4', open);
+  o.classList.toggle('hidden', !open);
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+
+render();
+</script>
+</body>
+</html>

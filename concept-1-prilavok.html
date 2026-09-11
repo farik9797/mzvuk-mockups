@@ -96,9 +96,9 @@ tailwind.config = {
       <img src="img/logo.png" alt="М-ЗВУК" class="h-9 w-auto">
     </a>
 
-    <button class="hidden md:flex items-center gap-2 h-11 px-4 rounded-lg bg-accent text-white font-semibold text-[14px] hover:bg-accent2 transition-colors duration-200 cursor-pointer shrink-0">
+    <a href="catalog.html" class="hidden md:flex items-center gap-2 h-11 px-4 rounded-lg bg-accent text-white font-semibold text-[14px] hover:bg-accent2 transition-colors duration-200 cursor-pointer shrink-0">
       <i data-lucide="menu" class="w-[18px] h-[18px]"></i> Каталог
-    </button>
+    </a>
 
     <form class="hidden md:block flex-1 min-w-0" onsubmit="return false">
       <label class="relative flex items-center h-11 rounded-lg border border-line bg-surface focus-within:border-ink focus-within:bg-white transition-colors duration-200">
@@ -130,9 +130,9 @@ tailwind.config = {
 
   <!-- мобильная строка: каталог + поиск -->
   <div class="md:hidden max-w-[1320px] mx-auto px-4 pb-3 flex items-center gap-2">
-    <button class="h-11 px-4 flex items-center gap-2 rounded-lg bg-accent text-white font-semibold text-[14px] shrink-0 hover:bg-accent2 transition-colors duration-200 cursor-pointer">
+    <a href="catalog.html" class="h-11 px-4 flex items-center gap-2 rounded-lg bg-accent text-white font-semibold text-[14px] shrink-0 hover:bg-accent2 transition-colors duration-200 cursor-pointer">
       <i data-lucide="menu" class="w-[18px] h-[18px]"></i> Каталог
-    </button>
+    </a>
     <form class="flex-1 min-w-0" onsubmit="return false">
       <label class="relative flex items-center h-11 rounded-lg border border-line bg-surface focus-within:border-ink focus-within:bg-white transition-colors duration-200">
         <i data-lucide="search" class="w-[18px] h-[18px] absolute left-3.5 text-ink/40"></i>
@@ -176,14 +176,14 @@ tailwind.config = {
           <h1 class="mt-4 font-display text-[30px] md:text-[36px] leading-[1.08] tracking-tight">Гитарная неделя<br>в М-ЗВУК</h1>
           <p class="mt-3 text-white/70 text-[15px] leading-relaxed">Электро-, акустика, комбо и педали. Рассрочка 0% на 6 месяцев, доставка по РБ за 1–2 дня.</p>
           <div class="mt-6 flex flex-wrap gap-3">
-            <a href="#hits" class="h-11 px-5 inline-flex items-center gap-2 rounded-lg bg-accent hover:bg-accent2 font-semibold text-[14px] transition-colors duration-200 cursor-pointer">Смотреть акции <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
-            <a href="#cats" class="h-11 px-5 inline-flex items-center rounded-lg border border-white/25 hover:bg-white hover:text-ink font-semibold text-[14px] transition-colors duration-200 cursor-pointer">Весь каталог</a>
+            <a href="catalog.html" class="h-11 px-5 inline-flex items-center gap-2 rounded-lg bg-accent hover:bg-accent2 font-semibold text-[14px] transition-colors duration-200 cursor-pointer">Смотреть акции <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+            <a href="catalog.html" class="h-11 px-5 inline-flex items-center rounded-lg border border-white/25 hover:bg-white hover:text-ink font-semibold text-[14px] transition-colors duration-200 cursor-pointer">Весь каталог</a>
           </div>
         </div>
       </div>
 
       <div class="col-span-12 md:col-span-4 grid grid-rows-2 gap-5">
-        <a href="#" class="relative rounded-xl border border-line p-6 overflow-hidden hover:border-ink transition-colors duration-200 cursor-pointer group">
+        <a href="catalog.html" class="relative rounded-xl border border-line p-6 overflow-hidden hover:border-ink transition-colors duration-200 cursor-pointer group">
           <span class="text-[11px] font-bold uppercase tracking-[.14em] text-accent">Новинка</span>
           <p class="mt-2 font-display text-[19px] leading-tight">Цифровые пианино<br>Yamaha P-серия</p>
           <p class="mt-2 text-[13px] text-ink/55">от 1 890 BYN</p>
@@ -226,7 +226,7 @@ tailwind.config = {
 <section id="cats" class="max-w-[1320px] mx-auto px-4 mt-14">
   <div class="flex items-end justify-between gap-4 mb-6">
     <h2 class="font-display text-[24px] md:text-[28px] tracking-tight">Каталог товаров</h2>
-    <a href="#" class="text-[14px] font-semibold text-ink/60 hover:text-accent transition-colors duration-200 cursor-pointer inline-flex items-center gap-1">все разделы <i data-lucide="chevron-right" class="w-4 h-4"></i></a>
+    <a href="catalog.html" class="text-[14px] font-semibold text-ink/60 hover:text-accent transition-colors duration-200 cursor-pointer inline-flex items-center gap-1">все разделы <i data-lucide="chevron-right" class="w-4 h-4"></i></a>
   </div>
   <div id="cat-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4"></div>
 </section>
@@ -432,14 +432,14 @@ const stars = (n, cls='w-3.5 h-3.5') =>
   Array.from({length:5}, (_,k) => `<i data-lucide="star" class="${cls} ${k<n?'fill-current':'opacity-25'}"></i>`).join('');
 
 document.getElementById('cat-menu').innerHTML = CATS.slice(0,10).map(c => `
-  <li><a href="#" class="flex items-center gap-3 px-4 py-[11px] text-[14px] hover:bg-surface hover:text-accent transition-colors duration-200 cursor-pointer group">
+  <li><a href="catalog.html" class="flex items-center gap-3 px-4 py-[11px] text-[14px] hover:bg-surface hover:text-accent transition-colors duration-200 cursor-pointer group">
     ${icon(c.i, 'w-[18px] h-[18px] text-ink/45 group-hover:text-accent transition-colors duration-200')}
     <span class="flex-1">${c.n}</span>
     ${icon('chevron-right','w-4 h-4 text-ink/25')}
   </a></li>`).join('');
 
 document.getElementById('cat-grid').innerHTML = CATS.map(c => `
-  <a href="#" class="group rounded-xl border border-line p-5 hover:border-ink hover:shadow-card transition-all duration-200 cursor-pointer">
+  <a href="catalog.html" class="group rounded-xl border border-line p-5 hover:border-ink hover:shadow-card transition-all duration-200 cursor-pointer">
     <span class="w-11 h-11 rounded-lg bg-surface grid place-items-center group-hover:bg-accent group-hover:text-white transition-colors duration-200">${icon(c.i,'w-[22px] h-[22px]')}</span>
     <span class="block mt-4 font-bold text-[14px] leading-snug">${c.n}</span>
     <span class="block mt-1 text-[12px] text-ink/45">${c.c} товаров</span>
@@ -458,7 +458,7 @@ function renderProducts(key) {
       <div class="p-4">
         <span class="text-[11px] uppercase tracking-[.12em] text-ink/40">${p.b}</span>
         <h3 class="mt-1.5 text-[14px] font-semibold leading-snug line-clamp-2 min-h-[38px]">
-          <a href="#" class="hover:text-accent transition-colors duration-200 cursor-pointer">${p.n}</a>
+          <a href="product.html" class="hover:text-accent transition-colors duration-200 cursor-pointer">${p.n}</a>
         </h3>
         <div class="mt-2 flex items-center gap-2 text-[12px]">
           <span class="flex text-accent">${stars(p.r,'w-3 h-3')}</span>

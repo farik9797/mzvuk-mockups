@@ -50,6 +50,16 @@ tailwind.config = { theme: { extend: {
 <main class="max-w-[1160px] mx-auto px-6 py-14">
   <div class="grid md:grid-cols-3 gap-6" id="cards"></div>
 
+  <section class="mt-14 rounded-2xl border-2 border-ink p-8 md:p-10">
+    <span class="text-[11px] font-bold uppercase tracking-[.2em] text-[#E22B2B]">выбрано в работу</span>
+    <h2 class="font-display text-[24px] tracking-tight mt-3">Концепция 1 «Прилавок» — разворачиваем внутренние страницы</h2>
+    <p class="mt-3 text-[15px] leading-relaxed text-muted max-w-[720px]">
+      Направление утверждено заказчиком. Логотип и фирменный красный подставлены, дальше на этой основе
+      собираются страницы каталога и товара.
+    </p>
+    <div class="mt-7 grid sm:grid-cols-3 gap-4" id="flow"></div>
+  </section>
+
   <section class="mt-20">
     <h2 class="font-display text-[24px] tracking-tight">Что уже заложено во всех макетах</h2>
     <p class="mt-2 text-[15px] text-muted max-w-[680px]">Пункты брифа, разделы 3 и 4 — «Контент сайта» и «Функционал сайта».</p>
@@ -121,7 +131,7 @@ const BRIEF = [
 ];
 
 const NEED = [
-  { s: 'ждём',  t: 'Выбрать концепцию (или собрать гибрид) — единственный открытый вопрос по дизайну.' },
+  { s: 'есть',  t: 'Концепция выбрана: вариант 1 «Прилавок». Каталог и карточка товара собраны на ней.' },
   { s: 'есть',  t: 'Логотип получен и подставлен в макеты. Для ретины и печати понадобится вектор (SVG/AI/EPS).' },
   { s: 'есть',  t: 'Палитры согласованы. В концепции 1 акцент приведён к фирменному красному #E22B2B — под логотип.' },
   { s: 'ждём',  t: 'Каталог и фото приходят из 1С. Нужен пример выгрузки (XML/XLS) — по нему проектируем фильтр и карточку.' },
@@ -148,6 +158,26 @@ document.getElementById('cards').innerHTML = CONCEPTS.map(c => `
       <span class="mt-6 pt-5 border-t border-line flex items-center gap-2 text-[14px] font-semibold group-hover:text-[#FF4D17] transition-colors duration-200">
         Открыть макет <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200"></i>
       </span>
+    </span>
+  </a>`).join('');
+
+const FLOW = [
+  { f: 'concept-1-prilavok.html', i: 'home',                n: 'Главная',        d: 'Каталог слева, акции, хиты, услуги, отзывы, контакты' },
+  { f: 'catalog.html',            i: 'sliders-horizontal',  n: 'Каталог',        d: 'Фильтр, сортировка, ярлыки, вид сеткой и списком' },
+  { f: 'product.html',            i: 'package',             n: 'Карточка товара',d: 'Галерея, характеристики, отзывы, похожие и сопутствующие' },
+];
+document.getElementById('flow').innerHTML = FLOW.map((x, k) => `
+  <a href="${x.f}" class="lift group rounded-xl border border-line p-5 cursor-pointer hover:border-ink">
+    <span class="flex items-center justify-between">
+      <span class="w-10 h-10 rounded-lg bg-surface grid place-items-center group-hover:bg-[#E22B2B] group-hover:text-white transition-colors duration-200">
+        <i data-lucide="${x.i}" class="w-5 h-5"></i>
+      </span>
+      <span class="font-display text-[12px] text-muted">0${k + 1}</span>
+    </span>
+    <span class="block mt-4 font-display text-[16px] tracking-tight">${x.n}</span>
+    <span class="block mt-1.5 text-[13px] leading-relaxed text-muted">${x.d}</span>
+    <span class="mt-4 inline-flex items-center gap-1.5 text-[13px] font-semibold group-hover:text-[#E22B2B] transition-colors duration-200">
+      открыть <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200"></i>
     </span>
   </a>`).join('');
 
