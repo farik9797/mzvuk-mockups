@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Контакты — М-ЗВУК</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="theme.js"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { -webkit-font-smoothing: antialiased; }
+  [data-lucide] { stroke-width: 1.6; }
+  :focus-visible { outline: 2px solid #E22B2B; outline-offset: 2px; border-radius: 4px; }
+  input[type="checkbox"], input[type="radio"] { accent-color: #E22B2B; }
+  details[open] .chev { transform: rotate(180deg); }
+  @media (prefers-reduced-motion: reduce) { * { animation:none !important; transition:none !important; scroll-behavior:auto !important } }
+</style>
+</head>
+<body class="bg-white text-ink font-sans antialiased">
+
+
+<main class="max-w-[1320px] mx-auto px-4">
+  <section class="max-w-[760px]">
+    <h1 class="font-display text-[30px] md:text-[40px] leading-tight tracking-tight">Контакты</h1>
+    <p class="mt-5 text-[16px] leading-relaxed text-ink/70">
+      Магазин, склад и сервисный центр находятся в Гродно. Приезжайте послушать инструмент
+      или звоните — подберём и отправим в любой город Беларуси.
+    </p>
+  </section>
+
+  <div class="mt-10 grid lg:grid-cols-[420px_1fr] gap-6">
+    <div class="space-y-4">
+      <div class="rounded-2xl border border-line p-7">
+        <h2 class="font-display text-[18px] tracking-tight">Магазин и склад</h2>
+        <dl class="mt-5 space-y-4 text-[15px]" id="main-contacts"></dl>
+      </div>
+      <div class="rounded-2xl border border-line overflow-hidden">
+        <h2 class="font-display text-[18px] tracking-tight p-7 pb-4">Отделы</h2>
+        <ul class="divide-y divide-line" id="depts"></ul>
+      </div>
+    </div>
+
+    <div class="space-y-4">
+      <div class="relative rounded-2xl border border-line bg-surface min-h-[420px] grid place-items-center overflow-hidden">
+        <div class="text-center px-6">
+          <i data-lucide="map" class="w-10 h-10 mx-auto text-ink/25"></i>
+          <p class="mt-3 font-display text-[13px] uppercase tracking-[.14em] text-ink/45">Интерактивная Яндекс.Карта</p>
+          <p class="mt-1.5 text-[13px] text-ink/40">г. Гродно, ул. 17 Сентября, 49-11 · метка магазина и парковка</p>
+        </div>
+        <span class="absolute bottom-4 right-4 text-[12px] text-ink/35">карта подключается ключом API на боевом домене</span>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="rounded-2xl border border-line p-7">
+          <h3 class="font-display text-[16px] tracking-tight">Как добраться</h3>
+          <ul class="mt-4 space-y-2.5 text-[14px] leading-relaxed text-ink/65" id="route"></ul>
+        </div>
+        <div class="rounded-2xl border border-line p-7">
+          <h3 class="font-display text-[16px] tracking-tight">Реквизиты</h3>
+          <dl class="mt-4 space-y-2.5 text-[14px]" id="req"></dl>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="mt-14 grid lg:grid-cols-[1fr_1fr] gap-6">
+    <div class="rounded-2xl bg-ink text-white p-8 md:p-10">
+      <h2 class="font-display text-[24px] tracking-tight">Напишите нам</h2>
+      <p class="mt-3 text-[15px] leading-relaxed text-white/65 max-w-[420px]">Оставьте контакты и вопрос — перезвоним в течение 15 минут в рабочее время.</p>
+      <form class="mt-7 grid sm:grid-cols-2 gap-3" onsubmit="return false">
+        <input placeholder="Имя" class="h-12 px-4 rounded-lg bg-white/10 border border-white/15 text-[14px] text-white placeholder:text-white/40 outline-none focus:border-accent transition-colors duration-200">
+        <input type="tel" placeholder="+375 (__) ___-__-__" class="h-12 px-4 rounded-lg bg-white/10 border border-white/15 text-[14px] text-white placeholder:text-white/40 outline-none focus:border-accent transition-colors duration-200">
+        <textarea rows="3" placeholder="Ваш вопрос" class="sm:col-span-2 p-4 rounded-lg bg-white/10 border border-white/15 text-[14px] text-white placeholder:text-white/40 outline-none focus:border-accent transition-colors duration-200 resize-y"></textarea>
+        <label class="sm:col-span-2 flex items-start gap-3 cursor-pointer">
+          <input type="checkbox" class="mt-0.5 w-4 h-4 rounded cursor-pointer">
+          <span class="text-[13px] leading-relaxed text-white/60">Согласен на обработку персональных данных</span>
+        </label>
+        <button class="sm:col-span-2 h-12 rounded-lg bg-accent text-white font-semibold text-[15px] hover:bg-accent2 transition-colors duration-200 cursor-pointer">Отправить</button>
+      </form>
+    </div>
+    <div class="rounded-2xl border border-line p-8 md:p-10">
+      <h2 class="font-display text-[24px] tracking-tight">Режим работы</h2>
+      <ul class="mt-6 divide-y divide-line" id="hours"></ul>
+      <p class="mt-6 text-[14px] leading-relaxed text-ink/60">
+        Заказы с сайта принимаем круглосуточно — обрабатываем в ближайший рабочий день.
+        В праздничные дни режим публикуем в новостях.
+      </p>
+      <div class="mt-6 flex gap-2" id="socials"></div>
+    </div>
+  </section>
+<p class="mt-6 text-[13px] text-ink/45 flex gap-2 items-start">
+  <i data-lucide="info" class="w-4 h-4 mt-0.5 shrink-0"></i> Режим работы и распределение по отделам — предположение. Уточните фактический график и внутренние номера.</p>
+</main>
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="cart-store.js"></script>
+<script src="layout.js"></script>
+<script>
+Layout.render({
+  concept: 'Контакты',
+  note: 'Адрес, телефоны, отделы, карта и режим работы',
+  crumbs: [['Главная','concept-1-prilavok.html'],['Контакты',null]],
+});
+
+document.getElementById('main-contacts').innerHTML = [
+  ['map-pin','Адрес','230023, г. Гродно,<br>ул. 17 Сентября, 49-11'],
+  ['phone','Телефоны','<a href="tel:+375152623333" class="hover:text-accent transition-colors duration-200 cursor-pointer">+375 (152) 62-33-33</a><br><a href="tel:+375333772873" class="hover:text-accent transition-colors duration-200 cursor-pointer">+375 (33) 377-28-73</a>'],
+  ['printer','Факс','+375 (152) 62-32-32'],
+  ['mail','E-mail','<a href="mailto:sales@mzvuk.by" class="hover:text-accent transition-colors duration-200 cursor-pointer">sales@mzvuk.by</a>'],
+].map(([i,k,v]) => `
+  <div class="flex gap-3">
+    <i data-lucide="${i}" class="w-5 h-5 text-accent shrink-0 mt-0.5"></i>
+    <div><dt class="text-[13px] text-ink/50">${k}</dt><dd class="font-medium mt-0.5 leading-relaxed">${v}</dd></div>
+  </div>`).join('');
+
+document.getElementById('depts').innerHTML = [
+  ['shopping-cart','Отдел продаж','заказы, подбор, наличие','sales@mzvuk.by'],
+  ['file-text','Работа с организациями','счета, тендеры, документы','sales@mzvuk.by'],
+  ['wrench','Сервисный центр','ремонт и обслуживание','sales@mzvuk.by'],
+].map(([i,n,d,m]) => `
+  <li class="p-5 flex gap-4 items-start hover:bg-surface transition-colors duration-200">
+    <span class="w-10 h-10 rounded-lg bg-surface grid place-items-center shrink-0"><i data-lucide="${i}" class="w-[18px] h-[18px] text-accent"></i></span>
+    <span class="flex-1 min-w-0">
+      <span class="block font-semibold text-[14.5px]">${n}</span>
+      <span class="block text-[13px] text-ink/55 mt-0.5">${d}</span>
+      <a href="mailto:${m}" class="block text-[13px] text-accent mt-1 hover:underline cursor-pointer">${m}</a>
+    </span>
+  </li>`).join('');
+
+document.getElementById('route').innerHTML = [
+  'Центр Гродно, ориентир — пересечение с улицей Ожешко',
+  'Городские автобусы и маршрутки — остановка в двух минутах ходьбы',
+  'Парковка для покупателей вдоль здания',
+  'Вход со стороны улицы, первый этаж',
+].map(x => `<li class="flex gap-2.5"><i data-lucide="corner-down-right" class="w-4 h-4 text-accent shrink-0 mt-0.5"></i> ${x}</li>`).join('');
+
+document.getElementById('req').innerHTML = [
+  ['Наименование','ООО «Арт-Медиа Трейд»'],
+  ['УНП','590830372'],
+  ['ОКПО','295801714000'],
+].map(([k,v]) => `<div class="flex justify-between gap-3"><dt class="text-ink/50">${k}</dt><dd class="font-medium text-right">${v}</dd></div>`).join('')
+  + '<p class="text-[12.5px] text-ink/45 pt-2">Банковские реквизиты — по запросу вместе со счётом.</p>';
+
+document.getElementById('hours').innerHTML = [
+  ['Понедельник — пятница','10:00 — 19:00'],
+  ['Суббота','10:00 — 16:00'],
+  ['Воскресенье','выходной'],
+].map(([d,h]) => `
+  <li class="flex justify-between gap-4 py-3.5 text-[15px]">
+    <span class="${h==='выходной'?'text-ink/50':''}">${d}</span>
+    <span class="font-semibold ${h==='выходной'?'text-ink/40':''}">${h}</span>
+  </li>`).join('');
+
+document.getElementById('socials').innerHTML = ['telegram','instagram','youtube'].map(s => `
+  <a href="#" aria-label="${s}" class="w-11 h-11 grid place-items-center rounded-lg border border-line hover:border-ink transition-colors duration-200 cursor-pointer">
+    <img src="https://cdn.simpleicons.org/${s}/0E1526" alt="" class="w-[18px] h-[18px]">
+  </a>`).join('');
+
+lucide.createIcons();
+</script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>О компании — М-ЗВУК</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="theme.js"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { -webkit-font-smoothing: antialiased; }
+  [data-lucide] { stroke-width: 1.6; }
+  :focus-visible { outline: 2px solid #E22B2B; outline-offset: 2px; border-radius: 4px; }
+  input[type="checkbox"], input[type="radio"] { accent-color: #E22B2B; }
+  details[open] .chev { transform: rotate(180deg); }
+  @media (prefers-reduced-motion: reduce) { * { animation:none !important; transition:none !important; scroll-behavior:auto !important } }
+</style>
+</head>
+<body class="bg-white text-ink font-sans antialiased">
+
+
+<main class="max-w-[1320px] mx-auto px-4">
+  <section class="grid lg:grid-cols-[1.1fr_.9fr] gap-10 items-start">
+    <div>
+      <h1 class="font-display text-[30px] md:text-[40px] leading-tight tracking-tight">Магазин звука,<br>который сам стоит на сцене</h1>
+      <div class="mt-6 space-y-4 text-[16px] leading-relaxed text-ink/75 max-w-[620px]">
+        <p>ООО «Арт-Медиа Трейд» — поставщик музыкальных инструментов, звукового и светового оборудования
+        в Беларуси. Работаем в Гродно, отгружаем по всей стране: от струн и микрофонных стоек
+        до комплексного оснащения залов.</p>
+        <p>К нам приходят и за первой гитарой ребёнку, и за комплектом на сцену Дома культуры. В обоих
+        случаях подбираем не то, что дороже, а то, что решает задачу: слушаем, для чего инструмент,
+        в каком помещении он будет звучать и какой бюджет реален.</p>
+        <p>Перед выдачей мастер проверяет инструмент: строй, высоту струн, мензуру, работу электроники.
+        Если что-то замолчит позже — чиним в собственном сервисе, а на время ремонта выдаём подменный.</p>
+      </div>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="catalog.html" class="h-12 px-7 inline-flex items-center gap-2 rounded-lg bg-accent text-white font-semibold text-[15px] hover:bg-accent2 transition-colors duration-200 cursor-pointer">В каталог <i data-lucide="arrow-right" class="w-[18px] h-[18px]"></i></a>
+        <a href="contacts.html" class="h-12 px-7 inline-flex items-center rounded-lg border border-line font-semibold text-[15px] hover:border-ink transition-colors duration-200 cursor-pointer">Приехать в магазин</a>
+      </div>
+    </div>
+    <div class="relative rounded-2xl overflow-hidden bg-surface aspect-[4/3]">
+      <img src="img/hero-1-retail.jpg" alt="Торговый зал" class="absolute inset-0 w-full h-full object-cover" onerror="this.remove()">
+    </div>
+  </section>
+
+  <dl class="mt-14 grid grid-cols-2 lg:grid-cols-4 gap-px bg-line border border-line rounded-2xl overflow-hidden" id="figures"></dl>
+
+  <section class="mt-16">
+    <h2 class="font-display text-[24px] md:text-[28px] tracking-tight">С кем мы работаем</h2>
+    <div class="mt-6 grid md:grid-cols-2 lg:grid-cols-4 gap-4" id="segments"></div>
+  </section>
+
+  <section class="mt-16 rounded-2xl bg-ink text-white overflow-hidden">
+    <div class="grid lg:grid-cols-[1fr_1.15fr]">
+      <div class="p-8 md:p-10">
+        <span class="text-[11px] font-bold uppercase tracking-[.18em] text-accent">Почему нам доверяют</span>
+        <h2 class="mt-3 font-display text-[26px] md:text-[30px] leading-tight tracking-tight">Официальные поставки<br>и сервис на месте</h2>
+        <p class="mt-4 text-[15px] leading-relaxed text-white/65 max-w-[400px]">
+          Прямые контракты с производителями, гарантия от года до трёх лет, полный пакет документов
+          для бухгалтерии и собственная мастерская в Гродно.
+        </p>
+        <a href="services.html" class="mt-6 inline-flex items-center gap-2 h-11 px-5 rounded-lg bg-white text-ink font-semibold text-[14px] hover:bg-accent hover:text-white transition-colors duration-200 cursor-pointer">Услуги и сервис <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+      </div>
+      <ul class="grid sm:grid-cols-2 gap-px bg-white/10" id="trust"></ul>
+    </div>
+  </section>
+
+  <section id="partners" class="mt-16 scroll-mt-24">
+    <div class="flex flex-wrap items-end justify-between gap-4">
+      <h2 class="font-display text-[24px] md:text-[28px] tracking-tight">Партнёры и бренды</h2>
+      <span class="text-[13px] text-ink/50">официальные поставки, более 120 брендов</span>
+    </div>
+    <ul class="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-px bg-line border border-line rounded-2xl overflow-hidden" id="brands"></ul>
+    <p class="mt-4 text-[13px] text-ink/45">Названия брендов набраны текстом: официальные логотипы вендоров подставляются из их брендбуков после согласования.</p>
+  </section>
+
+  <section class="mt-16 grid lg:grid-cols-2 gap-6">
+    <div class="rounded-2xl border border-line p-8">
+      <h2 class="font-display text-[20px] tracking-tight">Реквизиты</h2>
+      <dl class="mt-5 space-y-3 text-[15px]" id="requisites"></dl>
+      <p class="mt-5 text-[13px] text-ink/45">Банковские реквизиты высылаем по запросу вместе со счётом — на странице не публикуем.</p>
+    </div>
+    <div class="rounded-2xl border border-line p-8">
+      <h2 class="font-display text-[20px] tracking-tight">Документы</h2>
+      <p class="mt-3 text-[14px] leading-relaxed text-ink/65">Свидетельство о регистрации, сертификаты на оборудование и дилерские письма собраны в отдельном разделе.</p>
+      <a href="certificates.html" class="mt-5 inline-flex items-center gap-2 text-[14px] font-semibold text-accent hover:underline cursor-pointer">Смотреть документы <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+    </div>
+  </section>
+<p class="mt-6 text-[13px] text-ink/45 flex gap-2 items-start">
+  <i data-lucide="info" class="w-4 h-4 mt-0.5 shrink-0"></i> Тексты раздела — рабочая заглушка по смыслу брифа. Финальную редакцию заказчик передаёт отдельно.</p>
+</main>
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="cart-store.js"></script>
+<script src="layout.js"></script>
+<script>
+Layout.render({
+  concept: 'О компании',
+  note: 'Кто мы, с кем работаем, партнёры и реквизиты',
+  crumbs: [['Главная','concept-1-prilavok.html'],['О компании',null]],
+});
+
+const FIG = [['12 400','позиций в каталоге'], ['120+','брендов в поставке'], ['1–2 дня','доставка по Беларуси'], ['4,9','рейтинг покупателей']];
+document.getElementById('figures').innerHTML = FIG.map(([v,k]) => `
+  <div class="bg-white p-6"><dt class="font-display text-[30px] leading-none">${v}</dt><dd class="text-[13px] text-ink/55 mt-2">${k}</dd></div>`).join('');
+
+const SEG = [
+  ['user','Музыкантам','Инструменты, аксессуары и репетиционный комплект — с подбором под уровень и бюджет.'],
+  ['mic-vocal','Студиям','Микрофоны, интерфейсы, мониторы и акустическая обработка помещения.'],
+  ['school','Школам и ДК','Оснащение классов и залов, работа по тендеру, обучение персонала.'],
+  ['speaker','Площадкам','Порталы, радиосистемы, свет, монтаж и обслуживание на объекте.'],
+];
+document.getElementById('segments').innerHTML = SEG.map(([i,n,d]) => `
+  <article class="rounded-xl border border-line p-6 hover:border-ink hover:shadow-card transition-all duration-200">
+    <span class="w-11 h-11 rounded-lg bg-surface grid place-items-center"><i data-lucide="${i}" class="w-[22px] h-[22px] text-accent"></i></span>
+    <h3 class="mt-4 font-display text-[16px] tracking-tight">${n}</h3>
+    <p class="mt-2 text-[14px] leading-relaxed text-ink/60">${d}</p>
+  </article>`).join('');
+
+const TRUST = [
+  ['shield-check','Официальный поставщик','Прямые контракты, сертификаты и гарантия производителя'],
+  ['check-check','Проверка перед выдачей','Инструмент настраивают, оборудование тестируют'],
+  ['file-text','Работа по безналу','Счёт-фактура, ЭСЧФ, участие в тендерах'],
+  ['wrench','Свой сервис','Ремонт в Гродно и подменный инструмент на время работ'],
+];
+document.getElementById('trust').innerHTML = TRUST.map(([i,n,d]) => `
+  <li class="bg-ink p-7">
+    <span class="w-10 h-10 rounded-lg bg-white/10 grid place-items-center text-accent"><i data-lucide="${i}" class="w-5 h-5"></i></span>
+    <h3 class="mt-4 font-display text-[15px] text-white">${n}</h3>
+    <p class="mt-2 text-[13px] leading-relaxed text-white/55">${d}</p>
+  </li>`).join('');
+
+document.getElementById('brands').innerHTML = ['Yamaha','Fender','Roland','Shure','Behringer','JBL','Korg','Boss','Cort','Pioneer DJ','Focusrite','Audio-Technica']
+  .map(b => `<li class="bg-white h-20 grid place-items-center px-3 hover:bg-surface transition-colors duration-200 cursor-pointer"><span class="font-display text-[14px] tracking-tight text-ink/55 text-center">${b}</span></li>`).join('');
+
+document.getElementById('requisites').innerHTML = [
+  ['Полное наименование','Общество с ограниченной ответственностью «Арт-Медиа Трейд»'],
+  ['Юридический адрес','230023, г. Гродно, ул. 17 Сентября, 49-11'],
+  ['УНП','590830372'],
+  ['ОКПО','295801714000'],
+  ['Телефон / факс','+375 (152) 62-33-33 / +375 (152) 62-32-32'],
+  ['E-mail','sales@mzvuk.by'],
+].map(([k,v]) => `<div><dt class="text-[13px] text-ink/50">${k}</dt><dd class="font-medium mt-0.5">${v}</dd></div>`).join('');
+
+lucide.createIcons();
+</script>
+</body>
+</html>

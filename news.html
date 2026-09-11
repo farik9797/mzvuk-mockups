@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Новости и статьи — М-ЗВУК</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="theme.js"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { -webkit-font-smoothing: antialiased; }
+  [data-lucide] { stroke-width: 1.6; }
+  :focus-visible { outline: 2px solid #E22B2B; outline-offset: 2px; border-radius: 4px; }
+  input[type="checkbox"], input[type="radio"] { accent-color: #E22B2B; }
+  details[open] .chev { transform: rotate(180deg); }
+  @media (prefers-reduced-motion: reduce) { * { animation:none !important; transition:none !important; scroll-behavior:auto !important } }
+</style>
+</head>
+<body class="bg-white text-ink font-sans antialiased">
+
+
+<main class="max-w-[1320px] mx-auto px-4">
+  <section class="max-w-[760px]">
+    <h1 class="font-display text-[30px] md:text-[40px] leading-tight tracking-tight">Новости и статьи</h1>
+    <p class="mt-5 text-[16px] leading-relaxed text-ink/70">
+      Что происходит в магазине и что полезно знать перед покупкой: разборы моделей,
+      схемы озвучивания залов, новинки на складе и изменения в работе.
+    </p>
+  </section>
+
+  <div class="mt-8 flex flex-wrap items-center gap-2" id="tabs"></div>
+
+  <article id="lead" class="mt-8"></article>
+
+  <div id="grid" class="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+  <div class="mt-10 flex justify-center">
+    <button class="h-11 px-6 rounded-lg border border-line font-semibold text-[14px] hover:border-ink transition-colors duration-200 cursor-pointer">Показать ещё</button>
+  </div>
+
+  <section class="mt-16 rounded-2xl bg-surface p-8 md:p-10 grid lg:grid-cols-[1fr_auto] gap-6 items-center">
+    <div>
+      <h2 class="font-display text-[22px] tracking-tight">Подписка на новости</h2>
+      <p class="mt-2.5 text-[14.5px] leading-relaxed text-ink/65 max-w-[560px]">Раз в месяц — поступления, скидки и разборы. Без спама, отписаться можно в один клик.</p>
+    </div>
+    <form class="flex gap-2 w-full lg:w-auto" onsubmit="return false">
+      <input type="email" placeholder="mail@example.by" class="flex-1 lg:w-[280px] h-12 px-4 rounded-lg border border-line bg-white text-[14px] outline-none focus:border-ink transition-colors duration-200">
+      <button class="h-12 px-6 rounded-lg bg-accent text-white font-semibold text-[15px] hover:bg-accent2 transition-colors duration-200 cursor-pointer shrink-0">Подписаться</button>
+    </form>
+  </section>
+<p class="mt-6 text-[13px] text-ink/45 flex gap-2 items-start">
+  <i data-lucide="info" class="w-4 h-4 mt-0.5 shrink-0"></i> Материалы — демонстрационные: показывают вёрстку ленты. Реальные тексты и фото публикует заказчик через админку.</p>
+</main>
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="cart-store.js"></script>
+<script src="layout.js"></script>
+<script>
+Layout.render({
+  concept: 'Новости и статьи',
+  note: 'Лента материалов с разделением на новости и статьи',
+  crumbs: [['Главная','concept-1-prilavok.html'],['Новости и статьи',null]],
+});
+
+const POSTS = [
+  { t:'article', d:'11 сентября', n:'Как выбрать первую электрогитару: семь честных критериев', x:'Мензура, вес, звукосниматели и то, о чём обычно молчат в магазине. Разбираем, за что действительно стоит доплатить новичку.', g:'article-guitar-choice', m:'6 мин' },
+  { t:'news',    d:'4 сентября',  n:'Открыли шоурум цифровых пианино', x:'Двенадцать моделей в одном зале — можно играть до покупки и сравнить клавиатуры вживую.', g:'article-piano-showroom', m:'2 мин' },
+  { t:'article', d:'28 августа',  n:'Звук для зала на 200 человек: схема и реальный бюджет', x:'Считаем мощность, подбираем порталы и мониторы, не переплачиваем за лишние ватты.', g:'article-hall-sound', m:'8 мин' },
+  { t:'news',    d:'19 августа',  n:'Поступление Yamaha: клавишные и цифровые пианино', x:'На складе появились P-145, P-225 и серия Clavinova — часть позиций доступна в рассрочку.', g:'product-piano-digital', m:'2 мин' },
+  { t:'article', d:'7 августа',   n:'Микрофон для вокала: динамический или конденсаторный', x:'Чем отличаются, что брать для репетиций, сцены и домашней записи.', g:'product-mic-dynamic', m:'5 мин' },
+  { t:'news',    d:'25 июля',     n:'Оснастили сцену Дома культуры в Гродненской области', x:'Порталы, микшер, радиосистемы и свет — от расчёта до обучения персонала за две недели.', g:'hero-2-stage', m:'3 мин' },
+  { t:'article', d:'14 июля',     n:'Домашняя студия за 3000 BYN: рабочий комплект', x:'Интерфейс, микрофон, мониторы и обработка комнаты — по шагам и без лишнего.', g:'product-audio-interface', m:'7 мин' },
+];
+const TABS = [['all','Все материалы'],['news','Новости'],['article','Статьи']];
+let cur = 'all';
+
+const label = t => t === 'news' ? 'Новости' : 'Статья';
+
+function card(p) {
+  return `
+  <a href="article.html" class="group cursor-pointer rounded-xl border border-line overflow-hidden hover:shadow-card hover:border-ink/20 transition-all duration-200 flex flex-col">
+    <span class="relative block aspect-[16/9] bg-surface overflow-hidden">
+      <img src="img/${p.g}.jpg" alt="" loading="lazy" onerror="this.remove()" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+    </span>
+    <span class="flex-1 p-5 flex flex-col">
+      <span class="flex items-center gap-2.5 text-[11px] uppercase tracking-[.12em]">
+        <span class="font-bold ${p.t === 'news' ? 'text-accent' : 'text-ink/60'}">${label(p.t)}</span>
+        <span class="text-ink/35">${p.d}</span>
+        <span class="text-ink/35 ml-auto">${p.m}</span>
+      </span>
+      <span class="block mt-2.5 font-semibold text-[16px] leading-snug group-hover:text-accent transition-colors duration-200">${p.n}</span>
+      <span class="block mt-2 text-[14px] leading-relaxed text-ink/60 flex-1">${p.x}</span>
+      <span class="mt-4 inline-flex items-center gap-1.5 text-[13px] font-semibold group-hover:text-accent transition-colors duration-200">
+        Читать <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200"></i>
+      </span>
+    </span>
+  </a>`;
+}
+
+function renderNews() {
+  const list = POSTS.filter(p => cur === 'all' || p.t === cur);
+  document.getElementById('tabs').innerHTML = TABS.map(([id, n]) => `
+    <button data-t="${id}" class="t-btn rounded-full border px-4 py-2 text-[13px] font-medium transition-colors duration-200 cursor-pointer ${id === cur ? 'border-ink bg-ink text-white' : 'border-line hover:border-ink'}">
+      ${n} <span class="opacity-50">${id === 'all' ? POSTS.length : POSTS.filter(p => p.t === id).length}</span>
+    </button>`).join('');
+
+  const [lead, ...rest] = list;
+  document.getElementById('lead').innerHTML = lead ? `
+    <a href="article.html" class="group grid lg:grid-cols-2 gap-6 rounded-2xl border border-line overflow-hidden hover:border-ink/30 transition-colors duration-200 cursor-pointer">
+      <span class="relative block aspect-[16/10] lg:aspect-auto lg:min-h-[320px] bg-surface overflow-hidden">
+        <img src="img/${lead.g}.jpg" alt="" onerror="this.remove()" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+      </span>
+      <span class="p-7 lg:p-10 flex flex-col justify-center">
+        <span class="flex items-center gap-3 text-[11px] uppercase tracking-[.14em]">
+          <span class="font-bold ${lead.t === 'news' ? 'text-accent' : 'text-ink/60'}">${label(lead.t)}</span>
+          <span class="text-ink/35">${lead.d} · ${lead.m}</span>
+        </span>
+        <span class="block mt-4 font-display text-[24px] md:text-[28px] leading-tight tracking-tight group-hover:text-accent transition-colors duration-200">${lead.n}</span>
+        <span class="block mt-4 text-[15px] leading-relaxed text-ink/65">${lead.x}</span>
+        <span class="mt-6 inline-flex items-center gap-2 text-[14px] font-semibold group-hover:text-accent transition-colors duration-200">
+          Читать материал <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200"></i>
+        </span>
+      </span>
+    </a>` : '';
+  document.getElementById('grid').innerHTML = rest.map(card).join('');
+  lucide.createIcons();
+}
+document.addEventListener('click', e => {
+  const b = e.target.closest('.t-btn');
+  if (b) { cur = b.dataset.t; renderNews(); }
+});
+renderNews();
+
+lucide.createIcons();
+</script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Как выбрать первую электрогитару — М-ЗВУК</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="theme.js"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { -webkit-font-smoothing: antialiased; }
+  [data-lucide] { stroke-width: 1.6; }
+  :focus-visible { outline: 2px solid #E22B2B; outline-offset: 2px; border-radius: 4px; }
+  input[type="checkbox"], input[type="radio"] { accent-color: #E22B2B; }
+  details[open] .chev { transform: rotate(180deg); }
+  @media (prefers-reduced-motion: reduce) { * { animation:none !important; transition:none !important; scroll-behavior:auto !important } }
+</style>
+</head>
+<body class="bg-white text-ink font-sans antialiased">
+
+
+<main class="max-w-[1320px] mx-auto px-4">
+  <article class="grid lg:grid-cols-[1fr_300px] gap-10 items-start">
+    <div class="max-w-[760px]">
+      <span class="flex flex-wrap items-center gap-3 text-[11px] uppercase tracking-[.14em]">
+        <span class="font-bold text-ink/60">Статья</span>
+        <span class="text-ink/35">11 сентября 2026 · 6 минут чтения</span>
+      </span>
+      <h1 class="mt-4 font-display text-[28px] md:text-[38px] leading-tight tracking-tight">Как выбрать первую электрогитару: семь честных критериев</h1>
+      <p class="mt-5 text-[17px] leading-relaxed text-ink/70">
+        Разбираем, на что смотреть новичку и за что действительно стоит доплатить, а на чём можно
+        спокойно сэкономить. Без маркетинга — только то, что слышно и чувствуется в руках.
+      </p>
+
+      <figure class="mt-8">
+        <span class="block relative aspect-[16/9] rounded-2xl overflow-hidden bg-surface">
+          <img src="img/article-guitar-choice.jpg" alt="Гитары на стене магазина" class="absolute inset-0 w-full h-full object-cover" onerror="this.remove()">
+        </span>
+        <figcaption class="mt-2.5 text-[13px] text-ink/45">Перед покупкой стоит подержать в руках несколько инструментов одного ценового уровня.</figcaption>
+      </figure>
+
+      <div class="mt-8 space-y-5 text-[16px] leading-[1.75] text-ink/80" id="body"></div>
+
+      <div class="mt-10 rounded-2xl bg-surface p-7">
+        <h2 class="font-display text-[18px] tracking-tight">Коротко</h2>
+        <ul class="mt-4 space-y-2.5 text-[15px]" id="summary"></ul>
+      </div>
+
+      <div class="mt-10 flex flex-wrap items-center gap-3 py-6 border-y border-line">
+        <span class="text-[14px] text-ink/55">Поделиться:</span>
+        <div class="flex gap-2" id="share"></div>
+        <a href="news.html" class="ml-auto text-[14px] font-semibold text-accent hover:underline cursor-pointer">← Все материалы</a>
+      </div>
+    </div>
+
+    <aside class="lg:sticky lg:top-[96px] space-y-4">
+      <nav class="rounded-2xl border border-line p-6">
+        <h2 class="font-display text-[14px] uppercase tracking-[.12em]">Содержание</h2>
+        <ol class="mt-4 space-y-2.5 text-[14px]" id="toc"></ol>
+      </nav>
+      <div class="rounded-2xl bg-ink text-white p-6">
+        <h2 class="font-display text-[16px] tracking-tight">Поможем выбрать</h2>
+        <p class="mt-2.5 text-[14px] leading-relaxed text-white/65">Позвоните — подберём гитару под стиль, рост и бюджет, отстроим перед выдачей.</p>
+        <a href="catalog.html" class="mt-5 h-11 px-5 inline-flex items-center gap-2 rounded-lg bg-accent font-semibold text-[14px] hover:bg-accent2 transition-colors duration-200 cursor-pointer">В каталог гитар <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+      </div>
+    </aside>
+  </article>
+
+  <section class="mt-16">
+    <h2 class="font-display text-[22px] md:text-[26px] tracking-tight">Товары из материала</h2>
+    <div class="mt-6 grid grid-cols-2 lg:grid-cols-4 gap-4" id="products"></div>
+  </section>
+
+  <section class="mt-14">
+    <h2 class="font-display text-[22px] md:text-[26px] tracking-tight">Читайте также</h2>
+    <div class="mt-6 grid md:grid-cols-3 gap-6" id="more"></div>
+  </section>
+<p class="mt-6 text-[13px] text-ink/45 flex gap-2 items-start">
+  <i data-lucide="info" class="w-4 h-4 mt-0.5 shrink-0"></i> Текст статьи — демонстрационный, показывает типографику и структуру материала.</p>
+</main>
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="cart-store.js"></script>
+<script src="layout.js"></script>
+<script>
+Layout.render({
+  concept: 'Статья',
+  note: 'Типографика материала, оглавление, товары из статьи',
+  crumbs: [['Главная','concept-1-prilavok.html'],['Новости и статьи','news.html'],['Как выбрать первую электрогитару',null]],
+});
+
+const SECTIONS = [
+  ['Бюджет: сколько реально стоит начать', 'Рабочий комплект новичка — гитара, комбоусилитель, кабель, ремень и чехол. В Беларуси это примерно 900–1500 BYN, если брать инструмент, который не захочется поменять через полгода. Экономия на комбо часто обходится дороже: хорошая гитара через плохой усилитель звучит как плохая гитара.'],
+  ['Форма корпуса и вес', 'Stratocaster, Les Paul и Telecaster отличаются не только видом, но и балансом. Тяжёлый корпус к третьему часу репетиции чувствуется плечом, а «стратовый» вырез даёт доступ к верхним ладам. Подержите инструмент стоя с ремнём — сидя ощущения обманчивы.'],
+  ['Гриф: профиль и радиус накладки', 'Профиль «C» подходит большинству рук, «U» и «V» — на любителя. Радиус 9,5 дюйма — универсальный компромисс между аккордами и соло. Если пальцы упираются в края ладов или струны «затыкаются» при подтяжках — инструмент требует настройки или он просто не ваш.'],
+  ['Звукосниматели', 'Синглы дают прозрачный, звонкий звук — блюз, фанк, поп. Хамбакеры плотнее и громче, меньше фонят — рок и тяжёлые стили. Комбинированные схемы дают и то, и другое, но универсальность всегда немного компромисс.'],
+  ['Строй и качество сборки', 'Проверьте, держит ли гитара строй после подтяжек, нет ли дребезга на ладах, ровно ли стоят порожки. Это вопрос не цены, а предпродажной подготовки: мы отстраиваем каждый инструмент перед выдачей, и это меняет ощущение сильнее, чем разница в 200 рублей.'],
+  ['Электроника и фурнитура', 'Потенциометры не должны трещать, переключатель — работать чётко во всех положениях, колки — крутиться плавно. Дешёвые колки — первое, что меняют на бюджетных инструментах.'],
+  ['Что покупать потом', 'Тюнер, запасные струны и подставку — сразу. Педали и примочки — когда поймёте свой звук: покупка «на вырост» здесь чаще всего лежит в шкафу.'],
+];
+document.getElementById('body').innerHTML = SECTIONS.map(([h, p], k) => `
+  <h2 id="s${k}" class="font-display text-[21px] md:text-[23px] tracking-tight pt-4 scroll-mt-24">${k + 1}. ${h}</h2>
+  <p>${p}</p>`).join('');
+document.getElementById('toc').innerHTML = SECTIONS.map(([h], k) => `
+  <li><a href="#s${k}" class="flex gap-2.5 text-ink/65 hover:text-accent transition-colors duration-200 cursor-pointer">
+    <span class="text-ink/35">${k + 1}</span> ${h}</a></li>`).join('');
+document.getElementById('summary').innerHTML = [
+  'Закладывайте бюджет на комбо, а не только на гитару',
+  'Проверяйте инструмент стоя, с ремнём',
+  'Синглы — для чистого звука, хамбакеры — для перегруза',
+  'Отстройка перед выдачей важнее лишних 200 рублей в цене',
+].map(x => `<li class="flex gap-2.5"><i data-lucide="check" class="w-[18px] h-[18px] text-ok shrink-0 mt-0.5"></i> ${x}</li>`).join('');
+document.getElementById('share').innerHTML = ['telegram','facebook','x'].map(s => `
+  <a href="#" aria-label="${s}" class="w-10 h-10 grid place-items-center rounded-lg border border-line hover:border-ink transition-colors duration-200 cursor-pointer">
+    <img src="https://cdn.simpleicons.org/${s}/0E1526" alt="" class="w-4 h-4"></a>`).join('');
+
+const PRODUCTS = [
+  { n:'Электрогитара Fender Player II Stratocaster', b:'Fender', p:'3 190', g:'product-guitar-electric' },
+  { n:'Электрогитара Ibanez GRG170DX', b:'Ibanez', p:'1 090', g:'product-guitar-electric-2' },
+  { n:'Комбоусилитель Fender Champion 20', b:'Fender', p:'479', g:'product-guitar-amp' },
+  { n:'Комбоусилитель Boss Katana-50 MkII', b:'Boss', p:'1 050', g:'product-guitar-amp' },
+];
+document.getElementById('products').innerHTML = PRODUCTS.map(p => `
+  <article class="group rounded-xl border border-line overflow-hidden hover:shadow-card hover:border-ink/20 transition-all duration-200">
+    <a href="product.html" class="relative block aspect-[4/3] bg-surface overflow-hidden cursor-pointer">
+      <img src="img/${p.g}.jpg" alt="" loading="lazy" onerror="this.remove()" class="absolute inset-0 w-full h-full object-contain p-4 mix-blend-multiply group-hover:scale-105 transition-transform duration-300">
+    </a>
+    <div class="p-4">
+      <span class="text-[11px] uppercase tracking-[.12em] text-ink/40">${p.b}</span>
+      <h3 class="mt-1.5 text-[14px] font-semibold leading-snug line-clamp-2 min-h-[38px]">
+        <a href="product.html" class="hover:text-accent transition-colors duration-200 cursor-pointer">${p.n}</a></h3>
+      <span class="block mt-3 font-display text-[17px]">${p.p} <span class="text-[12px] font-sans text-ink/50">BYN</span></span>
+    </div>
+  </article>`).join('');
+
+document.getElementById('more').innerHTML = [
+  ['Звук для зала на 200 человек: схема и бюджет','article-hall-sound','28 августа'],
+  ['Микрофон для вокала: динамический или конденсаторный','product-mic-dynamic','7 августа'],
+  ['Домашняя студия за 3000 BYN: рабочий комплект','product-audio-interface','14 июля'],
+].map(([n,g,d]) => `
+  <a href="article.html" class="group cursor-pointer">
+    <span class="relative block aspect-[16/9] rounded-xl bg-surface overflow-hidden">
+      <img src="img/${g}.jpg" alt="" loading="lazy" onerror="this.remove()" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+    </span>
+    <span class="block mt-3.5 text-[11px] uppercase tracking-[.12em] text-ink/35">${d}</span>
+    <span class="block mt-1.5 font-semibold text-[15px] leading-snug group-hover:text-accent transition-colors duration-200">${n}</span>
+  </a>`).join('');
+
+lucide.createIcons();
+</script>
+</body>
+</html>

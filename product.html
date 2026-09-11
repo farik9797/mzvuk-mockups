@@ -56,11 +56,11 @@ tailwind.config = {
 <div class="border-b border-line bg-surface/70">
   <div class="max-w-[1320px] mx-auto px-4 h-10 flex items-center justify-between text-[13px] text-ink/70">
     <nav class="hidden md:flex items-center gap-5">
-      <a href="concept-1-prilavok.html#about" class="hover:text-accent transition-colors duration-200 cursor-pointer">О компании</a>
-      <a href="concept-1-prilavok.html#services" class="hover:text-accent transition-colors duration-200 cursor-pointer">Услуги</a>
-      <a href="concept-1-prilavok.html#delivery" class="hover:text-accent transition-colors duration-200 cursor-pointer">Оплата и доставка</a>
-      <a href="concept-1-prilavok.html#faq" class="hover:text-accent transition-colors duration-200 cursor-pointer">Вопрос-ответ</a>
-      <a href="concept-1-prilavok.html#news" class="hover:text-accent transition-colors duration-200 cursor-pointer">Новости</a>
+      <a href="about.html" class="hover:text-accent transition-colors duration-200 cursor-pointer">О компании</a>
+      <a href="services.html" class="hover:text-accent transition-colors duration-200 cursor-pointer">Услуги</a>
+      <a href="delivery.html" class="hover:text-accent transition-colors duration-200 cursor-pointer">Оплата и доставка</a>
+      <a href="faq.html" class="hover:text-accent transition-colors duration-200 cursor-pointer">Вопрос-ответ</a>
+      <a href="news.html" class="hover:text-accent transition-colors duration-200 cursor-pointer">Новости</a>
     </nav>
     <div class="flex items-center gap-4 ml-auto">
       <span class="hidden sm:flex items-center gap-1.5"><i data-lucide="clock" class="w-4 h-4"></i> Пн–Сб 10:00–19:00</span>
@@ -458,6 +458,12 @@ const mini = p => `
 document.getElementById('cross').innerHTML = CROSS.map(mini).join('');
 document.getElementById('similar').innerHTML = SIMILAR.map(mini).join('');
 
+const LINKS = {
+  'Оплата и доставка':'delivery.html', 'Гарантия и возврат':'delivery.html#warranty', 'Рассрочка':'delivery.html#payment',
+  'Корзина':'cart.html', 'Вопрос-ответ':'faq.html', 'Отзывы':'concept-1-prilavok.html#reviews',
+  'О компании':'about.html', 'Услуги':'services.html', 'Новости':'news.html', 'Статьи':'news.html',
+  'Сертификаты, документы':'certificates.html', 'Партнёры':'about.html#partners', 'Контакты':'contacts.html',
+};
 const FOOT = [
   { t: 'Каталог',     l: ['Гитары и басы','Клавишные','Ударные','Микрофоны','Звук для сцены','Свет и эффекты'] },
   { t: 'Покупателям', l: ['Оплата и доставка','Гарантия и возврат','Рассрочка','Корзина','Вопрос-ответ','Отзывы'] },
@@ -467,7 +473,7 @@ FOOT.forEach((col, k) => {
   document.getElementById('foot-' + (k + 1)).innerHTML = `
     <h3 class="font-display text-white text-[13px] uppercase tracking-[.14em]">${col.t}</h3>
     <ul class="mt-4 space-y-2.5 text-[14px]">
-      ${col.l.map(l => `<li><a href="catalog.html" class="hover:text-accent transition-colors duration-200 cursor-pointer">${l}</a></li>`).join('')}
+      ${col.l.map(l => `<li><a href="${LINKS[l] || 'catalog.html'}" class="hover:text-accent transition-colors duration-200 cursor-pointer">${l}</a></li>`).join('')}
     </ul>`;
 });
 

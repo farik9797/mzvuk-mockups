@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Оплата и доставка — М-ЗВУК</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="theme.js"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { -webkit-font-smoothing: antialiased; }
+  [data-lucide] { stroke-width: 1.6; }
+  :focus-visible { outline: 2px solid #E22B2B; outline-offset: 2px; border-radius: 4px; }
+  input[type="checkbox"], input[type="radio"] { accent-color: #E22B2B; }
+  details[open] .chev { transform: rotate(180deg); }
+  @media (prefers-reduced-motion: reduce) { * { animation:none !important; transition:none !important; scroll-behavior:auto !important } }
+</style>
+</head>
+<body class="bg-white text-ink font-sans antialiased">
+
+
+<main class="max-w-[1320px] mx-auto px-4">
+  <section class="max-w-[760px]">
+    <h1 class="font-display text-[30px] md:text-[40px] leading-tight tracking-tight">Оплата и доставка</h1>
+    <p class="mt-5 text-[16px] leading-relaxed text-ink/70">
+      Отгружаем со склада в Гродно по всей Беларуси. Самовывоз — в день заказа, доставка — за 1–2 рабочих дня.
+      Для организаций работаем по безналу с полным пакетом документов.
+    </p>
+  </section>
+
+  <section class="mt-10">
+    <h2 class="font-display text-[24px] tracking-tight">Способы доставки</h2>
+    <div class="mt-6 rounded-2xl border border-line overflow-hidden divide-y divide-line" id="ship"></div>
+    <p class="mt-4 text-[13px] text-ink/45">Крупногабаритное оборудование — акустику, стойки, комплекты для сцены — считаем отдельно: стоимость зависит от габаритов, этажа и наличия лифта.</p>
+  </section>
+
+  <section id="payment" class="mt-16 scroll-mt-24">
+    <h2 class="font-display text-[24px] tracking-tight">Способы оплаты</h2>
+    <div class="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-4" id="pay"></div>
+  </section>
+
+  <section class="mt-16 rounded-2xl bg-ink text-white p-8 md:p-10">
+    <div class="grid lg:grid-cols-[1fr_1fr] gap-10">
+      <div>
+        <span class="text-[11px] font-bold uppercase tracking-[.18em] text-accent">Для организаций</span>
+        <h2 class="mt-3 font-display text-[24px] md:text-[28px] leading-tight tracking-tight">Безналичный расчёт<br>и работа по тендеру</h2>
+        <p class="mt-4 text-[15px] leading-relaxed text-white/65 max-w-[440px]">
+          Выставляем счёт в день обращения, готовим полный пакет документов и участвуем в закупках.
+          Для постоянных партнёров возможна отсрочка платежа по договору.
+        </p>
+      </div>
+      <ul class="space-y-3" id="b2b"></ul>
+    </div>
+  </section>
+
+  <section id="warranty" class="mt-16 scroll-mt-24 grid lg:grid-cols-2 gap-6">
+    <div class="rounded-2xl border border-line p-8">
+      <h2 class="font-display text-[20px] tracking-tight">Гарантия</h2>
+      <ul class="mt-5 space-y-3 text-[14.5px] leading-relaxed text-ink/70" id="warr"></ul>
+    </div>
+    <div class="rounded-2xl border border-line p-8">
+      <h2 class="font-display text-[20px] tracking-tight">Возврат и обмен</h2>
+      <ul class="mt-5 space-y-3 text-[14.5px] leading-relaxed text-ink/70" id="ret"></ul>
+    </div>
+  </section>
+
+  <section class="mt-16">
+    <h2 class="font-display text-[24px] tracking-tight">Частые вопросы</h2>
+    <div class="mt-6 divide-y divide-line border-t border-b border-line max-w-[900px]" id="faq"></div>
+  </section>
+<p class="mt-6 text-[13px] text-ink/45 flex gap-2 items-start">
+  <i data-lucide="info" class="w-4 h-4 mt-0.5 shrink-0"></i> Сроки, тарифы и условия возврата — заглушка по типовой практике. Финальный текст согласовывается с заказчиком и юристом.</p>
+</main>
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="cart-store.js"></script>
+<script src="layout.js"></script>
+<script>
+Layout.render({
+  concept: 'Оплата и доставка',
+  note: 'Способы доставки, оплата, безнал, гарантия и возврат',
+  crumbs: [['Главная','concept-1-prilavok.html'],['Оплата и доставка',null]],
+});
+
+document.getElementById('ship').innerHTML = [
+  ['store','Самовывоз из магазина','г. Гродно, ул. 17 Сентября, 49-11 · Пн–Сб 10:00–19:00','бесплатно','в день заказа'],
+  ['truck','Курьером по Гродно','интервал доставки согласуем по телефону','10 BYN','на следующий день'],
+  ['package','Почта и транспортные компании','Белпочта, Европочта, СДЭК — по всей Беларуси','от 12 BYN','1–2 рабочих дня'],
+  ['forklift','Доставка с подъёмом и монтажом','для сцены, залов и студий — вместе с установкой','по расчёту','по договорённости'],
+].map(([i,n,d,p,t]) => `
+  <div class="p-6 grid sm:grid-cols-[52px_1fr_auto] gap-4 items-start">
+    <span class="w-12 h-12 rounded-xl bg-surface grid place-items-center"><i data-lucide="${i}" class="w-5 h-5 text-accent"></i></span>
+    <div>
+      <h3 class="font-semibold text-[16px]">${n}</h3>
+      <p class="mt-1 text-[14px] text-ink/60">${d}</p>
+      <p class="mt-1.5 text-[13px] text-ink/45">Срок: ${t}</p>
+    </div>
+    <span class="font-display text-[17px] shrink-0">${p}</span>
+  </div>`).join('');
+
+document.getElementById('pay').innerHTML = [
+  ['credit-card','Картой онлайн','Visa, Mastercard, БЕЛКАРТ. Оплата на сайте при оформлении заказа.'],
+  ['smartphone','Через ЕРИП','Оплата по коду услуги в любом банке, банкомате или интернет-банкинге.'],
+  ['banknote','При получении','Наличными или картой — курьеру и в магазине.'],
+  ['percent','Рассрочка 0%','«Халва» и «Карта покупок» — до 12 месяцев без переплаты.'],
+  ['file-text','Безналичный расчёт','Для организаций: счёт-фактура, ЭСЧФ, накладная ТТН-1.'],
+  ['handshake','По договору','Отсрочка платежа для постоянных партнёров и бюджетных организаций.'],
+].map(([i,n,d]) => `
+  <article class="rounded-xl border border-line p-6 hover:border-ink transition-colors duration-200">
+    <span class="w-11 h-11 rounded-lg bg-surface grid place-items-center"><i data-lucide="${i}" class="w-[22px] h-[22px] text-accent"></i></span>
+    <h3 class="mt-4 font-semibold text-[15px]">${n}</h3>
+    <p class="mt-2 text-[14px] leading-relaxed text-ink/60">${d}</p>
+  </article>`).join('');
+
+document.getElementById('b2b').innerHTML = [
+  'Счёт выставляем в день обращения',
+  'Счёт-фактура, ЭСЧФ, накладная ТТН-1 и акт',
+  'Участие в тендерах и электронных закупках',
+  'Отсрочка платежа по договору',
+  'Персональный менеджер и коммерческое предложение под задачу',
+].map(x => `<li class="flex gap-3 text-[15px] text-white/80"><i data-lucide="check" class="w-[18px] h-[18px] text-accent shrink-0 mt-0.5"></i> ${x}</li>`).join('');
+
+document.getElementById('warr').innerHTML = [
+  'Гарантия производителя — от 12 до 36 месяцев в зависимости от бренда.',
+  'Гарантийное обслуживание — в нашем сервисном центре в Гродно.',
+  'На время ремонта выдаём подменный инструмент.',
+  'Гарантийный талон и чек сохраняйте — они нужны для обращения.',
+].map(x => `<li class="flex gap-3"><i data-lucide="shield-check" class="w-[18px] h-[18px] text-accent shrink-0 mt-0.5"></i> ${x}</li>`).join('');
+
+document.getElementById('ret').innerHTML = [
+  'Товар надлежащего качества можно вернуть в течение 14 дней, если сохранены вид, комплектность и упаковка.',
+  'Товар с недостатками принимаем на диагностику и меняем или ремонтируем по закону о защите прав потребителей.',
+  'Деньги возвращаем тем же способом, которым была оплата, в течение 7 дней.',
+  'Струны, трости, наушники-вкладыши и другие товары личной гигиены обмену не подлежат.',
+].map(x => `<li class="flex gap-3"><i data-lucide="rotate-ccw" class="w-[18px] h-[18px] text-accent shrink-0 mt-0.5"></i> ${x}</li>`).join('');
+
+document.getElementById('faq').innerHTML = [
+  ['Когда придёт заказ, если оформить вечером?','Заказы после 17:00 собираем на следующий рабочий день. Самовывоз обычно доступен уже утром, доставка по РБ — через 1–2 дня.'],
+  ['Доставка бесплатная?','Самовывоз всегда бесплатно. Доставка по Беларуси — бесплатно при заказе от 300 BYN, иначе по тарифу перевозчика.'],
+  ['Можно проверить товар при получении?','Да. В магазине проверяем вместе, при доставке курьером — осматриваете до оплаты.'],
+  ['Отгружаете в другие города без предоплаты?','Для физлиц — наложенным платежом или по предоплате, для организаций — по счёту.'],
+].map(([q,a]) => `
+  <details class="group py-5">
+    <summary class="flex items-start justify-between gap-4 cursor-pointer list-none font-semibold text-[15px] hover:text-accent transition-colors duration-200">
+      ${q} <i data-lucide="chevron-down" class="chev w-5 h-5 shrink-0 text-ink/40 transition-transform duration-200"></i>
+    </summary>
+    <p class="mt-3 text-[14px] leading-relaxed text-ink/65 max-w-[760px]">${a}</p>
+  </details>`).join('');
+
+lucide.createIcons();
+</script>
+</body>
+</html>

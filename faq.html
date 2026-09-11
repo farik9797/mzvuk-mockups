@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Вопрос-ответ — М-ЗВУК</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="theme.js"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { -webkit-font-smoothing: antialiased; }
+  [data-lucide] { stroke-width: 1.6; }
+  :focus-visible { outline: 2px solid #E22B2B; outline-offset: 2px; border-radius: 4px; }
+  input[type="checkbox"], input[type="radio"] { accent-color: #E22B2B; }
+  details[open] .chev { transform: rotate(180deg); }
+  @media (prefers-reduced-motion: reduce) { * { animation:none !important; transition:none !important; scroll-behavior:auto !important } }
+</style>
+</head>
+<body class="bg-white text-ink font-sans antialiased">
+
+
+<main class="max-w-[1320px] mx-auto px-4">
+  <section class="max-w-[760px]">
+    <h1 class="font-display text-[30px] md:text-[40px] leading-tight tracking-tight">Вопрос-ответ</h1>
+    <p class="mt-5 text-[16px] leading-relaxed text-ink/70">
+      Собрали то, о чём чаще всего спрашивают покупатели. Не нашли ответ — позвоните
+      или напишите, менеджер ответит в течение 15 минут в рабочее время.
+    </p>
+    <label class="mt-7 relative flex items-center h-12 rounded-lg border border-line bg-surface focus-within:border-ink focus-within:bg-white transition-colors duration-200 max-w-[520px]">
+      <i data-lucide="search" class="w-[18px] h-[18px] absolute left-4 text-ink/40"></i>
+      <input id="q" type="search" placeholder="Поиск по вопросам: рассрочка, гарантия, безнал…" class="w-full h-full bg-transparent pl-12 pr-4 text-[14px] outline-none placeholder:text-ink/40">
+    </label>
+  </section>
+
+  <div class="mt-8 flex flex-wrap gap-2" id="cats"></div>
+  <div class="mt-8 grid lg:grid-cols-[1fr_340px] gap-10 items-start">
+    <div id="list" class="space-y-8"></div>
+    <aside class="rounded-2xl border border-line p-7 lg:sticky lg:top-[96px]">
+      <h2 class="font-display text-[18px] tracking-tight">Не нашли ответ?</h2>
+      <p class="mt-2.5 text-[14px] leading-relaxed text-ink/60">Напишите вопрос — ответим и добавим его сюда, если он окажется частым.</p>
+      <form class="mt-5 grid gap-3" onsubmit="return false">
+        <input placeholder="Ваше имя" class="h-11 px-4 rounded-lg border border-line bg-surface text-[14px] outline-none focus:border-ink focus:bg-white transition-colors duration-200">
+        <input type="tel" placeholder="Телефон или e-mail" class="h-11 px-4 rounded-lg border border-line bg-surface text-[14px] outline-none focus:border-ink focus:bg-white transition-colors duration-200">
+        <textarea rows="3" placeholder="Ваш вопрос" class="p-4 rounded-lg border border-line bg-surface text-[14px] outline-none focus:border-ink focus:bg-white transition-colors duration-200 resize-y"></textarea>
+        <button class="h-11 rounded-lg bg-accent text-white font-semibold text-[14px] hover:bg-accent2 transition-colors duration-200 cursor-pointer">Отправить вопрос</button>
+      </form>
+      <div class="mt-6 pt-5 border-t border-line text-[14px] space-y-2">
+        <a href="tel:+375333772873" class="flex items-center gap-2.5 hover:text-accent transition-colors duration-200 cursor-pointer"><i data-lucide="phone" class="w-4 h-4 text-accent"></i> +375 (33) 377-28-73</a>
+        <a href="mailto:sales@mzvuk.by" class="flex items-center gap-2.5 hover:text-accent transition-colors duration-200 cursor-pointer"><i data-lucide="mail" class="w-4 h-4 text-accent"></i> sales@mzvuk.by</a>
+      </div>
+    </aside>
+  </div>
+  <p id="empty" class="hidden mt-10 text-[15px] text-ink/55">По запросу ничего не нашлось. Попробуйте другое слово или задайте вопрос через форму.</p>
+</main>
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="cart-store.js"></script>
+<script src="layout.js"></script>
+<script>
+Layout.render({
+  concept: 'Вопрос-ответ',
+  note: 'Поиск по вопросам и разделы: доставка, оплата, гарантия, безнал',
+  crumbs: [['Главная','concept-1-prilavok.html'],['Вопрос-ответ',null]],
+});
+
+const QA = [
+  ['Заказ и доставка', 'package', [
+    ['Как быстро доставите заказ по Беларуси?','Товар со склада в Гродно — 1–2 рабочих дня курьером, почтой или транспортной компанией. Позиции под заказ — от 7 дней, точный срок менеджер подтверждает при оформлении.'],
+    ['Можно забрать самому?','Да, самовывоз из магазина в Гродно на ул. 17 Сентября, 49-11. Обычно заказ готов в день оформления, о готовности сообщим по телефону.'],
+    ['Доставка платная?','Самовывоз бесплатный. По Беларуси — бесплатно при заказе от 300 BYN, иначе по тарифу перевозчика. Курьер по Гродно — 10 BYN.'],
+    ['Можно ли выбрать дату доставки?','Да, при оформлении заказа укажите желаемую дату — менеджер согласует интервал.'],
+  ]],
+  ['Оплата и рассрочка', 'credit-card', [
+    ['Какие способы оплаты доступны?','Карта онлайн, ЕРИП, наличные и карта при получении, рассрочка, а для организаций — безналичный расчёт.'],
+    ['Как оформить рассрочку?','Выберите «Рассрочка 0%» при оформлении. Доступны «Халва» и «Карта покупок» — до 12 месяцев без переплаты, оформление занимает несколько минут.'],
+    ['Можно ли оплатить частями: часть картой, часть наличными?','Да, такие случаи решаем индивидуально — предупредите менеджера при подтверждении заказа.'],
+  ]],
+  ['Гарантия и сервис', 'shield-check', [
+    ['Какая гарантия на товар?','От 12 до 36 месяцев в зависимости от бренда. Гарантийный талон выдаём вместе с чеком.'],
+    ['Что делать, если инструмент сломался?','Привезите его в магазин или отправьте нам — проведём бесплатную диагностику. На время ремонта выдаём подменный инструмент.'],
+    ['Вы настраиваете инструмент перед продажей?','Да. Гитары отстраиваем по грифу и высоте струн, оборудование проверяем на включение и работу всех функций.'],
+    ['Ремонтируете технику, купленную в другом месте?','Да, берём в работу любое оборудование — по прайсу сервиса.'],
+  ]],
+  ['Для организаций', 'file-text', [
+    ['Работаете по безналичному расчёту?','Да. Выставляем счёт, готовим счёт-фактуру, ЭСЧФ, накладную ТТН-1 и акт.'],
+    ['Участвуете в тендерах?','Участвуем в закупках и электронных аукционах, готовим комплект документов и коммерческое предложение под спецификацию.'],
+    ['Можно получить отсрочку платежа?','Для постоянных партнёров и бюджетных организаций — да, по договору.'],
+  ]],
+  ['Товары и подбор', 'guitar', [
+    ['Поможете выбрать инструмент новичку?','Да, это наша обычная работа: спросим про возраст, стиль и бюджет и предложим 2–3 варианта с честным сравнением.'],
+    ['Можно ли поиграть на инструменте до покупки?','Да, в магазине. Позвоните заранее — подготовим нужные модели к сравнению.'],
+    ['Как подобрать звук для зала?','Скажите площадь и назначение зала — рассчитаем мощность и предложим комплект. При необходимости приедем на объект.'],
+  ]],
+];
+let q = '';
+
+function renderFaq() {
+  const norm = s => s.toLowerCase();
+  let shown = 0;
+  document.getElementById('list').innerHTML = QA.map(([cat, icon, items]) => {
+    const found = items.filter(([a, b]) => !q || norm(a + ' ' + b).includes(q));
+    if (!found.length) return '';
+    shown += found.length;
+    return `
+    <section id="cat-${QA.findIndex(x => x[0] === cat)}" class="scroll-mt-24">
+      <h2 class="flex items-center gap-3 font-display text-[20px] tracking-tight">
+        <span class="w-9 h-9 rounded-lg bg-surface grid place-items-center"><i data-lucide="${icon}" class="w-[18px] h-[18px] text-accent"></i></span>
+        ${cat}
+      </h2>
+      <div class="mt-4 divide-y divide-line border-t border-b border-line">
+        ${found.map(([a, b]) => `
+          <details class="group py-5" ${q ? 'open' : ''}>
+            <summary class="flex items-start justify-between gap-4 cursor-pointer list-none font-semibold text-[15px] hover:text-accent transition-colors duration-200">
+              ${a} <i data-lucide="chevron-down" class="chev w-5 h-5 shrink-0 text-ink/40 transition-transform duration-200"></i>
+            </summary>
+            <p class="mt-3 text-[14.5px] leading-relaxed text-ink/65 max-w-[760px]">${b}</p>
+          </details>`).join('')}
+      </div>
+    </section>`;
+  }).join('');
+
+  document.getElementById('cats').innerHTML = QA.map(([cat, icon, items], k) => `
+    <a href="#cat-${k}" class="rounded-full border border-line px-4 py-2 text-[13px] font-medium hover:border-ink transition-colors duration-200 cursor-pointer">${cat} <span class="text-ink/40">${items.length}</span></a>`).join('');
+
+  document.getElementById('empty').classList.toggle('hidden', shown > 0);
+  lucide.createIcons();
+}
+document.getElementById('q').addEventListener('input', e => { q = e.target.value.trim().toLowerCase(); renderFaq(); });
+renderFaq();
+
+lucide.createIcons();
+</script>
+</body>
+</html>

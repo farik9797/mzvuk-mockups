@@ -60,6 +60,12 @@ tailwind.config = { theme: { extend: {
     <div class="mt-7 grid sm:grid-cols-2 lg:grid-cols-5 gap-4" id="flow"></div>
   </section>
 
+  <section class="mt-14">
+    <h2 class="font-display text-[24px] tracking-tight">Остальные разделы сайта</h2>
+    <p class="mt-2 text-[15px] text-muted max-w-[680px]">Второстепенные страницы из пункта 3 брифа — собраны на той же концепции.</p>
+    <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-4" id="pages"></div>
+  </section>
+
   <section class="mt-20">
     <h2 class="font-display text-[24px] tracking-tight">Что уже заложено во всех макетах</h2>
     <p class="mt-2 text-[15px] text-muted max-w-[680px]">Пункты брифа, разделы 3 и 4 — «Контент сайта» и «Функционал сайта».</p>
@@ -168,6 +174,16 @@ const FLOW = [
   { f: 'cart.html',               i: 'shopping-cart',       n: 'Корзина',         d: 'Пересчёт, промокод, отложенные позиции, итоги' },
   { f: 'checkout.html',           i: 'clipboard-check',     n: 'Оформление',      d: 'Частное лицо и организация, доставка, оплата, безнал' },
 ];
+const PAGES = [
+  ['about.html',        'building-2',   'О компании',            'история, сегменты, партнёры, реквизиты'],
+  ['services.html',     'wrench',       'Услуги',                'сервис, прокат, монтаж, trade-in, заявка'],
+  ['delivery.html',     'truck',        'Оплата и доставка',     'способы, сроки, безнал, гарантия и возврат'],
+  ['certificates.html', 'file-badge',   'Сертификаты',           'документы с фильтром по типу'],
+  ['faq.html',          'circle-help',  'Вопрос-ответ',          'поиск по вопросам, 5 разделов'],
+  ['contacts.html',     'map-pin',      'Контакты',              'адрес, отделы, карта, режим работы'],
+  ['news.html',         'newspaper',    'Новости и статьи',      'лента с разделением на новости и статьи'],
+  ['article.html',      'book-open',    'Страница статьи',       'типографика, оглавление, товары из текста'],
+];
 document.getElementById('flow').innerHTML = FLOW.map((x, k) => `
   <a href="${x.f}" class="lift group rounded-xl border border-line p-5 cursor-pointer hover:border-ink">
     <span class="flex items-center justify-between">
@@ -181,6 +197,15 @@ document.getElementById('flow').innerHTML = FLOW.map((x, k) => `
     <span class="mt-4 inline-flex items-center gap-1.5 text-[13px] font-semibold group-hover:text-[#E22B2B] transition-colors duration-200">
       открыть <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200"></i>
     </span>
+  </a>`).join('');
+
+document.getElementById('pages').innerHTML = PAGES.map(([f,i,n,d]) => `
+  <a href="${f}" class="lift group rounded-xl border border-line p-5 cursor-pointer hover:border-ink">
+    <span class="w-10 h-10 rounded-lg bg-surface grid place-items-center group-hover:bg-[#E22B2B] group-hover:text-white transition-colors duration-200">
+      <i data-lucide="${i}" class="w-5 h-5"></i>
+    </span>
+    <span class="block mt-4 font-semibold text-[15px]">${n}</span>
+    <span class="block mt-1.5 text-[13px] leading-relaxed text-muted">${d}</span>
   </a>`).join('');
 
 document.getElementById('brief').innerHTML = BRIEF.map(([i,t]) => `

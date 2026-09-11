@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Сертификаты и документы — М-ЗВУК</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="theme.js"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { -webkit-font-smoothing: antialiased; }
+  [data-lucide] { stroke-width: 1.6; }
+  :focus-visible { outline: 2px solid #E22B2B; outline-offset: 2px; border-radius: 4px; }
+  input[type="checkbox"], input[type="radio"] { accent-color: #E22B2B; }
+  details[open] .chev { transform: rotate(180deg); }
+  @media (prefers-reduced-motion: reduce) { * { animation:none !important; transition:none !important; scroll-behavior:auto !important } }
+</style>
+</head>
+<body class="bg-white text-ink font-sans antialiased">
+
+
+<main class="max-w-[1320px] mx-auto px-4">
+  <section class="max-w-[760px]">
+    <h1 class="font-display text-[30px] md:text-[40px] leading-tight tracking-tight">Сертификаты и документы</h1>
+    <p class="mt-5 text-[16px] leading-relaxed text-ink/70">
+      Учредительные документы компании, сертификаты соответствия на оборудование и дилерские письма
+      производителей. Нужен документ, которого нет в списке, — напишите, подготовим.
+    </p>
+  </section>
+
+  <div class="mt-8 flex flex-wrap gap-2" id="filters"></div>
+  <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-4" id="docs"></div>
+
+  <section class="mt-14 rounded-2xl bg-surface p-8 grid lg:grid-cols-[1fr_auto] gap-6 items-center">
+    <div>
+      <h2 class="font-display text-[20px] tracking-tight">Нужен документ для тендера или бухгалтерии?</h2>
+      <p class="mt-2.5 text-[14.5px] leading-relaxed text-ink/65 max-w-[620px]">
+        Подготовим комплект под конкретную закупку: карточку предприятия, сертификаты на позиции из спецификации,
+        гарантийные письма и коммерческое предложение.
+      </p>
+    </div>
+    <a href="contacts.html" class="h-12 px-7 inline-flex items-center gap-2 rounded-lg bg-accent text-white font-semibold text-[15px] hover:bg-accent2 transition-colors duration-200 cursor-pointer shrink-0">Запросить документы <i data-lucide="arrow-right" class="w-[18px] h-[18px]"></i></a>
+  </section>
+<p class="mt-6 text-[13px] text-ink/45 flex gap-2 items-start">
+  <i data-lucide="info" class="w-4 h-4 mt-0.5 shrink-0"></i> Файлы PDF и сканы предоставляет заказчик — сейчас в карточках стоят типовые названия и размеры для оценки вёрстки.</p>
+</main>
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="cart-store.js"></script>
+<script src="layout.js"></script>
+<script>
+Layout.render({
+  concept: 'Сертификаты',
+  note: 'Учредительные документы, сертификаты и дилерские письма',
+  crumbs: [['Главная','concept-1-prilavok.html'],['Сертификаты и документы',null]],
+});
+
+const DOCS = [
+  { c:'company', n:'Свидетельство о государственной регистрации', t:'PDF', s:'320 КБ', d:'ООО «Арт-Медиа Трейд», УНП 590830372' },
+  { c:'company', n:'Карточка предприятия', t:'PDF', s:'180 КБ', d:'реквизиты для договоров и счетов' },
+  { c:'company', n:'Устав (выписка)', t:'PDF', s:'1,1 МБ', d:'страницы для тендерной документации' },
+  { c:'cert', n:'Сертификат соответствия — акустические системы', t:'PDF', s:'640 КБ', d:'действителен до 2028 года' },
+  { c:'cert', n:'Сертификат соответствия — микрофоны и радиосистемы', t:'PDF', s:'520 КБ', d:'ТР ТС 020/2011' },
+  { c:'cert', n:'Декларация о соответствии — усилители мощности', t:'PDF', s:'410 КБ', d:'ТР ТС 004/2011' },
+  { c:'dealer', n:'Дилерское письмо Yamaha', t:'PDF', s:'280 КБ', d:'официальный статус поставщика' },
+  { c:'dealer', n:'Дилерское письмо Shure', t:'PDF', s:'260 КБ', d:'официальный статус поставщика' },
+  { c:'dealer', n:'Дилерское письмо JBL Professional', t:'PDF', s:'300 КБ', d:'официальный статус поставщика' },
+];
+const CATS = [['all','Все документы'],['company','О компании'],['cert','Сертификаты'],['dealer','Дилерские письма']];
+let cur = 'all';
+
+function renderDocs() {
+  document.getElementById('filters').innerHTML = CATS.map(([id,n]) => `
+    <button data-c="${id}" class="f-btn rounded-full border px-4 py-2 text-[13px] font-medium transition-colors duration-200 cursor-pointer ${id===cur?'border-ink bg-ink text-white':'border-line hover:border-ink'}">${n} <span class="opacity-50">${id==='all'?DOCS.length:DOCS.filter(d=>d.c===id).length}</span></button>`).join('');
+  document.getElementById('docs').innerHTML = DOCS.filter(d => cur==='all' || d.c===cur).map(d => `
+    <a href="#" class="group rounded-xl border border-line p-6 hover:border-ink hover:shadow-card transition-all duration-200 cursor-pointer flex flex-col">
+      <span class="flex items-start justify-between gap-3">
+        <span class="w-11 h-11 rounded-lg bg-surface grid place-items-center group-hover:bg-accent group-hover:text-white transition-colors duration-200">
+          <i data-lucide="file-text" class="w-[22px] h-[22px]"></i>
+        </span>
+        <span class="text-[11px] font-bold text-ink/35 uppercase tracking-wider">${d.t} · ${d.s}</span>
+      </span>
+      <span class="block mt-4 font-semibold text-[15px] leading-snug flex-1">${d.n}</span>
+      <span class="block mt-2 text-[13px] text-ink/55">${d.d}</span>
+      <span class="mt-4 inline-flex items-center gap-1.5 text-[13px] font-semibold group-hover:text-accent transition-colors duration-200">
+        Скачать <i data-lucide="download" class="w-4 h-4"></i>
+      </span>
+    </a>`).join('');
+  lucide.createIcons();
+}
+document.addEventListener('click', e => {
+  const b = e.target.closest('.f-btn');
+  if (b) { cur = b.dataset.c; renderDocs(); }
+});
+renderDocs();
+
+lucide.createIcons();
+</script>
+</body>
+</html>
